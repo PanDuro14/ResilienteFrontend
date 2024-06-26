@@ -1,0 +1,130 @@
+.color-bars {
+  display: flex;
+  height: 50px;
+  width: 100%;
+}
+
+.bar {
+  height: 100%;
+}
+
+.bar1 { 
+  background-color: #B09BE6;
+  width: 25%;
+}
+
+.bar2 { 
+  background-color: #0965BA;
+  width: 25%;
+}
+
+.bar3 { 
+  background-color: #9BDDB9;
+}
+
+.bar4 { 
+  background-color: #62B0B0;
+  width: 25%;
+}
+
+.bar5 { 
+  background-color: #888A89;
+  width: 25%;
+}
+
+
+.navbar {
+  position: fixed;
+  z-index: 1;
+  top: 26px;
+  left: 0;
+  display: flex;
+  align-items: center;
+  justify-content:space-between;
+  width: 100%;
+  height: auto;
+  padding: 0 20px;
+  background: #f9f9f9;
+  color: black;
+}
+
+.navbar-logo {
+  display: flex;
+  align-items: center;
+  width: 300px;
+  height: 200px;
+  margin-top: 10px;
+  margin-left: 50px;
+  margin-right: 0;
+}
+
+.navbar-menu {
+  // FALTA PONER LA TIPOGRAFÍA CORRECTA
+  position: relative;
+  background: #f9f9f9;
+  font-weight: 400;
+  font-size: 0;
+  display: flex;
+  padding: 0;
+  width: 65%;
+  gap: 20px;
+  left: 60px;
+  margin-left: 150px;
+  margin-top: -70px;
+}
+
+.navbar-social {
+  position: absolute;
+  top: 140px;
+  right: 125px;
+  display: flex;
+  gap: 50px;
+}
+
+ion-icon {
+  height: 30px;
+  width: 30px;
+  color: var(--ion-color-primary);
+}
+
+.item {
+  font-size: 20px;
+  display: inline-block;
+  position: relative;
+  padding: 5px 20px;
+  cursor: pointer;
+  z-index: 4;
+  width: auto;
+  min-width: 20%;
+  height: 60px;
+  line-height: 60px;
+  text-align: center;
+  text-decoration: none;
+}
+
+.underline {
+  height: 0.5px;
+  background: #0965BA;
+  position: absolute;
+  bottom: 0;
+  width: 75%;
+  z-index: 1;
+  pointer-events: none;
+  margin-left: 70px;
+}
+
+/* nav .item:nth-child(1):hover ~ .underline {
+  transform: translate(0, 0);
+}
+
+nav .item:nth-child(2):hover ~ .underline {
+  transform: translate(100%, 0);
+}
+
+nav .item:nth-child(3):hover ~ .underline {
+  transform: translate(200%, 0);
+}
+
+nav .item:nth-child(4):hover ~ .underline {
+  transform: translate(300%, 0);
+} */

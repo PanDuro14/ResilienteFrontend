@@ -1,0 +1,7 @@
+{
+  "name": "Resiliente",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}

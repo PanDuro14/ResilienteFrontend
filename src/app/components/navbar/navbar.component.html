@@ -1,0 +1,66 @@
+<!-- DESKTOP -->
+<div class="navbar">
+  <div class="logo">
+    <img src="assets/img/resiliente-logo.png" alt="Resiliente" class="logo-image" />
+  </div>
+  <div class="right-section">
+    <div class="nav-links">
+      <ion-button fill="clear" routerLink="/home" lines="none" class="nav-link">HOME</ion-button>
+      <ion-button fill="clear" routerLink="/nosotros" lines="none" class="nav-link">¿QUIÉNES SOMOS?</ion-button>
+      <ion-button fill="clear" routerLink="/servicios" lines="none" class="nav-link">SERVICIOS</ion-button>
+      <ion-button fill="clear" routerLink="/contacto" lines="none" class="nav-link">CONTACTO</ion-button>
+    </div>
+    <div class="divider"></div>
+    <div class="social-icons">
+      <ion-item href="https://www.instagram.com" lines="none">
+        <ion-icon name="logo-instagram" class="icon-menu"></ion-icon>
+      </ion-item>
+      <ion-item href="https://www.youtube.com" lines="none">
+        <ion-icon name="logo-youtube" class="icon-menu"></ion-icon>
+      </ion-item>
+      <ion-item href="https://www.pinterest.com" lines="none">
+        <ion-icon name="logo-pinterest" class="icon-menu"></ion-icon>
+      </ion-item>
+      <ion-item href="https://www.tiktok.com" lines="none">
+        <ion-icon name="logo-tiktok" class="icon-menu"></ion-icon>
+      </ion-item>
+    </div>
+  </div>
+</div>
+
+<!-- MÓVIL -->
+<nav class="mobile-nav">
+  <ion-fab vertical="bottom" horizontal="center" translucent="true">
+    <ion-fab-button>
+      <ion-icon name="share-social"></ion-icon>
+    </ion-fab-button>
+    <ion-fab-list side="top">
+      <ion-fab-button href="https://www.instagram.com">
+        <ion-icon name="logo-instagram"></ion-icon>
+      </ion-fab-button>
+      <ion-fab-button href="https://www.youtube.com">
+        <ion-icon name="logo-youtube"></ion-icon>
+      </ion-fab-button>
+      <ion-fab-button href="https://www.pinterest.com">
+        <ion-icon name="logo-pinterest"></ion-icon>
+      </ion-fab-button>
+      <ion-fab-button href="https://www.tiktok.com">
+        <ion-icon name="logo-tiktok"></ion-icon>
+      </ion-fab-button>
+    </ion-fab-list>
+  </ion-fab>
+  <div class="tab-bar">
+    <a routerLink="/home" class="tab-button">
+      <ion-icon name="home"></ion-icon>
+    </a>
+    <a routerLink="/nosotros" class="tab-button" style="margin-right: 50px;">
+      <ion-icon name="people"></ion-icon>
+    </a>
+    <a routerLink="/servicios" class="tab-button" style="margin-left: 50px;">
+      <ion-icon name="list"></ion-icon>
+    </a>
+    <a routerLink="/contacto" class="tab-button">
+      <ion-icon name="mail"></ion-icon>
+    </a>
+  </div>
+</nav>

@@ -7,6 +7,11 @@ import { Component } from '@angular/core';
 })
 export class HomePage {
 
-  constructor() {}
+  public cards = [
+    { titulo: 'Terapia', class: 'card-terapia' },
+    { titulo: 'Congresos', class: 'card-congresos' },
+    { titulo: 'Consultoría', class: 'card-consultoria' },
+  ]
+  constructor() { }
 
 }

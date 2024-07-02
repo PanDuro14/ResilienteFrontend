@@ -24,6 +24,7 @@
 @import "@ionic/angular/css/text-alignment.css";
 @import "@ionic/angular/css/text-transformation.css";
 @import "@ionic/angular/css/flex-utils.css";
+@import "./theme/font.scss";
 
 /**
  * Ionic Dark Mode
@@ -35,3 +36,22 @@
 /* @import "@ionic/angular/css/palettes/dark.always.css"; */
 /* @import "@ionic/angular/css/palettes/dark.class.css"; */
 @import "@ionic/angular/css/palettes/dark.system.css";
+
+* {
+    font-family: Poppins;
+}
+
+
+::-webkit-scrollbar {
+    width: 30px;
+}
+
+::-webkit-scrollbar-track {
+    background: #0965BA;
+    border-radius: 50px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #B09BE6;
+    border-radius: 50px;
+}

@@ -9,7 +9,7 @@
     top: 25px;
     justify-content: space-between;
     align-items: center;
-    background-color: #f9f9f9;
+    background-color: white;
     color: black;
     padding: 5px 20px;
     z-index: 1000;
@@ -39,7 +39,7 @@
 
 .nav-link {
     color: var(--ion-color-primary);
-    --background: #f9f9f9;
+    --background: white;
     padding: 5px 10px;
     border-radius: 5px;
 }
@@ -59,7 +59,7 @@
 .social-icons ion-item {
     display: flex;
     align-items: center;
-    --background: #f9f9f9;
+    --background: white;
 }
 
 .icon-menu {
@@ -100,18 +100,26 @@ ion-fab {
         ion-fab-list {
             ion-fab-button:nth-child(1) {
                 --background: #0965BA;
+/*                 --background: radial-gradient(
+                    circle at 30% 107%, #fdf497 0%,
+                    #fdf497 5%, #fd5949 45%,
+                    #d6249f 60%, #285aeb 90% 
+                ); */
             }
 
             ion-fab-button:nth-child(2) {
-                --background: #9BDDB9;
+                --background: var(--ion-color-secondary);
+                /* --background: #e52d27; */
             }
 
             ion-fab-button:nth-child(3) {
-                --background: #62B0B0;
+                --background: var(--ion-color-tertiary);
+                /* --background: #e52d27; */
             }
 
             ion-fab-button:nth-child(4) {
-                --background: #888A89;
+                --background: var(--ion-color-medium);
+                /* --background: #252525; */
             }
         }
     }
@@ -128,16 +136,32 @@ ion-fab {
         .tab-button {
             flex: 1;
             display: flex;
+            flex-direction: column;
             justify-content: center;
             align-items: center;
             color: var(--ion-color-medium);
             text-decoration: none;
             font-size: 24px;
             height: 100%;
+            transition: all 0.3s ease;
 
-            &:hover,
-            &:focus {
+            ion-icon {
+                font-size: 24px;
+                margin-bottom: 2px;
+            }
+
+            .tab-label {
+                font-size: 12px;
+                opacity: 0;
+                transition: opacity 0.3s ease;
+            }
+
+            &.active {
                 color: var(--ion-color-primary);
+
+                .tab-label {
+                    opacity: 1;
+                }
             }
         }
     }

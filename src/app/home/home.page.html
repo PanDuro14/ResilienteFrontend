@@ -7,7 +7,168 @@
 </div>
 
 <ion-content [fullscreen]="false">
+  <app-navbar></app-navbar>
   <div id="container">
-    <ion-button color="primary">Soy Home</ion-button>
+    <div class="background-img">
+      <div class="introduccion-container">
+        <ion-text>
+          <h1 class="title">INTRODUCCIÓN</h1>
+          <p class="text">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed vitae
+            nunc tortor. Fusce pretium tristique sapien, et placerat elit
+            sagittis ac. Praesent tempor lorem sem, sed commodo velit posuere
+            eu.
+          </p>
+        </ion-text>
+        <ion-button class="conoce-mas" shape="round" routerLink="/nosotros"
+          >CONOCE MÁS</ion-button>
+      </div>
+    </div>
+
+    <div class="card-container">
+      <ion-card class="card" *ngFor="let card of cards" [ngClass]="card.class">
+        <ion-card-content>{{ card.titulo }}</ion-card-content>
+      </ion-card>
+    </div>
+
+    <div class="newsletter-container">
+      <ion-text>
+        <h1 class="title">SUSCRÍBETE AL NEWSLETTER SEMANAL</h1>
+        <p class="text">
+          CONOCE LAS NOVEDADES SOBREPSICOLOGÍA QUE TENEMOSPARA TÍ
+        </p>
+        <br />
+      </ion-text>
+      <form class="newsletter-form">
+        <ion-item lines="none">
+          <ion-input
+            type="text"
+            label="NOMBRE"
+            labelPlacement="floating"
+            name="name"
+            required
+          ></ion-input>
+        </ion-item>
+        <ion-item lines="none">
+          <ion-input
+            type="email"
+            label="CORREO ELECTRÓNICO"
+            labelPlacement="floating"
+            name="email"
+            required
+          ></ion-input>
+        </ion-item>
+        <ion-button type="submit" class="subscribe-button" expand="block"
+          >SUSCRIBIRME</ion-button
+        >
+      </form>
+    </div>
+
+    <div class="post1">
+      <div class="image-section">
+        <div class="image-content">
+          <img src="https://ionicframework.com/docs/img/demos/card-media.png" alt="Cerebro"/>
+        </div>
+      </div>
+      <div class="text-section">
+        <ion-text>
+          <p class="date">FECHA</p>
+          <h1 class="blog-title">TÍTULO DE NOTA</h1>
+          <div class="divider"></div>
+          <p class="blog-description">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed diam
+            nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat
+            volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation
+            ullamcorper suscipit lobortis.
+          </p>
+        </ion-text>
+        <ion-button class="read-more">LEER MÁS</ion-button>
+      </div>
+    </div>
+
+    <div class="post2">
+      <div class="text-section">
+        <ion-text>
+          <p class="date">FECHA</p>
+          <h1 class="blog-title">TÍTULO DE NOTA</h1>
+          <div class="divider"></div>
+          <p class="blog-description">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed diam
+            nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat
+            volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation
+            ullamcorper suscipit lobortis.
+          </p>
+        </ion-text>
+        <ion-button class="read-more">LEER MÁS</ion-button>
+      </div>
+      <div class="image-section">
+        <div class="image-content">
+          <img src="https://ionicframework.com/docs/img/demos/card-media.png" alt="Cerebro"/>
+        </div>
+      </div>
+    </div>
+
+    <div class="post3">
+      <div class="image-section">
+        <div class="image-content">
+          <img src="https://ionicframework.com/docs/img/demos/card-media.png" alt="Cerebro"/>
+        </div>
+      </div>
+      <div class="text-section">
+        <ion-text>
+          <p class="date">FECHA</p>
+          <h1 class="blog-title">TÍTULO DE NOTA</h1>
+          <div class="divider"></div>
+          <p class="blog-description">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed diam
+            nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat
+            volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation
+            ullamcorper suscipit lobortis.
+          </p>
+        </ion-text>
+        <ion-button class="read-more">LEER MÁS</ion-button>
+      </div>
+    </div>
+
+    <div class="ultima-container">
+      <ion-text>
+        <h1 class="title">La última y nos vamos</h1>
+      </ion-text>
+      <br>
+      <div class="content">
+        <div class="item">
+          <img src="https://ionicframework.com/docs/img/demos/card-media.png" alt="Cómo bajar el cortisol">
+          <div class="overlay">
+            <ion-text>
+              <h1 class="title">Lorem ipsum dolor</h1>
+          </ion-text>
+            <ion-button class="read-more">Leer más</ion-button>
+          </div>
+        </div>
+
+        <div class="item">
+          <img src="https://ionicframework.com/docs/img/demos/card-media.png" alt="Description">
+          <div class="overlay">
+            <ion-text>
+              <h1 class="title">Lorem ipsum dolor</h1>
+            </ion-text>
+            <ion-button class="read-more">Leer más</ion-button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="color-bars" style="width:100vw; margin-left: calc(-50vw + 50%); margin-top: 50px">
+      <div class="bar bar1"></div>
+      <div class="bar bar2"></div>
+      <div class="bar bar3"></div>
+      <div class="bar bar4"></div>
+      <div class="bar bar5"></div>
+    </div>
+
+    <app-footer></app-footer>
   </div>
 </ion-content>
+
+
+

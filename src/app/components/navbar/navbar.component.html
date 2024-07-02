@@ -32,7 +32,7 @@
 <nav class="mobile-nav">
   <ion-fab vertical="bottom" horizontal="center" translucent="true">
     <ion-fab-button>
-      <ion-icon name="share-social"></ion-icon>
+      <ion-icon src="assets/icon/iconW.svg" style="font-size: 39px;"></ion-icon>
     </ion-fab-button>
     <ion-fab-list side="top">
       <ion-fab-button href="https://www.instagram.com">
@@ -49,18 +49,23 @@
       </ion-fab-button>
     </ion-fab-list>
   </ion-fab>
+  
   <div class="tab-bar">
-    <a routerLink="/home" class="tab-button">
+    <a routerLink="/home" class="tab-button" routerLinkActive="active">
       <ion-icon name="home"></ion-icon>
+      <span class="tab-label">Home</span>
     </a>
-    <a routerLink="/nosotros" class="tab-button" style="margin-right: 50px;">
+    <a routerLink="/nosotros" class="tab-button" routerLinkActive="active" style="margin-right: 35px;">
       <ion-icon name="people"></ion-icon>
+      <span class="tab-label">Nosotros</span>
     </a>
-    <a routerLink="/servicios" class="tab-button" style="margin-left: 50px;">
+    <a routerLink="/servicios" class="tab-button" routerLinkActive="active" style="margin-left: 35px;">
       <ion-icon name="list"></ion-icon>
+      <span class="tab-label">Servicios</span>
     </a>
-    <a routerLink="/contacto" class="tab-button">
+    <a routerLink="/contacto" class="tab-button" routerLinkActive="active">
       <ion-icon name="mail"></ion-icon>
+      <span class="tab-label">Contacto</span>
     </a>
   </div>
 </nav>

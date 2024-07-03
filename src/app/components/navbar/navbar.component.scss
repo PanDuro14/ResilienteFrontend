@@ -1,6 +1,6 @@
 .navbar {
     display: flex;
-    position: fixed;
+    position: sticky;
     width: calc(100vw - 13px);
     margin-left: calc(-50vw + 50%);
     left: 0;

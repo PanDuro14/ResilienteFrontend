@@ -7,7 +7,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class FooterComponent  implements OnInit {
 
+  public icons = [
+    { name: 'logo-instagram', url: 'https://www.instagram.com' },
+    { name: 'logo-youtube',  url: 'https://www.youtube.com' },
+    { name: 'logo-pinterest',  url: 'https://www.pinterest.com' },
+    { name: 'logo-tiktok',  url: 'https://www.tiktok.com' },
+    { name: 'logo-facebook',  url: 'https://www.facebook.com' },
+  ];
+
   constructor() { }
+
 
   ngOnInit() {}
 

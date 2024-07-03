@@ -1,12 +1,9 @@
-:host {
-    display: contents;
-}
-
 .navbar {
     display: flex;
     position: fixed;
-    width: 100%;
-    top: 25px;
+    width: calc(100vw - 13px);
+    margin-left: calc(-50vw + 50%);
+    left: 0;
     justify-content: space-between;
     align-items: center;
     background-color: white;
@@ -56,7 +53,7 @@
     margin-right: 10px;
 }
 
-.social-icons ion-item {
+ion-item {
     display: flex;
     align-items: center;
     --background: white;
@@ -87,7 +84,7 @@ ion-fab {
         z-index: 1000;
     }
 
-    // Mostrar ion-fab en móvil
+    /* Mostrar ion-fab en móvil */
     ion-fab {
         display: block !important;
         margin-bottom: env(safe-area-inset-bottom);
@@ -100,26 +97,18 @@ ion-fab {
         ion-fab-list {
             ion-fab-button:nth-child(1) {
                 --background: #0965BA;
-/*                 --background: radial-gradient(
-                    circle at 30% 107%, #fdf497 0%,
-                    #fdf497 5%, #fd5949 45%,
-                    #d6249f 60%, #285aeb 90% 
-                ); */
             }
 
             ion-fab-button:nth-child(2) {
                 --background: var(--ion-color-secondary);
-                /* --background: #e52d27; */
             }
 
             ion-fab-button:nth-child(3) {
                 --background: var(--ion-color-tertiary);
-                /* --background: #e52d27; */
             }
 
             ion-fab-button:nth-child(4) {
                 --background: var(--ion-color-medium);
-                /* --background: #252525; */
             }
         }
     }
@@ -128,7 +117,7 @@ ion-fab {
         display: flex;
         justify-content: space-around;
         align-items: flex-end;
-        background-color: var(--ion-color-light);
+        background-color: white;
         height: 56px;
         padding-bottom: env(safe-area-inset-bottom);
         position: relative;

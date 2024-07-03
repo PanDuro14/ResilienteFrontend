@@ -1,0 +1,32 @@
+.color-bars {
+    display: flex;
+    width: 100vw;
+    height: 25px;
+    margin-left: calc(-50vw + 50%);
+    left: 0;
+
+    .bar {
+        height: 100%;
+        flex-basis: 20%;
+    }
+
+    .bar1 {
+        background-color: #B09BE6;
+    }
+
+    .bar2 {
+        background-color: #0965BA;
+    }
+
+    .bar3 {
+        background-color: #9BDDB9;
+    }
+
+    .bar4 {
+        background-color: #62B0B0;
+    }
+
+    .bar5 {
+        background-color: #888A89;
+    }
+}

@@ -11,18 +11,10 @@
       <ion-button fill="clear" routerLink="/contacto" lines="none" class="nav-link">CONTACTO</ion-button>
     </div>
     <div class="divider"></div>
+
     <div class="social-icons">
-      <ion-item href="https://www.instagram.com" lines="none">
-        <ion-icon name="logo-instagram" class="icon-menu"></ion-icon>
-      </ion-item>
-      <ion-item href="https://www.youtube.com" lines="none">
-        <ion-icon name="logo-youtube" class="icon-menu"></ion-icon>
-      </ion-item>
-      <ion-item href="https://www.pinterest.com" lines="none">
-        <ion-icon name="logo-pinterest" class="icon-menu"></ion-icon>
-      </ion-item>
-      <ion-item href="https://www.tiktok.com" lines="none">
-        <ion-icon name="logo-tiktok" class="icon-menu"></ion-icon>
+      <ion-item *ngFor="let icon of icons" [href]="icon.url" lines="none">
+        <ion-icon [name]="icon.name" class="icon-menu"></ion-icon>
       </ion-item>
     </div>
   </div>

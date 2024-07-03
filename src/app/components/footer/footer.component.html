@@ -2,7 +2,6 @@
   <br>
   <ion-text>
     <h1 class="title">No olvides suscribirte</h1>
-
     <br>
   </ion-text>
   <form class="footer-form">
@@ -24,26 +23,15 @@
         required
       ></ion-input>
     </ion-item>
-    <ion-button type="submit" class="subscribe-button" expand="block"
-      >SUSCRIBIRME</ion-button
-    >
+    <ion-button type="submit" class="subscribe-button" expand="block">
+      SUSCRIBIRME
+    </ion-button>
   </form>
   <br>
   <br>
-
   <div class="social-icons">
-    <ion-item href="https://www.instagram.com" lines="none">
-      <ion-icon name="logo-instagram" class="icon-menu"></ion-icon>
-    </ion-item>
-    <ion-item href="https://www.youtube.com" lines="none">
-      <ion-icon name="logo-youtube" class="icon-menu"></ion-icon>
-    </ion-item>
-    <ion-item href="https://www.pinterest.com" lines="none">
-      <ion-icon name="logo-pinterest" class="icon-menu"></ion-icon>
-    </ion-item>
-    <ion-item href="https://www.tiktok.com" lines="none">
-      <ion-icon name="logo-tiktok" class="icon-menu"></ion-icon>
+    <ion-item *ngFor="let icon of icons" [href]="icon.url" lines="none">
+      <ion-icon [name]="icon.name"></ion-icon>
     </ion-item>
   </div>
-  
 </div>

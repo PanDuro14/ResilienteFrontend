@@ -7,6 +7,7 @@ import { HomePage } from './home.page';
 import { HomePageRoutingModule } from './home-routing.module';
 import { NavbarComponent } from '../components/navbar/navbar.component';
 import { FooterComponent } from '../components/footer/footer.component';
+import { ColorbarComponent } from '../components/colorbar/colorbar.component';
 
 
 @NgModule({
@@ -17,6 +18,6 @@ import { FooterComponent } from '../components/footer/footer.component';
     HomePageRoutingModule,
     
   ],
-  declarations: [HomePage, FooterComponent, NavbarComponent]
+  declarations: [HomePage, NavbarComponent, FooterComponent, ColorbarComponent]
 })
 export class HomePageModule {}

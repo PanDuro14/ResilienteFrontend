@@ -1,13 +1,9 @@
-<div class="color-bars">
-  <div class="bar bar1"></div>
-  <div class="bar bar2"></div>
-  <div class="bar bar3"></div>
-  <div class="bar bar4"></div>
-  <div class="bar bar5"></div>
-</div>
+<ion-content [fullscreen]="true">
+  <app-colorbar></app-colorbar>
 
-<ion-content [fullscreen]="false">
-  <app-navbar></app-navbar>
+    <app-navbar></app-navbar>
+    
+
   <div id="container">
     <div class="background-img">
       <div class="introduccion-container">
@@ -64,71 +60,30 @@
       </form>
     </div>
 
-    <div class="post1">
-      <div class="image-section">
+    <div *ngFor="let post of posts" [ngClass]="{'post1': post.isImageFirst, 'post2': !post.isImageFirst}">
+      <div class="image-section" *ngIf="post.isImageFirst">
         <div class="image-content">
-          <img src="https://ionicframework.com/docs/img/demos/card-media.png" alt="Cerebro"/>
+          <img [src]="post.img" alt="Cerebro"/>
         </div>
       </div>
       <div class="text-section">
         <ion-text>
-          <p class="date">FECHA</p>
-          <h1 class="blog-title">TÍTULO DE NOTA</h1>
+          <p class="date">{{post.date}}</p>
+          <h1 class="blog-title">{{post.title}}</h1>
           <div class="divider"></div>
           <p class="blog-description">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed diam
-            nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat
-            volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation
-            ullamcorper suscipit lobortis.
+            {{post.description}}
           </p>
         </ion-text>
         <ion-button class="read-more">LEER MÁS</ion-button>
       </div>
-    </div>
-
-    <div class="post2">
-      <div class="text-section">
-        <ion-text>
-          <p class="date">FECHA</p>
-          <h1 class="blog-title">TÍTULO DE NOTA</h1>
-          <div class="divider"></div>
-          <p class="blog-description">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed diam
-            nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat
-            volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation
-            ullamcorper suscipit lobortis.
-          </p>
-        </ion-text>
-        <ion-button class="read-more">LEER MÁS</ion-button>
-      </div>
-      <div class="image-section">
+      <div class="image-section" *ngIf="!post.isImageFirst">
         <div class="image-content">
-          <img src="https://ionicframework.com/docs/img/demos/card-media.png" alt="Cerebro"/>
+          <img [src]="post.img" alt="Cerebro"/>
         </div>
       </div>
     </div>
-
-    <div class="post3">
-      <div class="image-section">
-        <div class="image-content">
-          <img src="https://ionicframework.com/docs/img/demos/card-media.png" alt="Cerebro"/>
-        </div>
-      </div>
-      <div class="text-section">
-        <ion-text>
-          <p class="date">FECHA</p>
-          <h1 class="blog-title">TÍTULO DE NOTA</h1>
-          <div class="divider"></div>
-          <p class="blog-description">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed diam
-            nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat
-            volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation
-            ullamcorper suscipit lobortis.
-          </p>
-        </ion-text>
-        <ion-button class="read-more">LEER MÁS</ion-button>
-      </div>
-    </div>
+    
 
     <div class="ultima-container">
       <ion-text>
@@ -157,17 +112,12 @@
         </div>
       </div>
     </div>
-
-    <div class="color-bars" style="width:100vw; margin-left: calc(-50vw + 50%); margin-top: 50px">
-      <div class="bar bar1"></div>
-      <div class="bar bar2"></div>
-      <div class="bar bar3"></div>
-      <div class="bar bar4"></div>
-      <div class="bar bar5"></div>
-    </div>
-
+    <br>
+    <app-colorbar></app-colorbar>
     <app-footer></app-footer>
+
   </div>
+  
 </ion-content>
 
 

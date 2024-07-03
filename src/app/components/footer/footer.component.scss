@@ -1,74 +1,100 @@
 .footer-container {
-    background-color: #B09BE6;
+    background-color: #b09be6;
     width: 100vw;
-    height: 300px;
     position: relative;
     display: flex;
     flex-direction: column;
     margin-left: calc(-50vw + 50%);
     margin-top: 10px;
-    left: 0;
     text-align: center;
     justify-content: center;
     padding: 20px;
+    box-sizing: border-box;
+}
 
+.title {
+    font-size: 30px;
+    font-weight: 700;
+    word-wrap: break-word;
+    padding: 5px;
+    margin: 10px;
+}
+
+.footer-form {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.footer-form ion-item {
+    --background: white;
+    border-radius: 15px;
+    margin: 5px;
+    --color: black;
+    width: 160px;
+    height: 50px;
+}
+
+.footer-form ion-input {
+    text-align: left;
+    font-size: 11px;
+    font-weight: 400;
+    word-wrap: break-word;
+}
+
+.subscribe-button {
+    --background: #0965ba;
+    --color: var(--ion-color-light);
+    --border-radius: 15px;
+    --box-shadow: none;
+    font-size: 12px;
+    height: 50px;
+    margin: 5px;
+}
+
+.social-icons {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    margin: 10px;
+    flex-wrap: wrap;
+}
+
+ion-item {
+    --background: white;
+    align-items: center;
+    border-radius: 50%;
+}
+
+ion-icon {
+    color: var(--ion-color-primary);
+    font-size: 22px;
+}
+
+/* Responsive styles */
+@media (max-width: 768px) {
     .title {
-        font-size: 30px;
-        font-weight: 700;
-        word-wrap: break-word;
-        padding: 5px;
-        margin: 10px;
+        font-size: 24px;
     }
 
     .footer-form {
-        display: flex;
-        flex-direction: row;
-        justify-content: center;
-        align-items: center;
+        flex-direction: column;
+    }
 
-        ion-item {
-            --background: white;
-            border-radius: 15px;
-            margin: 0 5px;
-            --color: black;
-            width: 160px;
-            height: 50PX;
-        }
+    .footer-form ion-item {
+        width: calc(100% - 20px);
+        margin: 10px auto;
+    }
 
-        ion-input {
-            text-align: left;
-            font-size: 11px;
-            font-weight: 400;
-            word-wrap: break-word;
-        }
-
-        .subscribe-button {
-            --background: #0965BA;
-            --color: var(--ion-color-light);
-            --border-radius: 15px;
-            --box-shadow: none;
-            font-size: 12px;
-            height: 50px;
-            margin: 0 5px;
-        }
+    .subscribe-button {
+        width: calc(100% - 20px);
+        margin: 10px auto;
     }
 
     .social-icons {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        gap: 50px;
-        margin: 10px;
-    }
-    
-    .social-icons ion-item {
-        display: flex;
-        align-items: center;
-        --background: white;
-        border-radius: 50%;
-    }
-
-    ion-icon {
-        color: var(--ion-color-primary);
+        display: none;
     }
 }

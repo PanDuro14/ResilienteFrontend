@@ -2,12 +2,12 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { IonicModule } from '@ionic/angular';
 import { FormsModule } from '@angular/forms';
-import { HomePage } from './home.page';
 
+import { HomePage } from './home.page';
 import { HomePageRoutingModule } from './home-routing.module';
-import { NavbarComponent } from '../components/navbar/navbar.component';
-import { FooterComponent } from '../components/footer/footer.component';
-import { ColorbarComponent } from '../components/colorbar/colorbar.component';
+
+import { SharedModule } from '../shared/shared.module'; 
+import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 
 
 @NgModule({
@@ -16,8 +16,10 @@ import { ColorbarComponent } from '../components/colorbar/colorbar.component';
     FormsModule,
     IonicModule,
     HomePageRoutingModule,
+    SharedModule,
     
   ],
-  declarations: [HomePage, NavbarComponent, FooterComponent, ColorbarComponent]
+  declarations: [HomePage],
+  schemas: [CUSTOM_ELEMENTS_SCHEMA],
 })
 export class HomePageModule {}

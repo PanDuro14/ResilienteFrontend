@@ -8,12 +8,15 @@ import { NosotrosPageRoutingModule } from './nosotros-routing.module';
 
 import { NosotrosPage } from './nosotros.page';
 
+import { SharedModule } from 'src/app/shared/shared.module';
+
 @NgModule({
   imports: [
     CommonModule,
     FormsModule,
     IonicModule,
-    NosotrosPageRoutingModule
+    NosotrosPageRoutingModule,
+    SharedModule,
   ],
   declarations: [NosotrosPage]
 })

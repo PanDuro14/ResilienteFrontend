@@ -29,34 +29,55 @@ ion-content {
   display: flex;
   justify-content: center;
   align-items: center;
+  margin-top: 36px;
+
+  swiper-container {
+    width: 100%;
+    height: 100%;
+    --swiper-navigation-color: #0965BA;
+  }
+
+  swiper-slide {
+    text-align: left;
+    font-size: 18px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: black;
+
+    img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
 
   .introduccion-container {
+    position: absolute;
+    bottom: -100px;
+    left: 50%;
+    transform: translateX(-50%);
     background-color: #B09BE6;
-    width: 50%;
-    height: 300px;
+    width: 80%;
+    max-width: 600px;
+    padding: 30px;
     border-radius: 20px;
-    padding: 50px;
-    line-height: 1.5em;
     text-align: center;
-    margin-top: 300px;
+    z-index: 10;
 
     .title {
-      font-size: 30px;
+      font-size: 24px;
       font-weight: 800;
-      word-wrap: break-word;
-      padding: 5px;
-      margin: 10px;
+      margin-bottom: 15px;
     }
 
     .text {
-      font-size: 15px;
-      word-wrap: break-word;
-      font-weight: 400;
-      padding: 5px;
-      margin: 10px 60px;
+      font-size: 14px;
+      margin-bottom: 20px;
     }
 
-    ion-button.conoce-mas {
+    .conoce-mas {
       --background: var(--ion-color-secondary);
       --color: var(--ion-color-medium);
       --box-shadow: none;
@@ -379,7 +400,7 @@ ion-card {
   .content {
     display: flex;
     justify-content: center;
-    gap: 20px;
+    gap: 80px;
 
     .item {
       position: relative;
@@ -427,7 +448,7 @@ ion-card {
 }
 
 
-/* MÓVIL */
+/* TABLET */
 @media (max-width: 1024px) {
   .background-img .introduccion-container {
     width: 70%;
@@ -482,18 +503,21 @@ ion-card {
   }
 }
 
+/* MÓVIL */
 @media (max-width: 768px) {
   #container {
     left: 20px;
     right: 20px;
-    margin: 30px 20px 20px;
+    margin: 13px 20px 20px;
+    top: 0;
   }
 
   .background-img .introduccion-container {
     width: 90%;
     height: auto;
     padding: 30px;
-
+    bottom: 1000;
+    
     .text {
       margin: 10px 20px;
     }
@@ -514,61 +538,12 @@ ion-card {
 
   .post1, .post2 {
     .image-content img {
-      width: 100%;
+      width: 50%;
       height: auto;
     }
 
     .text-section {
       padding: 20px;
-    }
-  }
-}
-
-@media (max-width: 768px) {
-  #container{
-    top: 0;
-  }
-  .background-img .introduccion-container {
-    padding: 20px;
-
-    .title {
-      font-size: 24px;
-    }
-
-    .text {
-      font-size: 14px;
-    }
-  }
-
-  .newsletter-container {
-    .title {
-      font-size: 24px;
-    }
-
-    .text {
-      font-size: 14px;
-    }
-  }
-
-  .post1, .post2 {
-    .text-section {
-      .blog-title {
-        font-size: 24px;
-      }
-
-      .blog-description {
-        font-size: 14px;
-      }
-    }
-  }
-
-  .ultima-container {
-    .title {
-      font-size: 24px;
-    }
-
-    .content .item .overlay .title {
-      font-size: 18px;
     }
   }
 }

@@ -7,11 +7,18 @@ import { Component } from '@angular/core';
 })
 export class HomePage {
 
+/*   public slides = [
+    {name: "Slide 1", img: "https://ionicframework.com/docs/img/demos/card-media.png"},
+    {name: "Slide 2", img: "https://swiperjs.com/demos/images/nature-2.jpg"},
+    {name: "Slide 3", img: "https://ionicframework.com/docs/img/demos/card-media.png"},
+    {name: "Slide 4", img: "https://swiperjs.com/demos/images/nature-2.jpg"},
+  ]; */
+
   public cards = [
     { titulo: 'Terapia', class: 'card-terapia' },
     { titulo: 'Congresos', class: 'card-congresos' },
     { titulo: 'Consultoría', class: 'card-consultoria' },
-  ]
+  ];
 
   public posts = [
     {

@@ -4,7 +4,23 @@
     
 
   <div id="container">
+
     <div class="background-img">
+      <swiper-container navigation="true" autoplay-delay="2000">
+        <swiper-slide>
+          <img src="https://ionicframework.com/docs/img/demos/card-media.png" alt="Slide 1">
+        </swiper-slide>
+        <swiper-slide>
+          <img src="https://swiperjs.com/demos/images/nature-2.jpg" alt="Slide 2">
+        </swiper-slide>
+        <swiper-slide>
+          <img src="https://ionicframework.com/docs/img/demos/card-media.png" alt="Slide 3">
+        </swiper-slide>
+        <swiper-slide>
+          <img src="https://swiperjs.com/demos/images/nature-2.jpg" alt="Slide 4">
+        </swiper-slide>
+      </swiper-container>
+    
       <div class="introduccion-container">
         <ion-text>
           <h1 class="title">INTRODUCCIÓN</h1>
@@ -15,10 +31,10 @@
             eu.
           </p>
         </ion-text>
-        <ion-button class="conoce-mas" shape="round" routerLink="/nosotros"
-          >CONOCE MÁS</ion-button>
+        <ion-button class="conoce-mas" shape="round" routerLink="/nosotros">CONOCE MÁS</ion-button>
       </div>
     </div>
+    
 
     <div class="card-container">
       <ion-card class="card" *ngFor="let card of cards" [ngClass]="card.class">

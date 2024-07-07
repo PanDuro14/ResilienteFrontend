@@ -6,31 +6,19 @@
   </ion-text>
   <form class="footer-form">
     <ion-item lines="none">
-      <ion-input
-        type="text"
-        label="NOMBRE"
-        labelPlacement="floating"
-        name="name"
-        required
-      ></ion-input>
+      <ion-input type="text" label="NOMBRE" labelPlacement="floating" name="name" required>
+      </ion-input>
     </ion-item>
     <ion-item lines="none">
-      <ion-input
-        type="email"
-        label="CORREO ELECTRÓNICO"
-        labelPlacement="floating"
-        name="email"
-        required
-      ></ion-input>
+      <ion-input type="email" label="CORREO ELECTRÓNICO" labelPlacement="floating" name="email" required>
+    </ion-input>
     </ion-item>
-    <ion-button type="submit" class="subscribe-button" expand="block">
-      SUSCRIBIRME
-    </ion-button>
+    <ion-button type="submit" class="subscribe-button" expand="block">SUSCRIBIRME</ion-button>
   </form>
   <br>
   <br>
   <div class="social-icons">
-    <ion-item *ngFor="let icon of icons" [href]="icon.url" lines="none">
+    <ion-item *ngFor="let icon of icons" [href]="icon.url" target="_blank" lines="none">
       <ion-icon [name]="icon.name"></ion-icon>
     </ion-item>
   </div>

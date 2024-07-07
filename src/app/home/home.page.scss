@@ -478,7 +478,21 @@ ion-card {
     }
   }
 
-  .post1, .post2 {
+  .post1 {
+    flex-direction: column-reverse;
+    height: auto;
+    background: none;
+
+    .image-section, .text-section {
+      width: 100%;
+    }
+
+    .text-section {
+      border-radius: 0;
+    }
+  }
+
+  .post2 {
     flex-direction: column;
     height: auto;
     background: none;
@@ -540,6 +554,7 @@ ion-card {
     .image-content img {
       width: 50%;
       height: auto;
+      margin-top: 5px;
     }
 
     .text-section {

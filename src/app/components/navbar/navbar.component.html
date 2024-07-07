@@ -5,15 +5,15 @@
   </div>
   <div class="right-section">
     <div class="nav-links">
-      <ion-button fill="clear" routerLink="/home" lines="none" class="nav-link">HOME</ion-button>
-      <ion-button fill="clear" routerLink="/nosotros" lines="none" class="nav-link">¿QUIÉNES SOMOS?</ion-button>
-      <ion-button fill="clear" routerLink="/servicios" lines="none" class="nav-link">SERVICIOS</ion-button>
-      <ion-button fill="clear" routerLink="/contacto" lines="none" class="nav-link">CONTACTO</ion-button>
+      <ion-button *ngFor="let nav of nav" fill="clear" [routerLink]="nav.link" lines="none" class="nav-link">
+        {{ nav.label }}
+      </ion-button>
     </div>
+
     <div class="divider"></div>
 
     <div class="social-icons">
-      <ion-item *ngFor="let icon of icons" [href]="icon.url" lines="none">
+      <ion-item *ngFor="let icon of icons" [href]="icon.url" target="_blank" lines="none">
         <ion-icon [name]="icon.name" class="icon-menu"></ion-icon>
       </ion-item>
     </div>
@@ -27,37 +27,16 @@
       <ion-icon src="assets/icon/iconW.svg" style="font-size: 39px;"></ion-icon>
     </ion-fab-button>
     <ion-fab-list side="top">
-      <ion-fab-button href="https://www.instagram.com">
-        <ion-icon name="logo-instagram"></ion-icon>
-      </ion-fab-button>
-      <ion-fab-button href="https://www.youtube.com">
-        <ion-icon name="logo-youtube"></ion-icon>
-      </ion-fab-button>
-      <ion-fab-button href="https://www.pinterest.com">
-        <ion-icon name="logo-pinterest"></ion-icon>
-      </ion-fab-button>
-      <ion-fab-button href="https://www.tiktok.com">
-        <ion-icon name="logo-tiktok"></ion-icon>
+      <ion-fab-button *ngFor="let social of icons" [href]="social.url" target="_blank">
+        <ion-icon [name]="social.name"></ion-icon>
       </ion-fab-button>
     </ion-fab-list>
   </ion-fab>
   
   <div class="tab-bar">
-    <a routerLink="/home" class="tab-button" routerLinkActive="active">
-      <ion-icon name="home"></ion-icon>
-      <span class="tab-label">Home</span>
-    </a>
-    <a routerLink="/nosotros" class="tab-button" routerLinkActive="active" style="margin-right: 35px;">
-      <ion-icon name="people"></ion-icon>
-      <span class="tab-label">Nosotros</span>
-    </a>
-    <a routerLink="/servicios" class="tab-button" routerLinkActive="active" style="margin-left: 35px;">
-      <ion-icon name="list"></ion-icon>
-      <span class="tab-label">Servicios</span>
-    </a>
-    <a routerLink="/contacto" class="tab-button" routerLinkActive="active">
-      <ion-icon name="mail"></ion-icon>
-      <span class="tab-label">Contacto</span>
+    <a *ngFor="let tab of nav" [routerLink]="tab.link" class="tab-button" routerLinkActive="active" [ngStyle]="tab.style">
+      <ion-icon [name]="tab.icon"></ion-icon>
+      <span class="tab-label">{{ tab.label }}</span>
     </a>
   </div>
 </nav>

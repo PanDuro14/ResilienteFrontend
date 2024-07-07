@@ -39,19 +39,22 @@
 
 * {
     font-family: Poppins;
+
+    ::-webkit-scrollbar {
+        width: 30px;
+    }
+
+    ::-webkit-scrollbar-track {
+        background: #0965BA;
+        border-radius: 50px;
+    }
+
+    ::-webkit-scrollbar-thumb {
+        background: #B09BE6;
+        border-radius: 50px;
+    }
 }
 
-
-::-webkit-scrollbar {
-    width: 30px;
-}
-
-::-webkit-scrollbar-track {
-    background: #0965BA;
-    border-radius: 50px;
-}
-
-::-webkit-scrollbar-thumb {
-    background: #B09BE6;
-    border-radius: 50px;
+html, body {
+    scroll-behavior: smooth;
 }

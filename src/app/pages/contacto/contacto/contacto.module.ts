@@ -4,10 +4,9 @@ import { FormsModule } from '@angular/forms';
 
 import { IonicModule } from '@ionic/angular';
 
-import { NosotrosPageRoutingModule } from './nosotros-routing.module';
+import { ContactoPageRoutingModule } from './contacto-routing.module';
 
-import { NosotrosPage } from './nosotros.page';
-
+import { ContactoPage } from './contacto.page';
 import { SharedModule } from 'src/app/shared/shared.module';
 
 @NgModule({
@@ -15,9 +14,9 @@ import { SharedModule } from 'src/app/shared/shared.module';
     CommonModule,
     FormsModule,
     IonicModule,
-    NosotrosPageRoutingModule,
-    SharedModule,
+    ContactoPageRoutingModule,
+    SharedModule
   ],
-  declarations: [NosotrosPage]
+  declarations: [ContactoPage]
 })
-export class NosotrosPageModule {}
+export class ContactoPageModule {}

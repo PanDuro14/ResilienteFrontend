@@ -1,0 +1,79 @@
+<ion-content [fullscreen]="true">
+  <app-colorbar></app-colorbar>
+  <app-navbar></app-navbar>
+
+  <div id="container">
+    <div class="nosotros-container">
+      <div class="image-section">
+        <div class="image-content">
+          <img
+            src="https://ionicframework.com/docs/img/demos/card-media.png"
+            alt="Image"
+          />
+        </div>
+      </div>
+      <div class="text-section">
+        <ion-text>
+          <h1 class="title">Quiénes Somos?</h1>
+          <div class="divider"></div>
+          <p class="text">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed vitae
+            nunc tortor. Fusce pretium tristique sapien, et placerat elit
+            sagittis ac. Praesent tempor lorem sem, sed commodo velit posuere
+            eu.
+          </p>
+        </ion-text>
+      </div>
+    </div>
+
+    <div class="mision-container">
+      <ion-text>
+        <h2 class="subtitle">Nuestra Misión</h2>
+        <div class="divider"></div>
+        <p class="text">
+          Contribuir a mejorar la calidad de vida de las personas a través de servicios 
+          de consultoría y psicología, promoviendo su bienestar emocional y desarrollo integral.
+      </ion-text>
+      <div class="image-section">
+        <div class="image-content">
+          <img src="https://ionicframework.com/docs/img/demos/card-media.png" alt="Image"/>
+        </div>
+      </div>
+    </div>
+
+    <div class="vision-container">
+      <div class="image-section">
+        <div class="image-content">
+          <img src="https://ionicframework.com/docs/img/demos/card-media.png" alt="Image"/>
+        </div>
+      </div>
+      <ion-text>
+        <h2 class="subtitle">Nuestra Visión</h2>
+        <div class="divider"></div>
+        <p class="text">
+          Ser reconocidos como referentes en el ámbito de la consultoría y psicología,
+          brindando soluciones efectivas para el bienestar emocional y desarrollo personal.
+        </p>
+      </ion-text>
+    </div>
+
+    <div class="valores-container">
+      <ion-text>
+        <h2 class="subtitle" style="color: #B09BE6;">Nuestros Valores</h2>
+        <div class="divider" style="border-top: 0.5px solid #0965BA;"></div>
+      </ion-text>
+      <div class="valores-cards">
+          <div class="valor-card" *ngFor="let valor of valoresC">
+              <img class="card-image" [src]="valor.img" [alt]="valor.valor">
+              <h3>{{ valor.valor }}</h3>
+              <p class="text">{{ valor.descripcion }}</p>
+          </div>
+      </div>
+  </div>
+
+    <br />
+    <app-colorbar></app-colorbar>
+    <app-footer></app-footer>
+
+  </div>
+</ion-content>

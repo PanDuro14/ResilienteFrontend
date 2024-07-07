@@ -12,17 +12,19 @@ const routes: Routes = [
     pathMatch: 'full'
   },
   {
+    path: 'nosotros',
+    loadChildren: () => import('./pages/nosotros/nosotros/nosotros.module').then( m => m.NosotrosPageModule)
+  },
+  {
     path: 'servicios',
-    loadChildren: () => import('./pages/pruebas/servicios/servicios.module').then( m => m.ServiciosPageModule)
+    loadChildren: () => import('./pages/servicios/servicios/servicios.module').then( m => m.ServiciosPageModule)
   },
   {
     path: 'contacto',
-    loadChildren: () => import('./pages/pruebas/contacto/contacto.module').then( m => m.ContactoPageModule)
+    loadChildren: () => import('./pages/contacto/contacto/contacto.module').then( m => m.ContactoPageModule)
   },
-  {
-    path: 'nosotros',
-    loadChildren: () => import('./pages/pruebas/nosotros/nosotros.module').then( m => m.NosotrosPageModule)
-  },
+
+
 ];
 
 @NgModule({

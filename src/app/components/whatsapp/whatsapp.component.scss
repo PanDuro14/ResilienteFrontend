@@ -1,0 +1,23 @@
+.floating-button {
+    position: fixed;
+    bottom: 30px;
+    right: 50px;
+    z-index: 999;
+}
+
+ion-icon {
+    background-color: transparent;
+    color: #25D366;
+    font-size: 70px;
+}
+
+@media (max-width: 768px) {
+    .floating-button {
+        bottom: 60px;
+        right: 20px;
+    }
+
+    ion-icon {
+        font-size: 60px;
+    }
+}

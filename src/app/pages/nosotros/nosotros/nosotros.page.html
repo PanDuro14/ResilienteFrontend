@@ -3,77 +3,127 @@
   <app-navbar></app-navbar>
 
   <div id="container">
+    <!-- NOSOTROS -->
     <div class="nosotros-container">
       <div class="image-section">
         <div class="image-content">
-          <img
-            src="https://ionicframework.com/docs/img/demos/card-media.png"
-            alt="Image"
-          />
+          <img src="https://ionicframework.com/docs/img/demos/card-media.png" alt="Image" />
         </div>
       </div>
       <div class="text-section">
         <ion-text>
-          <h1 class="title">Quiénes Somos?</h1>
+          <h1>¿Quiénes Somos?</h1>
           <div class="divider"></div>
-          <p class="text">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed vitae
-            nunc tortor. Fusce pretium tristique sapien, et placerat elit
-            sagittis ac. Praesent tempor lorem sem, sed commodo velit posuere
-            eu.
+          <p>
+            Resiliente, Psicología y Consultoría se fundó en octubre de 2022 
+            con el objetivo de conformar un grupo de profesionistas altamente 
+            capacitados y comprometidos con el bienestar emocional y el desarrollo 
+            integral de las personas.
+            Nos dedicamos a acompañar a nuestros clientes en su camino hacia el 
+            bienestar emocional y el crecimiento personal.
           </p>
         </ion-text>
       </div>
     </div>
+    <!-- FIN NOSOTROS -->
 
+    <!-- MISIÓN -->
     <div class="mision-container">
       <ion-text>
-        <h2 class="subtitle">Nuestra Misión</h2>
+        <h2>Nuestra Misión</h2>
         <div class="divider"></div>
-        <p class="text">
-          Contribuir a mejorar la calidad de vida de las personas a través de servicios 
-          de consultoría y psicología, promoviendo su bienestar emocional y desarrollo integral.
+        <p>
+          Contribuir a mejorar la calidad de vida de las personas a través de 
+          servicios de consultoría y psicología, promoviendo su bienestar emocional y 
+          desarrollo integral.
+        </p>
       </ion-text>
       <div class="image-section">
         <div class="image-content">
-          <img src="https://ionicframework.com/docs/img/demos/card-media.png" alt="Image"/>
+          <img src="https://ionicframework.com/docs/img/demos/card-media.png" alt="Image" />
         </div>
       </div>
     </div>
+    <!-- FIN MISIÓN -->
 
+    <!-- VISIÓN -->
     <div class="vision-container">
       <div class="image-section">
         <div class="image-content">
-          <img src="https://ionicframework.com/docs/img/demos/card-media.png" alt="Image"/>
+          <img src="https://ionicframework.com/docs/img/demos/card-media.png" alt="Image" />
         </div>
       </div>
       <ion-text>
-        <h2 class="subtitle">Nuestra Visión</h2>
+        <h2>Nuestra Visión</h2>
         <div class="divider"></div>
-        <p class="text">
-          Ser reconocidos como referentes en el ámbito de la consultoría y psicología,
+        <p>
+          Ser reconocidos como referentes en el ámbito de la consultoría y psicología, 
           brindando soluciones efectivas para el bienestar emocional y desarrollo personal.
         </p>
       </ion-text>
     </div>
+    <!-- FIN VISIÓN -->
 
+    <!-- VALORES -->
     <div class="valores-container">
       <ion-text>
-        <h2 class="subtitle" style="color: #B09BE6;">Nuestros Valores</h2>
+        <h2 style="color: #B09BE6;">Nuestros Valores</h2>
         <div class="divider" style="border-top: 0.5px solid #0965BA;"></div>
       </ion-text>
       <div class="valores-cards">
-          <div class="valor-card" *ngFor="let valor of valoresC">
-              <img class="card-image" [src]="valor.img" [alt]="valor.valor">
-              <h3>{{ valor.valor }}</h3>
-              <p class="text">{{ valor.descripcion }}</p>
-          </div>
+        <div class="valor-card" *ngFor="let valor of valoresC">
+          <img class="card-image" [src]="valor.img" [alt]="valor.valor" />
+          <h3>{{ valor.valor }}</h3>
+          <p>{{ valor.descripcion }}</p>
+        </div>
       </div>
-  </div>
+    </div>
+    <!-- FIN VALORES -->
 
+    <!-- EQUIPO -->
+    <div class="equipo-container">
+      <div class="text-section">
+        <ion-text>
+          <h1>Nuestro Equipo</h1>
+          <div class="divider"></div>
+          <p>
+            El equipo se compone de expertos en consultoría y psicología, cuya 
+            experiencia y pasión por su trabajo los impulsan a brindar un servicio 
+            de calidad y calidez.
+          </p>
+        </ion-text>
+      </div>
+      <div class="image-section">
+        <div class="image-content">
+          <img src="https://ionicframework.com/docs/img/demos/card-media.png" alt="Image" />
+        </div>
+      </div>
+    </div>
+    <!-- FIN EQUIPO -->
+
+    <!-- PSICÓLOGOS -->
+    <div class="psic-container">
+      <div class="card" *ngFor="let p of psicologos">
+        <div class="face front">
+          <img [src]="p.img" [alt]="p.nombre" />
+          <h3>{{ p.nombre }}</h3>
+        </div>
+        <div class="face back">
+          <h3>{{ p.nombre }}</h3> <!-- TOP -->
+          <div class="divider"></div>
+          <p> {{ p.descripcion }}
+            <br>
+            <br>
+            <strong>Especialidad:</strong> {{ p.especialidad }}
+            <strong>Cédula:</strong> {{ p.cedula }}
+          </p>
+        </div>
+      </div>
+    </div>
+    <!-- FIN PSICÓLOGOS -->
+    
     <br />
     <app-colorbar></app-colorbar>
     <app-footer></app-footer>
-
   </div>
 </ion-content>

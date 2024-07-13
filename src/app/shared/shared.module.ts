@@ -12,7 +12,7 @@ import { IonicModule } from '@ionic/angular';
 @NgModule({
   declarations: [NavbarComponent, FooterComponent, ColorbarComponent, WhatsappComponent],
   imports: [CommonModule, IonicModule, RouterModule],
-  exports: [NavbarComponent, FooterComponent, ColorbarComponent, WhatsappComponent, RouterModule]
+  exports: [NavbarComponent, FooterComponent, ColorbarComponent, WhatsappComponent ,RouterModule]
 })
 
 export class SharedModule { }

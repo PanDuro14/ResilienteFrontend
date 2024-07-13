@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { ModalController } from '@ionic/angular';
 
 @Component({
   selector: 'app-home',
@@ -6,13 +7,14 @@ import { Component } from '@angular/core';
   styleUrls: ['home.page.scss'],
 })
 export class HomePage {
+  public isResenaModalOpen = false;
 
-/*   public slides = [
-    {name: "Slide 1", img: "https://ionicframework.com/docs/img/demos/card-media.png"},
-    {name: "Slide 2", img: "https://swiperjs.com/demos/images/nature-2.jpg"},
-    {name: "Slide 3", img: "https://ionicframework.com/docs/img/demos/card-media.png"},
-    {name: "Slide 4", img: "https://swiperjs.com/demos/images/nature-2.jpg"},
-  ]; */
+  public slides = [
+    { name: "Slide 1", img: "https://ionicframework.com/docs/img/demos/card-media.png" },
+    { name: "Slide 2", img: "https://swiperjs.com/demos/images/nature-2.jpg" },
+    { name: "Slide 3", img: "https://ionicframework.com/docs/img/demos/card-media.png" },
+    { name: "Slide 4", img: "https://swiperjs.com/demos/images/nature-2.jpg" },
+  ];
 
   public cards = [
     { titulo: 'Terapia', class: 'card-terapia' },
@@ -43,7 +45,32 @@ export class HomePage {
       isImageFirst: true
     }
   ];
-  
-  constructor() { }
 
+  public comentarios = [
+    { nombre: "Jesús Alto", img: "assets/img/pruebas/pelon.jpg", opinion: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis." },
+    { nombre: "Jesús Chikito", img: "assets/img/pruebas/gsu.jpg", opinion: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis." },
+    { nombre: "Valeria Flores", img: "https://ionicframework.com/docs/img/demos/avatar.svg", opinion: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis." },
+    { nombre: "Alan García", img: "https://pbs.twimg.com/media/FxQnEEoXoAAAmHE.jpg", opinion: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis." },
+  ];
+
+  public ultimaItems = [
+    { img: "https://ionicframework.com/docs/img/demos/card-media.png", title: "Lorem ipsum dolor" },
+    { img: "https://ionicframework.com/docs/img/demos/card-media.png", title: "Lorem ipsum dolor" },
+  ];
+
+  constructor(private modalController: ModalController,) { }
+
+
+  // Modales
+  async openResenaModal() {
+    this.isResenaModalOpen = true;
+  }
+
+  closeResenaModal() {
+    this.modalController.dismiss();
+  }
+
+  didDismissResenaModal() {
+    this.isResenaModalOpen = false;
+  }
 }

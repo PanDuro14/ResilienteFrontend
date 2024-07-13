@@ -3,27 +3,45 @@ import { Component, OnInit } from '@angular/core';
 @Component({
   selector: 'app-navbar',
   templateUrl: './navbar.component.html',
-  styleUrls: ['./navbar.component.scss'],
+  styleUrls: ['./navbar.component.scss']
 })
-export class NavbarComponent  implements OnInit {
+export class NavbarComponent implements OnInit {
 
-  public icons = [
-    { name: 'logo-facebook',  url: 'https://www.facebook.com/PSIC.YOLANDAESPARZA?mibextid=LQQJ4d' },
-    { name: 'logo-instagram', url: 'https://www.instagram.com/psic.resiliente_?igsh=Mmk4bWI2ZHd5anJp&utm_source=qr' },
-    { name: 'logo-linkedin', url: 'https://www.linkedin.com'},
-    { name: 'logo-youtube',  url: 'https://www.youtube.com' },
-    { name: 'logo-pinterest',  url: 'https://www.pinterest.com' },
+  navbar = [
+    { label: 'Inicio', link: '/home' },
+    { label: 'Dashboard', link: '#dashboard' },
+    { label: 'Nosotros', link: '/nosotros' },
+    { label: 'Servicios', link: '/servicios' },
+    { label: 'Blog', link: '#blog' },
+    { label: 'Contacto', link: '/contacto' },
+    /* { label: 'Login', link: '#login' } */
   ];
 
-  public nav = [
-    { link: '/home', icon: 'home', label: 'Home', style: {} },
-    { link: '/nosotros', icon: 'people', label: 'Nosotros', style: { 'margin-right': '35px' } },
-    { link: '/servicios', icon: 'list', label: 'Servicios', style: { 'margin-left': '35px' } },
-    { link: '/contacto', icon: 'mail', label: 'Contacto', style: {} }
+  sidebar = [
+    { label: 'Inicio', link: '/home', icon: 'assets/icon/navBar/fill/corazon-casero.svg' },
+    { label: 'Dashboard', link: '#dashboard', icon: 'assets/icon/navBar/fill/aplicaciones-anadir.svg' },
+    { label: 'Nosotros', link: '/nosotros', icon: 'assets/icon/navBar/fill/mano-sosteniendo-corazon.svg' },
+    { label: 'Servicios', link: '/servicios', icon: 'assets/icon/navBar/fill/corazon-de-lista-de-deseos.svg' },
+    { label: 'Blog', link: '#blog', icon: 'assets/icon/navBar/fill/lapiz-blog.svg' },
+    { label: 'Contacto', link: '/contacto', icon: 'assets/icon/navBar/fill/corazon-sobre.svg' }
   ];
+
+  redes = [
+    { name: 'logo-facebook', url: 'https://www.facebook.com/resilientepsicologia?mibextid=ZbWKwL' },
+    { name: 'logo-instagram', url: 'https://www.instagram.com/resilientepsicologia?igsh=cnZueHhpNWlkZ3Fx' },
+    { name: 'logo-linkedin', url: 'https://www.linkedin.com/company/resilientepsicologia/' },
+    { name: 'logo-youtube', url: 'https://www.youtube.com' },
+    { name: 'logo-pinterest', url: 'https://www.pinterest.com' }
+  ];
+
+  sidebarOpen = false;
 
   constructor() { }
 
-  ngOnInit() {}
+  ngOnInit() {
+  }
 
+  toggleSidebar() {
+    this.sidebarOpen = !this.sidebarOpen;
+  }
 }

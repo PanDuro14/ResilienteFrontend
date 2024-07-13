@@ -11,10 +11,20 @@ ion-icon {
     font-size: 70px;
 }
 
+img {
+    width: 70px;
+    height: 70px ;
+}
+
 @media (max-width: 768px) {
     .floating-button {
-        bottom: 60px;
+        bottom: 30px;
         right: 20px;
+    }
+
+    img {
+        width: 55px;
+        height: 55px;
     }
 
     ion-icon {

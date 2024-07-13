@@ -1,129 +1,130 @@
 <ion-content [fullscreen]="true">
   <app-colorbar></app-colorbar>
   <app-navbar></app-navbar>
-    
 
   <div id="container">
+    <swiper-container class="img-slide" navigation="true" autoplay-delay="2000">
+      <swiper-slide *ngFor="let slide of slides">
+        <img [src]="slide.img" [alt]="slide.name" />
+      </swiper-slide>
+    </swiper-container>
 
-    <div class="background-img">
-      <swiper-container navigation="true" autoplay-delay="2000">
-        <swiper-slide>
-          <img src="https://ionicframework.com/docs/img/demos/card-media.png" alt="Slide 1">
-        </swiper-slide>
-        <swiper-slide>
-          <img src="https://swiperjs.com/demos/images/nature-2.jpg" alt="Slide 2">
-        </swiper-slide>
-        <swiper-slide>
-          <img src="https://ionicframework.com/docs/img/demos/card-media.png" alt="Slide 3">
-        </swiper-slide>
-        <swiper-slide>
-          <img src="https://swiperjs.com/demos/images/nature-2.jpg" alt="Slide 4">
-        </swiper-slide>
-      </swiper-container>
-    
-      <div class="introduccion-container">
-        <ion-text>
-          <h1 class="title">INTRODUCCIÓN</h1>
-          <p class="text">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed vitae
-            nunc tortor. Fusce pretium tristique sapien, et placerat elit
-            sagittis ac. Praesent tempor lorem sem, sed commodo velit posuere
-            eu.
-          </p>
-        </ion-text>
-        <ion-button class="conoce-mas" shape="round" routerLink="/nosotros">CONOCE MÁS</ion-button>
-      </div>
+    <div class="introduccion-container">
+      <ion-text>
+        <h1>INTRODUCCIÓN</h1>
+        <p>
+          Resiliente, Psicología y Consultoría se fundó en octubre de 2022 
+          con el fin de conformar un grupo de profesionistas altamente capacitados 
+          y comprometidos con el bienestar emocional y el desarrollo integral de las personas.
+        </p>
+      </ion-text>
+      <ion-button class="btn btn1" shape="round" routerLink="/nosotros">CONOCE MÁS</ion-button>
     </div>
-    
 
     <div class="card-container">
-      <ion-card class="card" *ngFor="let card of cards" [ngClass]="card.class">
+      <ion-card *ngFor="let card of cards" [ngClass]="card.class">
         <ion-card-content>{{ card.titulo }}</ion-card-content>
       </ion-card>
     </div>
 
     <div class="newsletter-container">
       <ion-text>
-        <h1 class="title">SUSCRÍBETE AL NEWSLETTER SEMANAL</h1>
-        <p class="text">
-          CONOCE LAS NOVEDADES SOBREPSICOLOGÍA QUE TENEMOSPARA TÍ
-        </p>
-        <br />
+        <h1>SUSCRÍBETE AL NEWSLETTER SEMANAL</h1>
+        <p>CONOCE LAS NOVEDADES SOBRE PSICOLOGÍA QUE TENEMOS PARA TÍ</p>
       </ion-text>
       <form class="newsletter-form">
         <ion-item lines="none">
-          <ion-input type="text" label="NOMBRE" labelPlacement="floating" name="name" required>
-          </ion-input>
+          <ion-input type="text" label="NOMBRE" labelPlacement="floating" name="name" required=""></ion-input>
         </ion-item>
         <ion-item lines="none">
-          <ion-input type="email" label="CORREO ELECTRÓNICO" labelPlacement="floating" name="email" required>
-        </ion-input>
+          <ion-input type="email" label="CORREO ELECTRÓNICO" labelPlacement="floating" name="email" required=""></ion-input>
         </ion-item>
-        <ion-button type="submit" class="subscribe-button" expand="block">SUSCRIBIRME</ion-button>
+        <ion-button type="submit" class="btn btn3" expand="block">SUSCRIBIRME</ion-button>
       </form>
     </div>
 
     <div *ngFor="let post of posts" [ngClass]="{'post1': post.isImageFirst, 'post2': !post.isImageFirst}">
       <div class="image-section" *ngIf="post.isImageFirst">
         <div class="image-content">
-          <img [src]="post.img" alt="Cerebro"/>
+          <img [src]="post.img" alt="Post image" />
         </div>
       </div>
       <div class="text-section">
         <ion-text>
           <p class="date">{{post.date}}</p>
-          <h1 class="blog-title">{{post.title}}</h1>
+          <h1>{{post.title}}</h1>
           <div class="divider"></div>
-          <p class="blog-description">
-            {{post.description}}
-          </p>
+          <p>{{post.description}}</p>
         </ion-text>
-        <ion-button class="read-more">LEER MÁS</ion-button>
+        <ion-button class="btn btn3">LEER MÁS</ion-button>
       </div>
       <div class="image-section" *ngIf="!post.isImageFirst">
         <div class="image-content">
-          <img [src]="post.img" alt="Cerebro"/>
+          <img [src]="post.img" alt="Post Image"/>
         </div>
       </div>
     </div>
-    
-    <!-- ! PONER SLIDE DE RESEÑAS DE LOS PUTOS CLIENTES -->
 
+    <div class="comentarios-container">
+      <ion-text>
+        <p>Tu opinión es muy importante para nosotros.<br><br>Por favor, déjanos una reseña y cuéntanos tu experiencia.</p>
+      </ion-text>
+      <ion-button class="btn btn3" (click)="openResenaModal()">Dejar Reseña</ion-button>
+    </div>
+
+    <!-- MODAL PARA AGREGAR UNA RESEÑA -->
+    <ion-modal [isOpen]="isResenaModalOpen" (didDismiss)="didDismissResenaModal()">
+      <ng-template>
+        <ion-header>
+          <ion-toolbar>
+            <ion-title><h3>Dejanos una reseña</h3></ion-title>
+            <ion-buttons slot="end">
+              <ion-icon name="close" (click)="closeResenaModal()"></ion-icon>
+            </ion-buttons>
+          </ion-toolbar>
+        </ion-header>
+        <ion-content>
+          <form>
+            <ion-item lines="none">
+              <ion-input type="text" label="Reseña" labelPlacement="floating" name="reseña" required></ion-input>
+            </ion-item>
+            <ion-button type="submit" class="btn btn3">Enviar</ion-button>
+          </form>
+        </ion-content>
+      </ng-template>
+    </ion-modal>
+
+    <swiper-container class="comentario-slide" navigation="true" pagination="true" pagination-dynamic-bullets="true" autoplay-delay="2000">
+      <swiper-slide *ngFor="let comentario of comentarios">
+        <ion-text>
+          <ion-chip>
+            <ion-avatar>
+              <img [alt]="'Avatar of ' + comentario.nombre" [src]="comentario.img" />
+            </ion-avatar>
+            <ion-label>{{ comentario.nombre }}</ion-label>
+          </ion-chip>
+          <p>{{ comentario.opinion }}</p>
+        </ion-text>
+      </swiper-slide>
+    </swiper-container>
 
     <div class="ultima-container">
       <ion-text>
-        <h1 class="title">La última y nos vamos</h1>
+        <h1>La última y nos vamos</h1>
       </ion-text>
-      <br>
       <div class="content">
-        <div class="item">
-          <img src="https://ionicframework.com/docs/img/demos/card-media.png" alt="Cómo bajar el cortisol">
+        <div class="item" *ngFor="let item of ultimaItems">
+          <img [src]="item.img" [alt]="item.title" />
           <div class="overlay">
             <ion-text>
-              <h1 class="title">Lorem ipsum dolor</h1>
-          </ion-text>
-            <ion-button class="read-more">Leer más</ion-button>
-          </div>
-        </div>
-
-        <div class="item">
-          <img src="https://ionicframework.com/docs/img/demos/card-media.png" alt="Description">
-          <div class="overlay">
-            <ion-text>
-              <h1 class="title">Lorem ipsum dolor</h1>
+              <h3>{{item.title}}</h3>
             </ion-text>
-            <ion-button class="read-more">Leer más</ion-button>
+            <ion-button class="btn btn4">Leer más</ion-button>
           </div>
         </div>
       </div>
     </div>
-    <br>
     <app-colorbar></app-colorbar>
     <app-footer></app-footer>
-
   </div>
-  
 </ion-content>
-
-
-

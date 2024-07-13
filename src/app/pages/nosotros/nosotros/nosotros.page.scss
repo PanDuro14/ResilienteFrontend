@@ -8,10 +8,10 @@ ion-content {
     left: 50px;
     right: 50px;
     margin: 30px 50px 50px;
-    padding: 10px 10px 10px;
+    padding: 10px 10px none;
 }
 
-.title {
+h1 {
     font-size: 30px;
     font-weight: 700;
     word-wrap: break-word;
@@ -19,7 +19,7 @@ ion-content {
     margin: 10px 0;
 }
 
-.subtitle {
+h2 {
     font-size: 25px;
     font-weight: 600;
     word-wrap: break-word;
@@ -27,13 +27,19 @@ ion-content {
     margin: 10px 0;
 }
 
-.text {
+p {
     font-size: 15px;
     word-wrap: break-word;
     font-weight: 400;
     padding: 5px;
     margin: 10px 0;
     line-height: 1.5em;
+}
+
+h3 {
+    font-size: 20px;
+    margin-bottom: 10px;
+    font-weight: 500;
 }
 
 .divider {
@@ -73,7 +79,7 @@ ion-content {
     .text-section {
         background-color: #B09BE6;
         width: 49.9%;
-        padding: 40px;
+        padding: 30px;
         color: white;
         text-align: left;
         border-radius: 20px;
@@ -81,7 +87,7 @@ ion-content {
 }
 
 .mision-container {
-    background-color: #0965BA;
+    background-color: #62B0B0;
     width: 100vw;
     height: 200px;
     margin-top: 30px;
@@ -115,10 +121,9 @@ ion-content {
 }
 
 .vision-container {
-    background-color: #0965BA;
+    background-color: #62B0B0;
     width: 100vw;
     height: 200px;
-    /* margin-top: 30px; */
     margin-left: calc(-50vw + 50%);
     left: 0;
     padding: 30px;
@@ -152,7 +157,6 @@ ion-content {
     background-color: white;
     width: 100vw;
     height: auto;
-    /* margin-top: 30px; */
     margin-left: calc(-50vw + 50%);
     left: 0;
     padding: 30px;
@@ -161,12 +165,11 @@ ion-content {
     flex-direction: column;
 
     .valores-cards {
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        gap: 30px 30px;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 50px 10px;
         padding: 10px;
         justify-content: center;
-
     }
 
     .valor-card {
@@ -174,10 +177,9 @@ ion-content {
         border-radius: 10px;
         padding: 15px;
         width: 100%;
-        max-width: 300px;
-        height: 300px;
+        max-width: 350px;
+        height: 400px;
         text-align: center;
-        /* border: 2px solid #62B0B0; */
         margin: 0 auto;
         display: flex;
         flex-direction: column;
@@ -190,14 +192,127 @@ ion-content {
             border-radius: 5px;
             margin-bottom: 20px;
         }
+    }
+}
+
+.equipo-container {
+    background: linear-gradient(to left, #DFDFE2 53%, white 53%);
+    width: 100vw;
+    height: 400px;
+    position: relative;
+    display: flex;
+    margin-left: calc(-50vw + 50%);
+    left: 0;
+    justify-content: center;
+    align-items: center;
+
+    .image-section {
+        width: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .image-content {
+        position: relative;
+    }
+
+    .image-content img {
+        width: 400px;
+        height: 200px;
+        border-radius: 10px;
+    }
+
+    .text-section {
+        background-color: #62B0B0;
+        width: 49.9%;
+        padding: 30px;
+        color: white;
+        text-align: left;
+        border-radius: 20px;
+    }
+}
+
+.psic-container {
+    width: 100vw;
+    margin-left: calc(-50vw + 50%);
+    left: 0;
+    background-image: url('../../../../assets/img/resiliente-logo.png');
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: contain;
+    display: flex;
+    margin-top: 50px;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.card {
+    position: relative;
+    width: 100%;
+    max-width: 300px;
+    height: 350px;
+    margin: 40px;
+
+    .face {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        backface-visibility: hidden;
+        border-radius: 10px;
+        overflow: hidden;
+        transition: 0.5s;
+    }
+
+    .front {
+        transform: perspective(600px) rotateY(0deg);
+        box-shadow: 0 5px 10px #000;
+
+        img {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
 
         h3 {
-            font-size: 20px;
-            margin-bottom: 10px;
-            font-weight: 500;
+            position: absolute;
+            bottom: 0;
+            width: 100%;
+            height: 45px;
+            line-height: 45px;
+            color: #fff;
+            background: rgba(0, 0, 0, 0.4);
+            text-align: center;
+        }
+    }
+
+    .back {
+        transform: perspective(600px) rotateY(180deg);
+        background: rgb(3, 35, 54);
+        padding: 15px;
+        color: #f3f3f3;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        text-align: center;
+        box-shadow: 0 5px 10px #000;
+    }
+
+    &:hover {
+        .front {
+            transform: perspective(600px) rotateY(180deg);
+        }
+
+        .back {
+            transform: perspective(600px) rotateY(360deg);
         }
     }
 }
+
 
 /* MÓVIL */
 @media (max-width: 768px) {
@@ -212,7 +327,7 @@ ion-content {
     .nosotros-container {
         flex-direction: column-reverse;
         height: auto;
-        background: none;
+        background: #F0E2AC;
 
         .image-section,
         .text-section {
@@ -245,23 +360,50 @@ ion-content {
         }
 
         .image-section {
-            width: 150%;
+            width: 100%;
         }
 
-        .image-section img {
+        .image-content img {
             width: 100%;
             height: auto;
-            margin-top: 60px;
+            margin-top: 10px;
         }
     }
 
     .valores-container .valores-cards {
-        grid-template-columns: repeat(2, 1fr);
+        flex-direction: column;
         gap: 20px;
         padding: 10px;
     }
 
     .valores-container .valor-card {
-        width: 100%;
+        width: 80%;
+        max-width: none;
+    }
+
+    .equipo-container {
+        flex-direction: column;
+        height: auto;
+        background: #DFDFE2;
+
+        .image-section,
+        .text-section {
+            width: 100%;
+        }
+
+        .text-section {
+            border-radius: 0;
+        }
+
+        .image-content img {
+            width: 50%;
+            height: auto;
+            margin-top: 5px;
+        }
+
+        .text-section {
+            padding: 20px;
+            text-align: center;
+        }
     }
 }

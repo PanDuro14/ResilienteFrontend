@@ -18,6 +18,7 @@ h1 {
     word-wrap: break-word;
     padding: 5px;
     margin: 10px 0;
+    color: white;
 }
 
 h2 {
@@ -26,6 +27,7 @@ h2 {
     word-wrap: break-word;
     padding: 5px;
     margin: 10px 0;
+    color: white;
 }
 
 p {
@@ -35,12 +37,14 @@ p {
     padding: 5px;
     margin: 10px 0;
     line-height: 1.5em;
+    color: white;
 }
 
 h3 {
     font-size: 20px;
     margin-bottom: 10px;
     font-weight: 500;
+    color: white;
 }
 
 .divider {
@@ -63,9 +67,14 @@ h3 {
 
     .image-section {
         width: 50%;
+        height: 100%;
         display: flex;
         justify-content: center;
         align-items: center;
+        background-image: url('../../../../assets/img/psicologia/1.JPEG');
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
     }
 
     .image-content {
@@ -74,13 +83,13 @@ h3 {
 
     .image-content img {
         width: 400px;
-        height: 200PX;
+        height: 200px;
         border-radius: 10px;
     }
 
     .text-section {
         background-color: #62B0B0;
-        width: 49.9%;
+        width: 50%;
         padding: 40px;
         color: white;
         text-align: left;
@@ -89,10 +98,8 @@ h3 {
 }
 
 .derimg-container {
-    background-color: #DFDFE2;
     width: 100vw;
     height: 200px;
-    /* margin-top: 30px; */
     margin-left: calc(-50vw + 50%);
     left: 0;
     padding: 30px;
@@ -125,7 +132,6 @@ h3 {
 .izimg-container {
     width: 100vw;
     height: 200px;
-    /* margin-top: 30px; */
     margin-left: calc(-50vw + 50%);
     left: 0;
     padding: 30px;
@@ -186,7 +192,7 @@ h3 {
 
     .text-section {
         background-color: #B09BE6;
-        width: 49.9%;
+        width: 50%;
         padding: 40px;
         color: white;
         text-align: left;
@@ -194,6 +200,7 @@ h3 {
     }
 }
 
+/* MÓVIL */
 @media (max-width: 768px) {
     #container {
         left: 20px;
@@ -217,7 +224,7 @@ h3 {
         }
 
         .image-content img {
-            width: 50%;
+            width: 100%;
             height: auto;
             margin-top: 5px;
         }
@@ -227,7 +234,7 @@ h3 {
             text-align: center;
         }
     }
-    .consultoria-container{
+    .consultoria-container {
         flex-direction: column-reverse;
     }
 

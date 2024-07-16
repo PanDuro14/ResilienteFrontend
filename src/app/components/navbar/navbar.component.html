@@ -1,7 +1,7 @@
 <!-- DESKTOP -->
 <div class="navbar">
   <div class="logo">
-    <img src="assets/img/resiliente-logo.png" alt="Resiliente" class="logo-image" />
+    <img src="assets/img/resiliente-logo.png" alt="Resiliente" class="logo-image" routerLink="/home" />
   </div>
   <div class="right-section">
     <div class="nav-links">
@@ -42,41 +42,37 @@
 </nav> -->
 
 <!-- MÓVIL -->
-<nav class="sidebar" [ngClass]="{ 'open': sidebarOpen }">
+<nav class="sidebar" [ngClass]="{ 'open': sidebarOpen, 'hidden': !sidebarOpen }">
   <div class="sidebar-top">
-      <a routerLink="/home" class="logo__wrapper">
-          <img src="assets/icon/resiliente-icon.png" alt="Resiliente Logo" class="logo" />
-          <span class="company-name">Resiliente</span>
-      </a>
+    <a routerLink="/home" class="logo__wrapper">
+      <img src="assets/icon/resiliente-icon.png" alt="Resiliente Logo" class="logo" />
+      <span class="company-name">Resiliente</span>
+    </a>
   </div>
   <button class="expand-btn" type="button" (click)="toggleSidebar()">
-      <ion-icon src="assets/icon/navBar/fill/menu-hamburguesa.svg"></ion-icon>
+    <ion-icon src="assets/icon/navBar/fill/menu-hamburguesa.svg"></ion-icon>
   </button>
   <div class="divider"></div>
-
   <div class="sidebar-links">
-      <ul>
-          <li *ngFor="let item of sidebar">
-              <a [routerLink]="item.link" [title]="item.label">
-                  <ion-icon [src]="item.icon"></ion-icon>
-                  <span class="link">{{ item.label }}</span>
-              </a>
-          </li>
-      </ul>
+    <ul>
+      <li *ngFor="let item of sidebar">
+        <a [routerLink]="item.link" [title]="item.label">
+          <ion-icon [src]="item.icon"></ion-icon>
+          <span class="link">{{ item.label }}</span>
+        </a>
+      </li>
+    </ul>
   </div>
-
   <div class="sidebar__profile">
-      <ion-avatar>
-          <img class="avatar"
-              src="https://pbs.twimg.com/media/FxQnEEoXoAAAmHE.jpg"
-              alt="User Avatar"
-          />
-          <div class="online__status"></div>
-      </ion-avatar>
-      <div class="avatar__name">
-          <div class="user-name">User Name</div>
-          <div class="email">userexample.com</div>
-      </div>
-      <ion-icon name="log-out-outline" class="logout"></ion-icon>
+    <ion-avatar>
+      <img class="avatar" src="https://pbs.twimg.com/media/FxQnEEoXoAAAmHE.jpg" alt="User Avatar" />
+      <div class="online__status"></div>
+    </ion-avatar>
+    <div class="avatar__name">
+      <div class="user-name">User Name</div>
+      <div class="email">userexample.com</div>
+    </div>
+    <ion-icon name="log-out-outline" class="logout"></ion-icon>
   </div>
 </nav>
+

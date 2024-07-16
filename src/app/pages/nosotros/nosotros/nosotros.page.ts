@@ -15,6 +15,7 @@ export class NosotrosPage implements OnInit {
     { valor: "Calidad", descripcion: "Nos comprometemos a ofrecer servicios de la más alta calidad, utilizando enfoques basados en evidencia y prácticas recomendadas para obtener los mejores resultados.", img: "https://ionicframework.com/docs/img/demos/card-media.png" },
     { valor: "Excelencia", descripcion: "Buscamos continuamente mejorar y perfeccionar nuestras habilidades y conocimientos, aspirando a la excelencia en todo lo que hacemos.", img: "https://ionicframework.com/docs/img/demos/card-media.png" },
   ];
+  
   public psicologos = [
     { nombre: "Yolanda Esparza", img: "https://ionicframework.com/docs/img/demos/card-media.png", descripcion: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.", especialidad: "Lorem Ipsum E", cedula: "Lorem Ipsum C" },
     { nombre: "Andrea Zaragoza", img: "assets/img/equipo/psic2.jpg", descripcion: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.", especialidad: "Lorem Ipsum E", cedula: "Lorem Ipsum C" },

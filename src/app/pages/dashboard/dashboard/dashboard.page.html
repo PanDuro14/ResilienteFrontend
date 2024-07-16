@@ -1,0 +1,47 @@
+<ion-content [fullscreen]="true">
+  <app-colorbar></app-colorbar>
+  <app-navbar></app-navbar>
+  
+  <div class="container" id="container">
+
+    <ion-searchbar show-clear-button="focus" placeholder="Buscar"></ion-searchbar>
+
+    <div class="table-container">
+      <table class="content-table">
+        <thead>
+          <tr>
+            <th>Nombre de Usuario</th>
+            <th>Nombre Completo</th>
+            <th>Fecha</th>
+            <th>Teléfono</th>
+            <th>Correo</th>
+            <th>Tipo de cita</th>
+            <th>Psicólogo</th>
+            <th>Horario</th>
+            <th>  </th>
+            <th></th>
+            </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let p of pruebas">
+            <td>{{ p.userName }}</td>
+            <td>{{ p.nombre }}</td>
+            <td>{{ p.fecha }}</td>
+            <td>{{ p.tel }}</td>
+            <td>{{ p.correo }}</td>
+            <td>{{ p.cita }}</td>
+            <td>{{ p.psicologo }}</td>
+            <td>{{ p.horario }}</td>
+            <td><ion-icon src="assets/icon/editar.svg" color="medium"></ion-icon></td>
+            <td><ion-icon src="assets/icon/basura.svg" color="danger"></ion-icon></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <app-colorbar></app-colorbar>
+    <app-footer></app-footer>
+
+  </div>
+
+</ion-content>

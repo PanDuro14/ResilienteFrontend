@@ -9,7 +9,7 @@ export class NavbarComponent implements OnInit {
 
   navbar = [
     { label: 'Inicio', link: '/home' },
-    { label: 'Dashboard', link: '#dashboard' },
+    { label: 'Dashboard', link: '/dashboard' },
     { label: 'Nosotros', link: '/nosotros' },
     { label: 'Servicios', link: '/servicios' },
     { label: 'Blog', link: '#blog' },
@@ -19,7 +19,7 @@ export class NavbarComponent implements OnInit {
 
   sidebar = [
     { label: 'Inicio', link: '/home', icon: 'assets/icon/navBar/fill/corazon-casero.svg' },
-    { label: 'Dashboard', link: '#dashboard', icon: 'assets/icon/navBar/fill/aplicaciones-anadir.svg' },
+    { label: 'Dashboard', link: '/dashboard', icon: 'assets/icon/navBar/fill/aplicaciones-anadir.svg' },
     { label: 'Nosotros', link: '/nosotros', icon: 'assets/icon/navBar/fill/mano-sosteniendo-corazon.svg' },
     { label: 'Servicios', link: '/servicios', icon: 'assets/icon/navBar/fill/corazon-de-lista-de-deseos.svg' },
     { label: 'Blog', link: '#blog', icon: 'assets/icon/navBar/fill/lapiz-blog.svg' },

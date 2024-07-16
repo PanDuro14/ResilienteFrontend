@@ -76,7 +76,6 @@ nav {
 
 /* MÓVIL */
 @media (max-width: 768px) {
-
     .navbar {
         display: none;
     }
@@ -173,7 +172,6 @@ nav {
         text-decoration: none;
     }
 
-
     .sidebar__profile {
         display: flex;
         padding: 1rem;
@@ -213,23 +211,22 @@ nav {
     }
 
     .expand-btn {
-        position: absolute;
+        position: sticky;
         display: grid;
         place-items: center;
         cursor: pointer;
         background: transparent;
-        z-index: 2;
-        border: 2px solid #B09BE6;
-        right: -2.9rem;
-        top: 2.2rem;
+        border: 2px solid #0965BA;
         width: 2.25rem;
         height: 2.25rem;
         border-radius: 50%;
+        margin: 1rem;
+        margin-left: 18.5rem;
     }
 
     .expand-btn ion-icon {
         font-size: 1.3rem;
-        color: #B09BE6;
+        color: #0965BA;
     }
 
     .sidebar__profile .logout {

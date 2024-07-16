@@ -17,6 +17,7 @@ h1 {
     word-wrap: break-word;
     padding: 5px;
     margin: 10px 0;
+    color: white;
 }
 
 h2 {
@@ -25,6 +26,7 @@ h2 {
     word-wrap: break-word;
     padding: 5px;
     margin: 10px 0;
+    color: white;
 }
 
 p {
@@ -34,12 +36,14 @@ p {
     padding: 5px;
     margin: 10px 0;
     line-height: 1.5em;
+    color: white;
 }
 
 h3 {
     font-size: 20px;
     margin-bottom: 10px;
     font-weight: 500;
+    color: white;
 }
 
 .divider {
@@ -237,10 +241,7 @@ h3 {
     width: 100vw;
     margin-left: calc(-50vw + 50%);
     left: 0;
-    background-image: url('../../../../assets/img/resiliente-logo.png');
-    background-repeat: no-repeat;
-    background-position: center center;
-    background-size: contain;
+
     display: flex;
     margin-top: 50px;
     flex-wrap: wrap;
@@ -253,6 +254,11 @@ h3 {
     max-width: 300px;
     height: 350px;
     margin: 40px;
+
+    background-image: url('../../../../assets/img/resiliente-logo.png');
+    background-repeat: no-repeat;
+    background-position: center center;
+    background-size: contain;
 
     .face {
         position: absolute;
@@ -366,7 +372,7 @@ h3 {
         .image-content img {
             width: 100%;
             height: auto;
-            margin-top: 10px;
+            margin-top: 50px;
         }
     }
 

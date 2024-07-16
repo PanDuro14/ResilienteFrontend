@@ -23,6 +23,10 @@ const routes: Routes = [
     path: 'contacto',
     loadChildren: () => import('./pages/contacto/contacto/contacto.module').then( m => m.ContactoPageModule)
   },
+  {
+    path: 'dashboard',
+    loadChildren: () => import('./pages/dashboard/dashboard/dashboard.module').then( m => m.DashboardPageModule)
+  },
 
 
 ];

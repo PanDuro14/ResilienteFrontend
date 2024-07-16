@@ -8,8 +8,8 @@ import { Component, OnInit } from '@angular/core';
 export class ContactoPage implements OnInit {
 
   public numeros = [
-    {numero: "4491234567"},
-    {numero: "4499876543"},
+    {numero: "4494638088"},
+    {numero: "4495669242"},
 ];
 
 public redes = [
@@ -21,7 +21,7 @@ public redes = [
 ];
 
 public correos = [
-  { mail: "correo1@gmail.com" },
+  { mail: "psic.resiliente@gmail.com" },
   { mail: "correo2@gmail.com" },
 ];
 

@@ -18,22 +18,22 @@
             <th>Tipo de cita</th>
             <th>Psicólogo</th>
             <th>Horario</th>
-            <th>  </th>
+            <th></th>
             <th></th>
             </tr>
         </thead>
         <tbody>
           <tr *ngFor="let p of pruebas">
-            <td>{{ p.userName }}</td>
-            <td>{{ p.nombre }}</td>
-            <td>{{ p.fecha }}</td>
-            <td>{{ p.tel }}</td>
-            <td>{{ p.correo }}</td>
-            <td>{{ p.cita }}</td>
-            <td>{{ p.psicologo }}</td>
-            <td>{{ p.horario }}</td>
-            <td><ion-icon src="assets/icon/editar.svg" color="medium"></ion-icon></td>
-            <td><ion-icon src="assets/icon/basura.svg" color="danger"></ion-icon></td>
+            <td data-label="Nombre de Usuario:">{{ p.userName }}</td>
+            <td data-label="Nombre Completo:">{{ p.nombre }}</td>
+            <td data-label="Fecha:">{{ p.fecha }}</td>
+            <td data-label="Teléfono:">{{ p.tel }}</td>
+            <td data-label="Correo:">{{ p.correo }}</td>
+            <td data-label="Tipo de cita:">{{ p.cita }}</td>
+            <td data-label="Psicólogo:">{{ p.psicologo }}</td>
+            <td data-label="Horario:">{{ p.horario }}</td>
+            <td data-label="Editar:"><ion-icon name="create-outline"></ion-icon></td>
+            <td data-label="Eliminar:"><ion-icon name="trash-outline" color="danger"></ion-icon></td>
           </tr>
         </tbody>
       </table>

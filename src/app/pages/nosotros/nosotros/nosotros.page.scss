@@ -65,12 +65,17 @@ h3 {
 
     .image-section {
         width: 50%;
+        height: 100%;
         display: flex;
         justify-content: center;
         align-items: center;
+        background-image: url('https://ionicframework.com/docs/img/demos/card-media.png');
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
     }
 
-    .image-content {
+/*     .image-content {
         position: relative;
     }
 
@@ -78,6 +83,10 @@ h3 {
         width: 400px;
         height: 200px;
         border-radius: 10px;
+    } */
+
+    .image-content {
+        display: none;
     }
 
     .text-section {
@@ -212,12 +221,17 @@ h3 {
 
     .image-section {
         width: 50%;
+        height: 100%;
         display: flex;
         justify-content: center;
         align-items: center;
+        background-image: url('https://ionicframework.com/docs/img/demos/card-media.png');
+        background-size: cover;
+        background-position: center;
+        background-repeat: no-repeat;
     }
 
-    .image-content {
+/*     .image-content {
         position: relative;
     }
 
@@ -225,6 +239,10 @@ h3 {
         width: 400px;
         height: 200px;
         border-radius: 10px;
+    } */
+
+    .image-content {
+        display: none;
     }
 
     .text-section {
@@ -344,6 +362,14 @@ h3 {
             border-radius: 0;
         }
 
+        .image-section {
+            background-image: none;
+        }
+
+        .image-content {
+            display: block;
+        }
+
         .image-content img {
             width: 50%;
             height: auto;
@@ -399,6 +425,14 @@ h3 {
 
         .text-section {
             border-radius: 0;
+        }
+
+        .image-section {
+            background-image: none;
+        }
+
+        .image-content {
+            display: block;
         }
 
         .image-content img {

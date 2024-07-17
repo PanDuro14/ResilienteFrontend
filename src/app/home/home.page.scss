@@ -219,19 +219,19 @@ ion-card {
 
   .image-section {
     width: 50%;
+    height: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
+    background-image: url('https://ionicframework.com/docs/img/demos/card-media.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
   }
 
-  .image-content {
-    position: relative;
-  }
-
+  .image-content,
   .image-content img {
-    width: 400px;
-    height: 200PX;
-    border-radius: 10px;
+    display: none;
   }
 
   .text-section {
@@ -264,19 +264,19 @@ ion-card {
 
   .image-section {
     width: 50%;
+    height: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
+    background-image: url('https://ionicframework.com/docs/img/demos/card-media.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
   }
 
-  .image-content {
-    position: relative;
-  }
-
+  .image-content,
   .image-content img {
-    width: 400px;
-    height: 200PX;
-    border-radius: 10px;
+    display: none;
   }
 
   .text-section {
@@ -425,20 +425,39 @@ ion-modal {
     }
   }
 
-  .post1, 
+  .post1,
   .post2 {
     flex-direction: column-reverse;
     height: auto;
-    
+
     .image-section,
     .text-section {
       width: 100%;
+    }
+
+    .image-section {
+      background-image: none;
+      align-items: center;
+    }
+
+    .image-content {
+      display: block;
+      position: relative;
+    }
+
+    .image-content img {
+      width: 400px;
+      height: 200PX;
+      border-radius: 10px;
+      display: block;
+      margin: 0 auto;
     }
 
     .text-section {
       border-radius: 0;
     }
   }
+
   .post1 {
     background: #F0E2AC;
   }
@@ -462,10 +481,11 @@ ion-modal {
   }
 }
 
+
 @media (max-width: 768px) {
   #container {
     margin: none 20px none;
-    padding-top: none ;
+    padding-top: none;
   }
 
   .img-slide .introduccion-container {
@@ -492,6 +512,7 @@ ion-modal {
       width: 50%;
       height: auto;
       margin-top: 5px;
+      margin: 0 auto;
     }
 
 

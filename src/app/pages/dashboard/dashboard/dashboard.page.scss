@@ -14,7 +14,7 @@ ion-content {
 
 ion-searchbar {
     --background: #B09BE6;
-    --color: ;
+    --color: white;
     --placeholder-color: #fff;
     --icon-color: #fff;
     --clear-button-color: #fff;
@@ -86,5 +86,68 @@ ion-icon {
         right: 20px;
         margin: 13px 20px 20px;
         top: 0;
+    }
+
+    ion-searchbar {
+        margin-top: 15px;
+    }
+
+    
+    @media (max-width: 768px) {
+        .container {
+            left: 20px;
+            right: 20px;
+            margin: 13px 20px 20px;
+            top: 0;
+        }
+    
+        ion-searchbar {
+            width: 70%;
+            margin: 15px 80px 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+    
+        .content-table {
+            font-size: 0.8em;
+        }
+    
+        .content-table thead {
+            display: none;
+        }
+    
+        .content-table, .content-table tbody, .content-table tr, .content-table td {
+            display: block;
+            width: 100%;
+        }
+    
+        .content-table tr {
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
+    
+        .content-table td {
+            text-align: center;
+            padding-left: 50%;
+            position: relative;
+            border-bottom: 1px solid #eee;
+        }
+    
+        .content-table td:last-child {
+            border-bottom: none;
+        }
+    
+        .content-table td::before {
+            content: attr(data-label);
+            position: absolute;
+            left: 6px;
+            width: 45%;
+            padding-right: 10px;
+            white-space: nowrap;
+            text-align: left;
+            font-weight: bold;
+        }
     }
 }

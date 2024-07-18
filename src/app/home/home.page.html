@@ -3,6 +3,13 @@
   <app-navbar></app-navbar>
 
   <div id="container">
+
+<!--     <swiper-container class="img-slide" navigation="true" autoplay-delay="15000">
+      <swiper-slide *ngFor="let slide of slides">
+        <video [src]="slide.img"  autoplay controls></video>
+      </swiper-slide>
+    </swiper-container> -->
+
     <swiper-container class="img-slide" navigation="true" autoplay-delay="2000">
       <swiper-slide *ngFor="let slide of slides">
         <img [src]="slide.img" [alt]="slide.name" />
@@ -34,7 +41,7 @@
       </ion-text>
       <form class="newsletter-form">
         <ion-item lines="none">
-          <ion-input type="text" label="NOMBRE" labelPlacement="floating" name="name" required=""></ion-input>
+          <ion-input type="text" label="NOMBRE" labelPlacement="floating" name="name" required></ion-input>
         </ion-item>
         <ion-item lines="none">
           <ion-input type="email" label="CORREO ELECTRÓNICO" labelPlacement="floating" name="email" required=""></ion-input>

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ModalController } from '@ionic/angular';
 
 @Component({
   selector: 'app-navbar',
@@ -6,6 +7,9 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./navbar.component.scss']
 })
 export class NavbarComponent implements OnInit {
+  public isLoginModalOpen = false;
+  public isSignUpMode = false;
+  passwordFieldType: string = 'password';
 
   navbar = [
     { label: 'Inicio', link: '/home' },
@@ -14,7 +18,6 @@ export class NavbarComponent implements OnInit {
     { label: 'Servicios', link: '/servicios' },
     { label: 'Blog', link: '#blog' },
     { label: 'Contacto', link: '/contacto' },
-    /* { label: 'Login', link: '#login' } */
   ];
 
   sidebar = [
@@ -36,12 +39,43 @@ export class NavbarComponent implements OnInit {
 
   sidebarOpen = false;
 
-  constructor() { }
+  constructor(private modalController: ModalController) { }
 
   ngOnInit() {
+
   }
 
+  
+  togglePasswordVisibility() {
+    this.passwordFieldType = this.passwordFieldType === 'text' ? 'password' : 'text';
+  }
+
+
+  /* MODALES */
   toggleSidebar() {
     this.sidebarOpen = !this.sidebarOpen;
   }
+
+  async openLoginModal() {
+    this.isLoginModalOpen = true;
+  }
+
+  closeLoginModal() {
+    this.modalController.dismiss();
+  }
+
+  didDismissLoginModal() {
+    this.isLoginModalOpen = false;
+  }
+
+  showLoginForm() {
+    this.isSignUpMode = false;
+  }
+
+  showSignUpForm() {
+    this.isSignUpMode = true;
+  }
+ 
+  
+ 
 }

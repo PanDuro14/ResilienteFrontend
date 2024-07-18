@@ -6,11 +6,13 @@ import { NavbarComponent } from '../components/navbar/navbar.component';
 import { FooterComponent } from '../components/footer/footer.component';
 import { ColorbarComponent } from '../components/colorbar/colorbar.component';
 import { WhatsappComponent } from '../components/whatsapp/whatsapp.component';
+import { CitaComponent } from '../components/cita/cita.component';
 
 import { IonicModule } from '@ionic/angular';
 
+
 @NgModule({
-  declarations: [NavbarComponent, FooterComponent, ColorbarComponent, WhatsappComponent],
+  declarations: [NavbarComponent, FooterComponent, ColorbarComponent, WhatsappComponent, CitaComponent],
   imports: [CommonModule, IonicModule, RouterModule],
   exports: [NavbarComponent, FooterComponent, ColorbarComponent, WhatsappComponent ,RouterModule]
 })

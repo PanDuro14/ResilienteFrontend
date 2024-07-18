@@ -9,6 +9,14 @@ import { ModalController } from '@ionic/angular';
 export class HomePage {
   public isResenaModalOpen = false;
 
+/*   public slidesVideos = [
+    { name: "Video 1", video: "assets/video/1.mp4" },
+    { name: "Video 2", video: "assets/video/2.mp4" },
+    { name: "Video 3", video: "assets/video/3.mp4" },
+    { name: "Video 4", video: "assets/video/4.mp4" },
+    { name: "Video 5", video: "assets/video/5.mp4" },
+  ]; */
+
   public slides = [
     { name: "Slide 1", img: "https://ionicframework.com/docs/img/demos/card-media.png" },
     { name: "Slide 2", img: "https://swiperjs.com/demos/images/nature-2.jpg" },
@@ -58,7 +66,7 @@ export class HomePage {
     { img: "https://ionicframework.com/docs/img/demos/card-media.png", title: "Lorem ipsum dolor" },
   ];
 
-  constructor(private modalController: ModalController,) { }
+  constructor(private modalController: ModalController) { }
 
 
   // Modales

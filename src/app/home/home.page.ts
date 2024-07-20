@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { ModalController } from '@ionic/angular';
+import { AnimationController, ModalController } from '@ionic/angular';
 
 @Component({
   selector: 'app-home',
@@ -9,19 +9,19 @@ import { ModalController } from '@ionic/angular';
 export class HomePage {
   public isResenaModalOpen = false;
 
-/*   public slidesVideos = [
-    { name: "Video 1", video: "assets/video/1.mp4" },
-    { name: "Video 2", video: "assets/video/2.mp4" },
-    { name: "Video 3", video: "assets/video/3.mp4" },
-    { name: "Video 4", video: "assets/video/4.mp4" },
-    { name: "Video 5", video: "assets/video/5.mp4" },
-  ]; */
+  /*   public slidesVideos = [
+      { name: "Video 1", video: "assets/video/1.mp4" },
+      { name: "Video 2", video: "assets/video/2.mp4" },
+      { name: "Video 3", video: "assets/video/3.mp4" },
+      { name: "Video 4", video: "assets/video/4.mp4" },
+      { name: "Video 5", video: "assets/video/5.mp4" },
+    ]; */
 
   public slides = [
-    { name: "Slide 1", img: "https://ionicframework.com/docs/img/demos/card-media.png" },
-    { name: "Slide 2", img: "https://swiperjs.com/demos/images/nature-2.jpg" },
-    { name: "Slide 3", img: "https://ionicframework.com/docs/img/demos/card-media.png" },
-    { name: "Slide 4", img: "https://swiperjs.com/demos/images/nature-2.jpg" },
+    { name: "Slide 1", img: "assets/gif/p3.gif" },
+    { name: "Slide 2", img: "assets/gif/p4.gif" },
+/*     { name: "Slide 3", img: "assets/gif/pp.gif" },
+    { name: "Slide 4", img: "https://swiperjs.com/demos/images/nature-2.jpg" }, */
   ];
 
   public cards = [
@@ -66,10 +66,10 @@ export class HomePage {
     { img: "https://ionicframework.com/docs/img/demos/card-media.png", title: "Lorem ipsum dolor" },
   ];
 
-  constructor(private modalController: ModalController) { }
+  constructor(private modalController: ModalController, private animationCtrl: AnimationController) { }
 
 
-  // Modales
+  /* MODAL DE RESEÑA */
   async openResenaModal() {
     this.isResenaModalOpen = true;
   }
@@ -81,4 +81,30 @@ export class HomePage {
   didDismissResenaModal() {
     this.isResenaModalOpen = false;
   }
+
+  /* ANIMACIÓN DEL MODAL */
+  enterAnimation = (baseEl: HTMLElement) => {
+    const root = baseEl.shadowRoot || baseEl;
+    const backdropAnimation = this.animationCtrl
+      .create()
+      .addElement(root.querySelector('ion-backdrop') || root)
+      .fromTo('opacity', '0.01', 'var(--backdrop-opacity)');
+    const wrapperAnimation = this.animationCtrl
+      .create()
+      .addElement(root.querySelector('.modal-wrapper') || root)
+      .keyframes([
+        { offset: 0, opacity: '0', transform: 'scale(0)' },
+        { offset: 1, opacity: '0.99', transform: 'scale(1)' },
+      ]);
+    return this.animationCtrl
+      .create()
+      .addElement(baseEl)
+      .easing('ease-out')
+      .duration(500)
+      .addAnimation([backdropAnimation, wrapperAnimation]);
+  };
+  
+  leaveAnimation = (baseEl: HTMLElement) => {
+    return this.enterAnimation(baseEl).direction('reverse');
+  };
 }

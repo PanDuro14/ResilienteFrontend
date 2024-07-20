@@ -14,7 +14,7 @@ import { IonicModule } from '@ionic/angular';
 @NgModule({
   declarations: [NavbarComponent, FooterComponent, ColorbarComponent, WhatsappComponent, CitaComponent],
   imports: [CommonModule, IonicModule, RouterModule],
-  exports: [NavbarComponent, FooterComponent, ColorbarComponent, WhatsappComponent ,RouterModule]
+  exports: [NavbarComponent, FooterComponent, ColorbarComponent, WhatsappComponent, CitaComponent ,RouterModule]
 })
 
 export class SharedModule { }

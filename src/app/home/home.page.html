@@ -4,15 +4,9 @@
 
   <div id="container">
 
-<!--     <swiper-container class="img-slide" navigation="true" autoplay-delay="15000">
+    <swiper-container class="img-slide" navigation="true" autoplay-delay="13000">
       <swiper-slide *ngFor="let slide of slides">
-        <video [src]="slide.img"  autoplay controls></video>
-      </swiper-slide>
-    </swiper-container> -->
-
-    <swiper-container class="img-slide" navigation="true" autoplay-delay="2000">
-      <swiper-slide *ngFor="let slide of slides">
-        <img [src]="slide.img" [alt]="slide.name" />
+        <img [src]="slide.img">
       </swiper-slide>
     </swiper-container>
 
@@ -80,11 +74,12 @@
     </div>
 
     <!-- MODAL PARA AGREGAR UNA RESEÑA -->
-    <ion-modal [isOpen]="isResenaModalOpen" (didDismiss)="didDismissResenaModal()">
+    <ion-modal #modal [isOpen]="isResenaModalOpen" (didDismiss)="didDismissResenaModal()" [enterAnimation]="enterAnimation"
+    [leaveAnimation]="leaveAnimation">>
       <ng-template>
         <ion-header>
           <ion-toolbar>
-            <ion-title><h3>Dejanos una reseña</h3></ion-title>
+            <ion-title><h2>Déjanos una reseña</h2></ion-title>
             <ion-buttons slot="end">
               <ion-icon name="close" (click)="closeResenaModal()"></ion-icon>
             </ion-buttons>
@@ -93,7 +88,7 @@
         <ion-content>
           <form>
             <ion-item lines="none">
-              <ion-input type="text" label="Reseña" labelPlacement="floating" name="reseña" required></ion-input>
+              <ion-textarea label="Reseña" labelPlacement="floating" name="reseña" fill="outline" required></ion-textarea>
             </ion-item>
             <ion-button type="submit" class="btn btn3">Enviar</ion-button>
           </form>
@@ -114,11 +109,14 @@
         </ion-text>
       </swiper-slide>
     </swiper-container>
+    <!-- FIN DEL MODAL -->
 
     <div class="ultima-container">
       <ion-text>
         <h1>La última y nos vamos</h1>
       </ion-text>
+      <br>
+      <br>
       <div class="content">
         <div class="item" *ngFor="let item of ultimaItems">
           <img [src]="item.img" [alt]="item.title" />
@@ -131,7 +129,7 @@
         </div>
       </div>
     </div>
-    
+
     <app-colorbar></app-colorbar>
     <app-footer></app-footer>
   </div>

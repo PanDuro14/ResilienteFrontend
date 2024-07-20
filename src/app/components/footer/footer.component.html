@@ -1,25 +1,158 @@
 <div class="footer-container">
-  <br>
+  <br />
   <ion-text>
-    <h1 class="title">No olvides suscribirte</h1>
-    <br>
+    <h1>¿Te interesarían más de nosotros?</h1>
+    <h2>Suscríbete</h2>
+    <br />
   </ion-text>
   <form class="footer-form">
     <ion-item lines="none">
-      <ion-input type="text" label="NOMBRE" labelPlacement="floating" name="name" required>
+      <ion-input
+        type="text"
+        label="Nombre"
+        labelPlacement="floating"
+        name="name"
+        required
+      >
       </ion-input>
     </ion-item>
     <ion-item lines="none">
-      <ion-input type="email" label="CORREO ELECTRÓNICO" labelPlacement="floating" name="email" required>
-    </ion-input>
+      <ion-input
+        type="email"
+        label="Correo Electrónico"
+        labelPlacement="floating"
+        name="email"
+        required
+      >
+      </ion-input>
     </ion-item>
-    <ion-button type="submit" class="subscribe-button" expand="block">SUSCRIBIRME</ion-button>
+    <ion-button type="submit" class="subscribe-button" expand="block">Suscribirme</ion-button>
   </form>
-  <br>
-  <br>
+  <br />
+  <br />
   <div class="social-icons">
-    <ion-item *ngFor="let icon of icons" [href]="icon.url" target="_blank" lines="none">
+    <ion-item
+      *ngFor="let icon of icons"
+      [href]="icon.url"
+      target="_blank"
+      lines="none"
+    >
       <ion-icon [name]="icon.name"></ion-icon>
     </ion-item>
   </div>
+  <br />
+  <div class="legal-agreements">
+    <ion-text>
+      <u><a (click)="openPrivacidadModal()">Aviso de Privacidad</a></u>
+    </ion-text>
+  </div>
 </div>
+
+<!-- MODAL DE PRIVACIDAD -->
+<ion-modal
+  #modal
+  [isOpen]="isPrivacidadModalOpen"
+  (didDismiss)="didDismissPrivacidadModal()"
+  [enterAnimation]="enterAnimation"
+  [leaveAnimation]="leaveAnimation">
+  <ng-template>
+    <ion-header>
+      <ion-toolbar>
+        <ion-title>Aviso de privacidad</ion-title>
+        <ion-buttons slot="end">
+          <ion-button (click)="closePrivacidadModal()">
+            <ion-icon name="close" class="close"></ion-icon>
+          </ion-button>
+        </ion-buttons>
+      </ion-toolbar>
+    </ion-header>
+    <ion-content class="ion-padding">
+      <div class="privacy-policy">
+        <ion-text>
+          <h2>Última actualización: [21 de julio de 2024]</h2>
+          <p>
+            En RESILIENTE PSICOLOGÍA Y CONSULTORÍA declara mediante la Licenciada Yolanda Gabriela Esparza Navarro ser una persona física legalmente inscrita bajo las leyes mexicanas, con domicilio constituido en la calle Frans Hals número 106 letra B en el fraccionamiento Santa Anita II Sección en el estado de Aguascalientes, Aguascalientes. México. Y como responsable del tratamiento de sus datos personales, donde valoramos y respetamos la privacidad de nuestros clientes y usuarios. Esta Política de Privacidad describe cómo recopilamos, usamos, compartimos y protegemos su información personal cuando visita nuestro sitio web y utiliza nuestros servicios de terapia psicológica, talleres y cursos de capacitación, orientación vocacional, y demás servicios ofrecidos. Nos comprometemos a cumplir con las leyes y regulaciones aplicables en México y a nivel internacional sobre la protección de datos personales, incluyendo la Ley Federal de Protección de Datos Personales en Posesión de los Particulares (LFPDPPP, https://www.diputados.gob.mx/LeyesBiblio/pdf/LFPDPPP.pdf) y el Reglamento General de Protección de Datos (GDPR, https://europa.eu/youreurope/business/dealing-with-customers/data-protection/data-protection-gdpr/index_es.htm) de la Unión Europea. Así como también de acuerdo a la legislación aplicable y vigente en el país, por ello le informamos que usted tiene en todo momento los derechos (ARCO) de acceder, rectificar, cancelar u oponerse al tratamiento que le damos a sus datos personales.
+          </p>
+          <h3>1. Información que Recopilamos</h3>
+          <p>
+            <strong>1.1 Información Personal:</strong> <br> Recopilamos información personal que usted nos proporciona directamente al registrarse en nuestro sitio web, reservar sesiones de terapia, inscribirse en talleres y cursos, o solicitar orientación vocacional. Esta información puede incluir:
+          </p>
+          <ul>
+            <li>Nombre completo</li>
+            <li>Dirección de correo electrónico</li>
+            <li>Número de teléfono</li>
+            <li>Dirección postal</li>
+            <li>Fecha de nacimiento</li>
+            <li>Información de pago (tarjeta de crédito/débito)</li>
+            <li>Datos relevantes para la prestación de servicios terapéuticos y de capacitación</li>
+            <li>Área o lugar de trabajo</li>
+          </ul>
+          <p>
+            <strong>1.2 Información Recopilada Automáticamente:</strong> <br> Recopilamos información automáticamente a través de tecnologías como cookies y registros del servidor cuando usted visita nuestro sitio web. Esta información puede incluir:
+          </p>
+          <ul>
+            <li>Dirección IP</li>
+            <li>Tipo de navegador</li>
+            <li>Páginas visitadas</li>
+            <li>Tiempo de permanencia en el sitio</li>
+            <li>Información de dispositivos</li>
+          </ul>
+          <h3>2. Uso de la Información</h3>
+          <p>
+            Utilizamos su información personal para:
+          </p>
+          <ul>
+            <li>Proveer y mejorar nuestros servicios de terapia psicológica, talleres, cursos de capacitación y orientación vocacional.</li>
+            <li>Actualizar nuestra base de datos</li>
+            <li>Procesar y gestionar sus reservas y pagos.</li>
+            <li>Comunicarnos con usted, incluyendo el envío de confirmaciones, recordatorios y notificaciones relacionadas con nuestros servicios.</li>
+            <li>Personalizar su experiencia en nuestro sitio web.</li>
+            <li>Cumplir con obligaciones legales y normativas.</li>
+          </ul>
+          <h3>3. Compartición de la Información</h3>
+          <p>
+            No compartimos su información personal con terceros, excepto en los siguientes casos:
+          </p>
+          <ul>
+            <li>Proveedores de Servicios: Podemos compartir su información con proveedores de servicios que nos ayudan a operar nuestro sitio web y prestar nuestros servicios, como procesadores de pagos y servicios de alojamiento web.</li>
+            <li>Cumplimiento Legal: Podemos divulgar su información para cumplir con leyes, regulaciones, procesos legales o solicitudes gubernamentales aplicables.</li>
+            <li>Protección de Derechos: Podemos divulgar su información para proteger nuestros derechos, propiedad o seguridad, así como los de nuestros usuarios y el público en general.</li>
+          </ul>
+          <h3>4. Seguridad de la Información</h3>
+          <p>
+            Implementamos medidas de seguridad administrativas, técnicas y físicas para proteger su información personal contra acceso no autorizado, pérdida, uso indebido o alteración. Sin embargo, ninguna transmisión de datos por Internet o sistema de almacenamiento es completamente segura, por lo que no podemos garantizar la seguridad absoluta de su información.
+          </p>
+          <h3>5. Sus Derechos</h3>
+          <p>
+            Usted tiene derechos sobre su información personal, incluyendo:
+          </p>
+          <ul>
+            <li>Acceso: Puede solicitar acceso a la información personal que tenemos sobre usted.</li>
+            <li>Rectificación: Puede solicitar la corrección de información personal incorrecta o incompleta.</li>
+            <li>Cancelación: Puede solicitar la eliminación de su información personal, sujeto a ciertas excepciones.</li>
+            <li>Oposición: Puede oponerse al procesamiento de su información personal bajo ciertas circunstancias.</li>
+          </ul>
+          <p>
+            Para ejercer estos derechos, por favor contáctenos a: <a href="mailto:servicios@resilientepsicologiayconsultoria.com">servicios&#64;resilientepsicologiayconsultoria.com</a>
+          </p>
+          <h3>6. Cambios a Esta Política de Privacidad</h3>
+          <p>
+            Podemos actualizar esta Política de Privacidad periódicamente para reflejar cambios en nuestras prácticas o en la legislación aplicable. Publicaremos cualquier cambio en esta página y actualizaremos la fecha de "Última actualización" en la parte superior de esta política. Le recomendamos revisar esta política regularmente para estar informado sobre cómo protegemos su información personal.
+          </p>
+          <h3>7. Contacto</h3>
+          <p>
+            Si tiene preguntas o inquietudes sobre esta Política de Privacidad o nuestras prácticas de manejo de información, por favor contáctenos a:
+            <br />
+            <strong>RESILIENTE PSICOLOGÍA Y CONSULTORÍA</strong>
+            <br />
+            FRANS HALS 106-B SANTA ANITA II SECCIÓN
+            <br />
+            TEL: 449 463 80 88
+            <br />
+            EMAIL: <a href="mailto:servicios@resilientepsicologiayconsultoria.com">servicios&#64;resilientepsicologiayconsultoria.com</a>
+          </p>
+        </ion-text>
+      </div>
+    </ion-content>
+  </ng-template>
+</ion-modal>

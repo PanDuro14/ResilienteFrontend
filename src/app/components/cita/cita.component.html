@@ -1,3 +1,66 @@
-<p>
-  cita works!
-</p>
+<div class="floating-button">
+  <ion-button (click)="openCitaModal()">Agenda tu cita</ion-button>
+</div>
+
+<!-- MODAL DE CITA -->
+<ion-modal #modal [isOpen]="isCitaModalOpen" (didDismiss)="didDismissCitaModal()" [enterAnimation]="enterAnimation"
+[leaveAnimation]="leaveAnimation">
+  <ng-template>
+    <ion-header>
+      <ion-toolbar>
+        <ion-title>Agenda tu cita</ion-title>
+        <ion-buttons slot="end">  
+          <ion-icon class="close" name="close" (click)="closeCitaModal()"></ion-icon>
+        </ion-buttons>
+      </ion-toolbar>
+    </ion-header>
+    <ion-content class="ion-padding">
+      <p>Completa el formulario para agendar tu cita.</p>
+      <form action="" class="formulario-cita">
+        <div class="form-group">
+          <ion-item lines="none">
+            <ion-input label="Nombre de usuario" label-placement="floating" fill="outline" placeholder="Ingresa tu nombre de usuario"></ion-input>
+          </ion-item>
+          <ion-item lines="none">
+            <ion-input type="text" label="Nombre completo" label-placement="floating" fill="outline" placeholder="Ingresa tu nombre"></ion-input>
+          </ion-item>
+        </div>
+        <div class="form-group">
+          <ion-item lines="none">
+            <ion-input type="email" label="Correo electrónico" label-placement="floating" fill="outline" placeholder="Ingresa tu correo"></ion-input>
+          </ion-item>
+          <ion-item lines="none">
+            <ion-input type="number" label="Número de teléfono" label-placement="floating" fill="outline" placeholder="Ingresa tu teléfono"></ion-input>
+          </ion-item>
+        </div>
+        <div class="form-group">
+          <ion-item>
+            <ion-select formControlName="tipoCita" placeholder="Tipo de cita" interface="popover" fill="outline" required>
+              <ion-select-option disabled>Servicios de Psicología</ion-select-option>
+              <ion-select-option *ngFor="let psic of serviciosPsicologia">{{ psic.tipo }}</ion-select-option>
+              <ion-select-option disabled>Servicios de Consultoría</ion-select-option>
+              <ion-select-option *ngFor="let const of serviciosConsultoria">{{ const.tipo }}</ion-select-option>
+            </ion-select>
+          </ion-item>
+          <ion-item>
+            <ion-input type="date" label="Selecciona una fecha" label-placement="floating" fill="outline"></ion-input>
+          </ion-item>
+        </div>
+        <div class="form-group">
+          <ion-item>
+            <ion-input type="time" label="Selecciona una hora" label-placement="floating" fill="outline"></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-select formControlName="psicologo" placeholder="Psicólogo" interface="popover" fill="outline" required>
+              <ion-select-option *ngFor="let psicologo of psicologos">{{ psicologo.nombre }}</ion-select-option>
+            </ion-select>
+          </ion-item>
+        </div>
+        <ion-item lines="none">
+          <ion-textarea style="height: 100px;" label="Cuéntanos sobre ti" label-placement="floating" fill="outline" placeholder="Escribe un poco sobre ti"></ion-textarea>
+        </ion-item>
+        <ion-button expand="block" class="submit-button">Reservar cita</ion-button>
+      </form>
+    </ion-content>
+  </ng-template>
+</ion-modal>

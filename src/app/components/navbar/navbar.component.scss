@@ -15,6 +15,7 @@
 
 .logo {
     margin-left: 30px;
+    cursor: pointer;
 }
 
 .logo-image {
@@ -70,9 +71,12 @@ ion-item {
 /* MODAL DE LOGIN */
 ion-modal {
     --border-radius: 30px;
-    --width: 50%;
+/*     --width: 50%; */
     --height: auto;
+    --background: white;
 }
+
+
 
 .container {
     background-color: transparent;
@@ -86,6 +90,7 @@ ion-modal {
 }
 
 .container p {
+    color: black;
     font-size: 14px;
     line-height: 20px;
     letter-spacing: 0.3px;
@@ -93,6 +98,7 @@ ion-modal {
 }
 
 .container span {
+    color: black;
     font-size: 12px;
 }
 
@@ -132,7 +138,21 @@ ion-modal {
     height: 100%;
 }
 
+h1 {
+    color: black;
+}
+
+.toggle-container {
+
+    h1,
+    p {
+        color: white;
+    }
+
+}
+
 .container ion-input {
+    color: black;
     background-color: #eee;
     border: none;
     margin: 8px 0;
@@ -426,6 +446,7 @@ nav {
         cursor: pointer;
         background: transparent;
         border: 2px solid #0965BA;
+        background-color: transparent;
         width: 2.25rem;
         height: 2.25rem;
         border-radius: 50%;

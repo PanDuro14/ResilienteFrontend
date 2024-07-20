@@ -91,14 +91,12 @@ ion-input {
 .img-slide {
   background-color: #DFDFE2;
   width: 100vw;
-  height: 300px;
+  height: 500px;
   margin-left: calc(-50vw + 50%);
   margin-top: 36px;
 }
 
 swiper-container {
-  width: 100%;
-  height: 100%;
   --swiper-navigation-color: #0965ba;
   --swiper-pagination-color: #0965ba;
 }
@@ -113,7 +111,13 @@ swiper-slide {
 swiper-slide img {
   width: 100%;
   height: 100%;
-  object-fit: contain;
+  object-fit: cover;
+}
+
+swiper-slide video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
 .introduccion-container {
@@ -321,9 +325,8 @@ ion-card {
 }
 
 ion-modal {
-  --width: 50%;
-  --height: 30.9%;
   --border-radius: 16px;
+
 
   ion-icon {
     font-size: 34px;
@@ -354,6 +357,44 @@ ion-modal {
     justify-content: center;
     align-items: center;
     /* margin-right: 30PX; */
+  }
+
+  ion-item {
+    --background: white;
+    border-radius: 15px;
+    margin: 0 5px;
+    --color: black;
+    /*  width: auto;*/
+    height: auto;
+    margin-top: 20px;
+  }
+
+  ion-textarea {
+    text-align: center;
+    font-size: 14px;
+    font-weight: 400;
+    color: black;
+    height: 100%;
+    margin-top: 20px;
+    height: 200px;
+  }
+
+  /* scroll */
+  ion-content::part(scroll) {
+    scrollbar-color: #B09BE6 #f1f1f1;
+  }
+
+  ion-content::part(scroll)::-webkit-scrollbar {
+    width: 8px;
+  }
+
+  ion-content::part(scroll)::-webkit-scrollbar-thumb {
+    background-color: #B09BE6;
+    border-radius: 4px;
+  }
+
+  ion-content::part(scroll)::-webkit-scrollbar-track {
+    background-color: #f1f1f1;
   }
 }
 
@@ -401,6 +442,16 @@ ion-modal {
       }
     }
   }
+}
+
+.videos-container {
+  background-color: #62B0B0;
+  height: 500px;
+}
+
+.videos-container video {
+  width: 100%;
+  height: 100%;
 }
 
 
@@ -521,12 +572,5 @@ ion-modal {
     }
   }
 
-  ion-modal {
-    --width: 90%;
-    --height: 20.9%;
-    /* 
-    ion-item {
-      height: 10px;
-    } */
-  }
+
 }

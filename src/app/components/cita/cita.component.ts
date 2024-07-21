@@ -30,8 +30,8 @@ export class CitaComponent implements OnInit {
     {nombre: "Yolanda Esparza"},
     {nombre: "Andrea Zaragoza"},
     {nombre: "Mariana Hernandez"},
-    {nombre: "Mariana Lopez"},
-    {nombre: "Judith Yañez"},
+    {nombre: "Daniela Macias"},
+    {nombre: "Victoria Díaz"},
 
   ];
 

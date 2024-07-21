@@ -9,19 +9,10 @@ import { AnimationController, ModalController } from '@ionic/angular';
 export class HomePage {
   public isResenaModalOpen = false;
 
-  /*   public slidesVideos = [
-      { name: "Video 1", video: "assets/video/1.mp4" },
-      { name: "Video 2", video: "assets/video/2.mp4" },
-      { name: "Video 3", video: "assets/video/3.mp4" },
-      { name: "Video 4", video: "assets/video/4.mp4" },
-      { name: "Video 5", video: "assets/video/5.mp4" },
-    ]; */
 
   public slides = [
-    { name: "Slide 1", img: "assets/gif/p3.gif" },
-    { name: "Slide 2", img: "assets/gif/p4.gif" },
-/*     { name: "Slide 3", img: "assets/gif/pp.gif" },
-    { name: "Slide 4", img: "https://swiperjs.com/demos/images/nature-2.jpg" }, */
+    { name: "Slide 1", img: "assets/gif/gif1.gif" },
+    { name: "Slide 2", img: "assets/gif/gif2.gif" },
   ];
 
   public cards = [

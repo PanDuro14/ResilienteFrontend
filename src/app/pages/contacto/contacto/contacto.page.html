@@ -4,26 +4,31 @@
 
   <div id="container">
 
-    <div class="telefonos-container">
-      <div class="image-section">
-        <div class="image-content">
-          <img src="https://ionicframework.com/docs/img/demos/card-media.png" alt="Image"/>
-        </div>
-      </div>
+    <div class="telefonos-container" style="margin-bottom: 10px;">
       <div class="text-section">
         <ion-text>
           <h1>Nuestros Teléfonos</h1>
           <div class="divider"></div>
           <ul>
             <li *ngFor="let tel of numeros">
-              <ion-icon src="assets/icon/tel.svg"></ion-icon > {{ tel.numero }}
+              <ion-icon src="assets/icon/contacto/tel.svg"></ion-icon > {{ tel.numero }}
             </li>
           </ul>
         </ion-text>
       </div>
+      <div class="image-section">
+        <div class="image-content">
+          <img src="https://ionicframework.com/docs/img/demos/card-media.png" alt="Image"/>
+        </div>
+      </div>
     </div>
 
-    <div class="redes-container">
+    <div class="redes-container" >
+      <div class="image-section">
+        <div class="image-content">
+          <img src="https://ionicframework.com/docs/img/demos/card-media.png" alt="Image"/>
+        </div>
+      </div>
       <div class="text-section">
         <ion-text>
           <h1>Nuestras Redes</h1>
@@ -37,48 +42,43 @@
           </ul>
         </ion-text>
       </div>
-      <div class="image-section">
-        <div class="image-content">
-          <img src="https://ionicframework.com/docs/img/demos/card-media.png" alt="Image"/>
-        </div>
-      </div>
     </div>
 
-    <div class="encuentranos-container" style="margin-top: 10px;">
-      <div class="image-section">
-        <div class="image-content">
-          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3702.026183067739!2d-102.2747069!3d21.8950675!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8429ef364c91e045%3A0x20fc509fc6063c0e!2sResiliente%20Psicolog%C3%ADa%20y%20Consultor%C3%ADa!5e0!3m2!1ses-419!2smx!4v1720636107263!5m2!1ses-419!2smx"  allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
-        </div>
-      </div>
+    <div class="encuentranos-container" style="margin-bottom: 10px;">
       <div class="text-section">
         <ion-text>
           <h1>Nuestra Dirección</h1>
           <div class="divider"></div>
           <p>
-            <ion-icon src="assets/icon/marcador.svg"></ion-icon>
+            <ion-icon src="assets/icon/contacto/marcador.svg"></ion-icon>
             Frans Hals 106 B Fraccionamiento Santa Anita, 
             Segunda Sección, 20169 Aguascalientes, Ags.
           </p>
         </ion-text>
       </div>
+      <div class="image-section">
+        <div class="image-content">
+          <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3702.026183067739!2d-102.2747069!3d21.8950675!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8429ef364c91e045%3A0x20fc509fc6063c0e!2sResiliente%20Psicolog%C3%ADa%20y%20Consultor%C3%ADa!5e0!3m2!1ses-419!2smx!4v1720636107263!5m2!1ses-419!2smx"  allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+      </div>
     </div>
 
-    <div class="correos-container" style="margin-bottom: 10px;">
+    <div class="correos-container">
+      <div class="image-section">
+        <div class="image-content">
+          <img src="https://ionicframework.com/docs/img/demos/card-media.png" alt="Image"/>
+        </div>
+      </div>
       <div class="text-section">
         <ion-text>
           <h1>Nuestros Correos</h1>
           <div class="divider"></div>
           <ul>
             <li *ngFor ="let correo of correos">
-              <ion-icon src="assets/icon/sobre.svg"></ion-icon> {{ correo.mail }}
+              <ion-icon src="assets/icon/contacto/sobre.svg"></ion-icon> {{ correo.mail }}
             </li>
           </ul>
         </ion-text>
-      </div>
-      <div class="image-section">
-        <div class="image-content">
-          <img src="https://ionicframework.com/docs/img/demos/card-media.png" alt="Image"/>
-        </div>
       </div>
     </div>
 

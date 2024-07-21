@@ -17,12 +17,44 @@ export class NosotrosPage implements OnInit {
   ];
   
   public psicologos = [
-    { nombre: "Yolanda Esparza", img: "https://ionicframework.com/docs/img/demos/card-media.png", descripcion: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.", especialidad: "Lorem Ipsum E", cedula: "Lorem Ipsum C" },
-    { nombre: "Andrea Zaragoza", img: "assets/img/equipo/psic2.jpg", descripcion: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.", especialidad: "Lorem Ipsum E", cedula: "Lorem Ipsum C" },
-    { nombre: "Mariana Hernandez", img: "assets/img/equipo/psic3.jpg", descripcion: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.", especialidad: "Lorem Ipsum E", cedula: "Lorem Ipsum C" },
-    { nombre: "Mariana López", img: "https://ionicframework.com/docs/img/demos/card-media.png", descripcion: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.", especialidad: "Lorem Ipsum E", cedula: "Lorem Ipsum C" },
-    { nombre: "Judith Yañez", img: "https://ionicframework.com/docs/img/demos/card-media.png", descripcion: "Lorem ipsum dolor sit amet, consectetur adipiscing elit.", especialidad: "Lorem Ipsum E", cedula: "Lorem Ipsum C" },
+    {
+      nombre: "Yolanda Esparza",
+      img: "assets/img/equipo/psic1.jpg",
+      descripcion: "Psicóloga y educadora especializada en tutoría, con experiencia en orientación educativa y apoyo psicológico en instituciones educativas.",
+      especialidad: "Lic. en Psicología, Maestría en Educación con Orientación en Tutoría",
+      cedula: "4403100, 13173822"
+    },
+    {
+      nombre: "Andrea Zaragoza",
+      img: "assets/img/equipo/psic2.jpg",
+      descripcion: "Especialista en TDC, tratamiento de conductas suicidas, primeros auxilios psicológicos y trastornos del ánimo. Ofrece terapias efectivas y personalizadas en un entorno terapéutico seguro.",
+      especialidad: "Lic. en Psicología",
+      cedula: "13802594"
+    },
+    {
+      nombre: "Mariana Hernandez",
+      img: "assets/img/equipo/psic3.jpg",
+      descripcion: "Psicóloga especializada en Psicoterapia Infantil, intervención en duelo y sexualidad infantil. Comprometida con el bienestar emocional y mental de los niños.",
+      especialidad: "",
+      cedula: ""
+    },
+    {
+      nombre: "Daniela Macias",
+      img: "https://ionicframework.com/docs/img/demos/card-media.png",
+      descripcion: "Psicoterapeuta con enfoque integral, especializada en adicciones, psicoeducación y terapia de lenguaje. Diplomada en psicoterapia cognitivo-conductual.",
+      especialidad: "Lic. en Psicología",
+      cedula: "13778915"
+    },
+    {
+      nombre: "Victoria Díaz",
+      img: "https://ionicframework.com/docs/img/demos/card-media.png",
+      descripcion: "Psicóloga especializada en terapia infantil, dedicada a mejorar el bienestar emocional y mental de los niños.",
+      especialidad: "Lic. en Psicología",
+      cedula: "09947667"
+    }
   ];
+  
+  
   constructor() { }
 
   ngOnInit() {

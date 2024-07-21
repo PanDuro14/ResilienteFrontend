@@ -8,7 +8,9 @@
       <ion-button *ngFor="let nav of navbar" fill="clear" [routerLink]="nav.link" lines="none" class="nav-link">
         {{ nav.label }}
       </ion-button>
-      <ion-button fill="clear" (click)="openLoginModal()">Login</ion-button>
+      <ion-button fill="clear" (click)="openLoginModal()">
+        <ion-icon slot="icon-only" src="assets/icon/navBar/fill/usuario.svg" ></ion-icon>
+      </ion-button>
     </div>
     <div class="divider"></div>
 
@@ -24,7 +26,7 @@
 <nav class="sidebar" [ngClass]="{ 'open': sidebarOpen, 'hidden': !sidebarOpen }">
   <div class="sidebar-top">
     <a routerLink="/home" class="logo__wrapper">
-      <img src="assets/icon/resiliente-icon.png" alt="Resiliente Logo" class="logo" />
+      <img src="assets/icon/resi/resiliente-icon.png" alt="Resiliente Logo" class="logo" />
       <span class="company-name">Resiliente</span>
     </a>
   </div>
@@ -56,7 +58,8 @@
 </nav>
 
 <!-- MODAL LOGIN -->
-<ion-modal [isOpen]="isLoginModalOpen" (didDismiss)="didDismissLoginModal()">
+<ion-modal #modal [isOpen]="isLoginModalOpen" (didDismiss)="didDismissLoginModal()" [enterAnimation]="enterAnimation"
+[leaveAnimation]="leaveAnimation">>
   <ng-template>
     <div class="container" [ngClass]="{'active': isSignUpMode}" id="container">
       <div class="form-container sign-up">

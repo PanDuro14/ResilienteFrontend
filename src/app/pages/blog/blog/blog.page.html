@@ -1,0 +1,72 @@
+<ion-content [fullscreen]="true">
+  <app-colorbar></app-colorbar>
+  <app-navbar></app-navbar>
+
+  <div class="container">
+
+    <!-- BLOG -->
+    <div class="blog-container">
+      <div class="image-section">
+        <div class="image-content">
+          <img src="https://ionicframework.com/docs/img/demos/card-media.png" alt="Image" />
+        </div>
+      </div>
+      <div class="text-section">
+        <ion-text>
+          <h1>Bienvenidos a nuestro Blog</h1>
+          <div class="divider"></div>
+          <p>
+            En nuestro blog encontrarás una variedad de artículos escritos por expertos en psicología y consultoría.
+            Abordamos temas actuales, proporcionamos consejos prácticos y compartimos experiencias para ayudarte a 
+            mejorar tu bienestar emocional y tu desarrollo personal. Queremos que este espacio sea una fuente de 
+            inspiración y apoyo en tu camino hacia una vida más plena y equilibrada.
+          </p>
+        </ion-text>
+      </div>
+    </div>
+
+    <div class="top">
+      <ion-button fill="clear" (click)="openAgBlogModal()">
+        <ion-icon src="assets/icon/agregar.svg" class="add"></ion-icon> <!-- Agregar -->
+      </ion-button>
+      <ion-searchbar show-clear-button="focus" placeholder="Buscar"></ion-searchbar>
+    </div>
+
+    <ion-grid>
+      <ion-row>
+        <ion-col size="12" size-md="4" *ngFor="let blog of blogs">
+          <ion-card>
+            <img [src]="blog.img" [alt]="blog.tema"/>
+            <ion-card-header>
+              <ion-card-title>{{ blog.tema }}</ion-card-title>
+              <ion-card-subtitle>{{ blog.fecha }}</ion-card-subtitle>
+            </ion-card-header>
+          </ion-card>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+    
+
+    <app-colorbar></app-colorbar>
+    <app-footer></app-footer>
+  </div>
+</ion-content>
+
+
+<!-- MODAL AGREGAR BLOG -->
+<ion-modal #modal [isOpen]="isAgBlogModalOpen" (didDismiss)="didDismissAgBlogModal()" [enterAnimation]="enterAnimation"
+[leaveAnimation]="leaveAnimation">>
+  <ng-template>
+    <ion-header>
+      <ion-toolbar>
+        <ion-title>Agrega un Blog</ion-title>
+        <ion-buttons slot="end">
+          <ion-icon name="close" class="close" (click)="closeAgBlogModal()"></ion-icon>
+        </ion-buttons>
+      </ion-toolbar>
+    </ion-header>
+    <ion-content>
+      <p>Hola, Bienvenidos!!!!</p>
+    </ion-content>
+  </ng-template>
+</ion-modal>

@@ -50,7 +50,7 @@
         <p>
           En Resiliente, ofrecemos una variedad de cursos y talleres destinados a fortalecer las habilidades y conocimientos de los profesionales. Nuestros programas están diseñados para ser prácticos y aplicables, ayudando a las personas a alcanzar sus metas personales y profesionales. Este servicio está disponible en línea y presencial.
           <br>
-          <a href="">Conoce más</a>
+          <u><a (click)="openCursosModal()">Conoce más</a></u>
         </p>
       </ion-text>
     </div>
@@ -88,3 +88,40 @@
     <app-footer></app-footer>
   </div>
 </ion-content>
+
+
+<!-- MODAL DE CURSOS -->
+<ion-modal #modal [isOpen]="isCursosModalOpen" (didDismiss)="didDismissCursosModal()" [enterAnimation]="enterAnimation"
+[leaveAnimation]="leaveAnimation">>
+  <ng-template>
+    <ion-header>
+      <ion-toolbar>
+        <ion-title>Nuestros Cursos y Talleres</ion-title>
+        <ion-buttons slot="end">
+          <ion-icon name="close" class="close" (click)="closeCursosModal()"></ion-icon>
+        </ion-buttons>
+      </ion-toolbar>
+    </ion-header>
+    <ion-content>
+          <!-- PSICÓLOGOS -->
+    <div class="cursos-container">
+      <div class="card" *ngFor="let curso of cursos">
+        <div class="face front">
+          <img [src]="curso.img" [alt]="curso.titulo" />
+          <h3>{{ curso.titulo }}</h3>
+        </div>
+        <div class="face back">
+          <h3>{{ curso.titulo }}</h3> <!-- TOP -->
+          <div class="divider"></div>
+          <p> {{ curso.desc }}</p>
+          <div class="divider"></div>
+          <div class="link">
+            <a href="assets/pdf/portafolioServicios.pdf" target="_blank">Detalles</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- FIN PSICÓLOGOS -->
+    </ion-content>
+  </ng-template>
+</ion-modal>

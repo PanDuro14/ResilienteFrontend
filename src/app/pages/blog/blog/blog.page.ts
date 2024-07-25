@@ -22,7 +22,7 @@ export class BlogPage implements OnInit {
   ngOnInit() {
   }
 
-    /* MODAL DE RESEÑA */
+    /* MODAL DE BLOG */
     async openAgBlogModal() {
       this.isAgBlogModalOpen = true;
     }

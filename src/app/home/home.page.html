@@ -23,7 +23,7 @@
     </div>
 
     <div class="card-container">
-      <ion-card *ngFor="let card of cards" [ngClass]="card.class">
+      <ion-card *ngFor="let card of cards" [ngClass]="card.class" [routerLink]="card.link">
         <ion-card-content>{{ card.titulo }}</ion-card-content>
       </ion-card>
     </div>

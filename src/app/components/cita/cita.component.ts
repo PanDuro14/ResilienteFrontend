@@ -9,6 +9,8 @@ import { AnimationController, ModalController } from '@ionic/angular';
 export class CitaComponent implements OnInit {
 
   public isCitaModalOpen = false;
+  public isCitaMode = false;
+
 
   public serviciosPsicologia = [
     {tipo: "Atención para niños"},
@@ -51,6 +53,14 @@ export class CitaComponent implements OnInit {
 
   didDismissCitaModal() {
     this.isCitaModalOpen = false;
+  }
+
+  showCitaForm() {
+    this.isCitaMode = true;
+  }
+  
+  showPersonalesForm() {
+    this.isCitaMode = false;
   }
 
   /* ANIMACIÓN DEL MODAL */

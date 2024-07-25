@@ -55,6 +55,49 @@
     margin-right: 10px;
 }
 
+ion-popover {
+    --background: white;
+    --box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+ion-popover::part(content) {
+    border-radius: 10px;
+}
+
+ion-popover ion-content {
+    --background: #EEFBF3;
+    --color: var(--ion-color-primary);
+}
+
+ion-popover ion-content ion-list {
+    background-color: transparent;
+    margin: 0;
+    padding: 0;
+}
+
+ion-popover ion-content ion-list ion-item {
+    --background: #EEFBF3;
+    --color: var(--ion-color-primary);
+    --padding-start: 16px;
+    --padding-end: 16px;
+    --min-height: 48px;
+    --border-color: transparent;
+    --border-width: 0;
+    --inner-border-width: 0;
+    margin-bottom: 8px;
+    border-radius: 8px;
+    transition: all 0.2s ease-in-out;
+}
+
+ion-popover ion-content ion-list ion-item:last-child {
+    margin-bottom: 0;
+}
+
+ion-popover ion-content ion-list ion-item:hover {
+    --background: var(--ion-color-primary);
+    --color: #ffffff;
+}
+
 ion-item {
     display: flex;
     align-items: center;
@@ -451,7 +494,7 @@ nav {
         height: 2.25rem;
         border-radius: 50%;
         margin: 1rem;
-        margin-left: 18.5rem;
+        margin-left: 17.5rem;
     }
 
     .expand-btn ion-icon {

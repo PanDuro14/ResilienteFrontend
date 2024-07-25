@@ -136,7 +136,7 @@ swiper-slide video {
 
 .card-container {
   display: flex;
-  justify-content: space-around;
+  justify-content: space-around; // CAMBIAR A CENTER Y PONER GAP DE 200PX
   margin-top: 50px;
 }
 
@@ -150,6 +150,7 @@ ion-card {
   border-radius: 20px;
   position: relative;
   overflow: hidden;
+  cursor: pointer;
 
   ion-card-content {
     color: white;
@@ -182,11 +183,11 @@ ion-card {
   }
 }
 
-.card-terapia {
+.card-psicologia {
   background-color: #8c4ef8;
 }
 
-.card-congresos {
+.card-blogs {
   background-color: #a5a5a5;
 }
 

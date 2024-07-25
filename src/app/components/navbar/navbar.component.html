@@ -1,19 +1,34 @@
-<!-- DESKTOP -->
+<!-- NAVBAR -->
 <div class="navbar">
   <div class="logo">
-    <img src="assets/img/resiliente-logo.png" alt="Resiliente" class="logo-image" routerLink="/home" />
+    <img src="assets/img/logo2.png" alt="Resiliente" class="logo-image" routerLink="/home" />
   </div>
   <div class="right-section">
     <div class="nav-links">
-      <ion-button *ngFor="let nav of navbar" fill="clear" [routerLink]="nav.link" lines="none" class="nav-link">
-        {{ nav.label }}
-      </ion-button>
-      <ion-button fill="clear" (click)="openLoginModal()">
-        <ion-icon slot="icon-only" src="assets/icon/navBar/fill/usuario.svg" ></ion-icon>
-      </ion-button>
+      <ng-container *ngFor="let nav of navbar">
+        <ion-button *ngIf="nav.label !== 'Servicios'" fill="clear" [routerLink]="nav.link" lines="none" class="nav-link">
+          {{ nav.label }}
+        </ion-button>
+        <ion-button *ngIf="nav.label === 'Servicios'" fill="clear" (click)="presentPopover($event)" class="nav-link">
+          {{ nav.label }}
+          <ion-icon name="caret-down-outline"></ion-icon>
+        </ion-button>
+      </ng-container>
+      <div *ngIf="!userData && !userSesion">
+        <ion-button fill="clear" (click)="openLoginModal()">
+          <ion-icon slot="icon-only" src="assets/icon/navBar/fill/usuario.svg"></ion-icon>
+        </ion-button>
+      </div>
+      <div *ngIf="userData || userSesion">
+        <ion-avatar>
+          <ion-button fill="clear" (click)="logout()"></ion-button>
+          <img class="avatar" src="https://pbs.twimg.com/media/FxQnEEoXoAAAmHE.jpg" alt="User Avatar" />
+          
+        </ion-avatar>
+      </div>      
     </div>
     <div class="divider"></div>
-
+    
     <div class="social-icons">
       <ion-item *ngFor="let red of redes" [href]="red.url" target="_blank" lines="none">
         <ion-icon [name]="red.name" class="icon-menu"></ion-icon>
@@ -21,7 +36,10 @@
     </div>
   </div>
 </div>
+<!-- FIN NAVBAR -->
 
+
+<!-- SIDEBAR -->
 <!-- MÓVIL -->
 <nav class="sidebar" [ngClass]="{ 'open': sidebarOpen, 'hidden': !sidebarOpen }">
   <div class="sidebar-top">
@@ -37,25 +55,71 @@
   <div class="sidebar-links">
     <ul>
       <li *ngFor="let item of sidebar">
-        <a [routerLink]="item.link" [title]="item.label">
+        <a *ngIf="item.label !== 'Servicios'" [routerLink]="item.link" [title]="item.label">
           <ion-icon [src]="item.icon"></ion-icon>
           <span class="link">{{ item.label }}</span>
+        </a>
+        <a *ngIf="item.label === 'Servicios'" (click)="presentPopover($event)" [title]="item.label">
+          <ion-icon [src]="item.icon"></ion-icon>
+          <span class="link">{{ item.label }}</span>
+          <ion-icon name="caret-down-outline"></ion-icon>
         </a>
       </li>
     </ul>
   </div>
-  <div class="sidebar__profile">
-    <ion-avatar>
-      <img class="avatar" src="https://pbs.twimg.com/media/FxQnEEoXoAAAmHE.jpg" alt="User Avatar" />
-      <div class="online__status"></div>
-    </ion-avatar>
-    <div class="avatar__name">
-      <div class="user-name">User Name</div>
-      <div class="email">userexample.com</div>
+  <div *ngIf="!userData && !userSesion">
+    <div class="sidebar__profile">
+      <ion-avatar>
+        <img class="avatar" src="https://pbs.twimg.com/media/FxQnEEoXoAAAmHE.jpg" alt="User Avatar" />
+        <div class="online__status"></div>
+      </ion-avatar>
+      <div class="avatar__name">
+        <div class="user-name"> Inicia sesión :D </div>
+        <div class="email">userexample.com</div>
+      </div>
+      <ion-icon name="log-in-outline" class="logout" (click)="openLoginModal()"></ion-icon>
     </div>
-    <ion-icon name="log-in-outline" class="logout" (click)="openLoginModal()"></ion-icon>
   </div>
+  <div *ngIf="userData || userSesion">
+    <div class="sidebar__profile">
+      <ion-avatar>
+        <img class="avatar" src="https://pbs.twimg.com/media/FxQnEEoXoAAAmHE.jpg" alt="User Avatar" />
+        <div class="online__status"></div>
+      </ion-avatar>
+      <div *ngIf="userData && !userSesion">
+        <div class="avatar__name">
+          <div class="user-name">User Data name (prub)</div>
+          <div class="email">userData.com</div>
+        </div>
+      </div>
+      <div *ngIf="!userData && userSesion">
+        <div class="avatar__name">
+          <div class="user-name">User Sesion name (prub)</div>
+          <div class="email">userSesion.com</div>
+        </div>
+      </div>
+      
+      <ion-icon name="log-in-outline" class="logout" (click)="logout()"></ion-icon>
+    </div>
+
+  </div>
+  
 </nav>
+<!-- FIN SIDEBAR -->
+
+
+<!-- POPOVER DE SERVICIOS -->
+<ion-popover #serviciosPopover [dismissOnSelect]="true">
+  <ng-template>
+    <ion-content>
+      <ion-list>
+        <ion-item button detail="false" lines="none" routerLink="/psicologia" (click)="closePopover()">Psicología</ion-item>
+        <ion-item button detail="false" lines="none" routerLink="/consultoria" (click)="closePopover()">Consultoría</ion-item>
+      </ion-list>
+    </ion-content>
+  </ng-template>
+</ion-popover>
+<!-- FIN POPOVER DE SERVICIOS -->
 
 <!-- MODAL LOGIN -->
 <ion-modal #modal [isOpen]="isLoginModalOpen" (didDismiss)="didDismissLoginModal()" [enterAnimation]="enterAnimation"
@@ -63,7 +127,7 @@
   <ng-template>
     <div class="container" [ngClass]="{'active': isSignUpMode}" id="container">
       <div class="form-container sign-up">
-        <form>
+        <form [formGroup]="formSingup" (ngSubmit)="createOneUsuario()">
           <h1>Crear Cuenta</h1>
           <div class="social-icons">
             <ion-button>
@@ -71,17 +135,17 @@
             </ion-button>
           </div>
           <span>o usa tu correo para registrarte</span>
-          <ion-input type="text" label="Nombre de Usuario" labelPlacement="floating" name="userName" required></ion-input>
-          <ion-input type="email" label="Correo" labelPlacement="floating" name="correo" required></ion-input>
-          <ion-input [type]="passwordFieldType" label="Contraseña" labelPlacement="floating" name="contraseña" required>
+          <ion-input type="text" formControlName="username" label="Nombre de Usuario" labelPlacement="floating" name="userName" required></ion-input>
+          <ion-input type="email" formControlName="correo" label="Correo electrónico" labelPlacement="floating" name="correo" required></ion-input>
+          <ion-input [type]="passwordFieldType" formControlName="passw"  label="Contraseña" labelPlacement="floating" name="contraseña" required>
             <ion-icon class="eye" slot="end" (click)="togglePasswordVisibility()" [name]="passwordFieldType === 'text' ? 'eye-off-outline' : 'eye-outline'"></ion-icon>
           </ion-input>
-          <!-- <ion-input type="password" label="Confirmar Contraseña" labelPlacement="floating" name="contraseña" required></ion-input> -->
+          <ion-input type="password" formControlName="confirmPassw" label="Confirmar Contraseña" labelPlacement="floating" name="contraseña" required></ion-input>
           <button>Registrarse</button>
         </form>
       </div>
       <div class="form-container sign-in">
-        <form>
+        <form [formGroup]="formLogin" (ngSubmit)="login()">
           <h1>Iniciar Sesión</h1>
           <div class="social-icons">
             <ion-button>
@@ -89,12 +153,12 @@
             </ion-button>
           </div>
           <span>o usa tu correo y contraseña</span>
-            <ion-input type="email" label="Correo" labelPlacement="floating" name="correo" required></ion-input>
-            <ion-input [type]="passwordFieldType" label="Contraseña" labelPlacement="floating" name="contraseña" required>
+            <ion-input type="email" formControlName="correo" label="Correo" labelPlacement="floating" name="correo" required></ion-input>
+            <ion-input [type]="passwordFieldType" formControlName="passw" label="Contraseña" labelPlacement="floating" name="contraseña" required>
               <ion-icon class="eye" slot="end" (click)="togglePasswordVisibility()" [name]="passwordFieldType === 'text' ? 'eye-off-outline' : 'eye-outline'"></ion-icon>
             </ion-input>
           <a href="#">¿Olvidaste tu contraseña?</a>
-          <button>Iniciar Sesión</button>
+          <button type="submit" [disabled]="!formLogin.valid">Iniciar Sesión</button>
         </form>
       </div>
       <div class="toggle-container">
@@ -114,3 +178,5 @@
     </div>
   </ng-template>
 </ion-modal>
+
+<!-- FIN MODAL LOGIN -->

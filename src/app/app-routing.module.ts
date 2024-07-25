@@ -34,6 +34,14 @@ const routes: Routes = [
     path: 'blog',
     loadChildren: () => import('./pages/blog/blog/blog.module').then( m => m.BlogPageModule)
   },
+  {
+    path: 'psicologia',
+    loadChildren: () => import('./pages/servicios/psicologia/psicologia.module').then( m => m.PsicologiaPageModule)
+  },
+  {
+    path: 'consultoria',
+    loadChildren: () => import('./pages/servicios/consultoria/consultoria.module').then( m => m.ConsultoriaPageModule)
+  },
 
 
 

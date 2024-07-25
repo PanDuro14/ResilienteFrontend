@@ -4,21 +4,19 @@ import { HttpClient } from '@angular/common/http';
 @Injectable({
   providedIn: 'root'
 })
-export class RestServiceService {
-
+export class ServicioRestService {
   constructor(private http: HttpClient) { }
-
     // GET
     public get (url:string){
       return this.http.get(url);
     }
     
-/*     // GET ONE
+    // GET ONE
     public getOne(url: string, id: string) {
-      const urlWithId = `${url}/${id}`; // Concatenamos el ID al URL
+      const urlWithId = `${url}/${id}`; 
       return this.http.get(urlWithId);
     }
-   */
+  
     // DELETE
     public delete (url:string){
       return this.http.delete(url);
@@ -29,7 +27,7 @@ export class RestServiceService {
       return this.http.post(url, data);
     }
   
-      // PATCH
+    // PATCH
     public patch (url:string, data:any, options?: any){
       const elemento = `${url}`; 
       return this.http.patch(elemento, data, options); 

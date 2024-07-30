@@ -16,8 +16,8 @@ export class HomePage {
   ];
 
   public cards = [
-    { titulo: 'Psicología', class: 'card-psicologia', link: "/psicologia" },
-    { titulo: 'Consultoría', class: 'card-consultoria', link: "/consultoria" },
+    { titulo: 'Psicología', class: 'card-psicologia', link: "/psicologia"},
+    { titulo: 'Consultoría', class: 'card-consultoria', link: "/consultoria"},
     { titulo: 'Blogs', class: 'card-blogs', link: "/blog" },
   ];
 

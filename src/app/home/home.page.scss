@@ -136,7 +136,7 @@ swiper-slide video {
 
 .card-container {
   display: flex;
-  justify-content: space-around; // CAMBIAR A CENTER Y PONER GAP DE 200PX
+  justify-content: space-around; 
   margin-top: 50px;
 }
 
@@ -183,6 +183,19 @@ ion-card {
   }
 }
 
+/* Estilos específicos para cada tarjeta */
+.card-psicologia::after {  
+  background: url('../../assets/img/psicologia/1.JPEG') no-repeat center center / cover;
+}
+
+.card-consultoria::after {  
+  background: url('../../assets/img/psicologia/cursos1.jpg') no-repeat center center / cover;
+}
+
+.card-blogs::after {  
+  background: url('../../assets/img/psicologia/IMG_1928.png') no-repeat center center / cover;
+}
+
 .card-psicologia {
   background-color: #8c4ef8;
 }
@@ -194,6 +207,7 @@ ion-card {
 .card-consultoria {
   background-color: #9BDDB9;
 }
+
 
 .newsletter-container {
   background-color: #62B0B0;

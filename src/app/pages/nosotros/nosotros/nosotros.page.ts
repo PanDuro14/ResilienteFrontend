@@ -8,12 +8,12 @@ import { Component, OnInit } from '@angular/core';
 export class NosotrosPage implements OnInit {
 
   public valoresC = [
-    { valor: "Compromiso", descripcion: "Nos dedicamos a brindar un servicio excepcional y a acompañar a nuestros clientes en cada paso de su camino hacia el bienestar.", img: "assets/img/valores/compromiso.png" },
-    { valor: "Ética", descripcion: "Operamos con los más altos estándares de integridad y profesionalismo, asegurando la confidencialidad y el respeto en todas nuestras interacciones.", img: "assets/img/valores/etica.png" },
-    { valor: "Respeto", descripcion: "Valoramos la dignidad de cada persona y tratamos a todos con consideración y aprecio, fomentando un ambiente de confianza y apoyo mutuo.", img: "assets/img/valores/respeto.png" },
-    { valor: "Empatía", descripcion: "Nos esforzamos por comprender y compartir los sentimientos de nuestros clientes, brindando un apoyo sincero y comprensivo en sus momentos de necesidad.", img: "assets/img/valores/empatia.png" },
-    { valor: "Calidad", descripcion: "Nos comprometemos a ofrecer servicios de la más alta calidad, utilizando enfoques basados en evidencia y prácticas recomendadas para obtener los mejores resultados.", img: "assets/img/valores/calidad.png" },
-    { valor: "Excelencia", descripcion: "Buscamos continuamente mejorar y perfeccionar nuestras habilidades y conocimientos, aspirando a la excelencia en todo lo que hacemos.", img: "assets/img/valores/excelencia.png" },
+    { valor: "Compromiso", descripcion: "Nos dedicamos a brindar un servicio excepcional y a acompañar a nuestros clientes en cada paso de su camino hacia el bienestar.", img: "assets/img/valores/compromiso.webp" },
+    { valor: "Ética", descripcion: "Operamos con los más altos estándares de integridad y profesionalismo, asegurando la confidencialidad y el respeto en todas nuestras interacciones.", img: "assets/img/valores/etica.webp" },
+    { valor: "Respeto", descripcion: "Valoramos la dignidad de cada persona y tratamos a todos con consideración y aprecio, fomentando un ambiente de confianza y apoyo mutuo.", img: "assets/img/valores/respeto.webp" },
+    { valor: "Empatía", descripcion: "Nos esforzamos por comprender y compartir los sentimientos de nuestros clientes, brindando un apoyo sincero y comprensivo en sus momentos de necesidad.", img: "assets/img/valores/empatia.webp" },
+    { valor: "Calidad", descripcion: "Nos comprometemos a ofrecer servicios de la más alta calidad, utilizando enfoques basados en evidencia y prácticas recomendadas para obtener los mejores resultados.", img: "assets/img/valores/calidad.webp" },
+    { valor: "Excelencia", descripcion: "Buscamos continuamente mejorar y perfeccionar nuestras habilidades y conocimientos, aspirando a la excelencia en todo lo que hacemos.", img: "assets/img/valores/excelencia.webp" },
   ];
   
   public psicologos = [

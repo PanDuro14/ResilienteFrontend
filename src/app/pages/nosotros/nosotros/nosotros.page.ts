@@ -20,28 +20,28 @@ export class NosotrosPage implements OnInit {
     {
       nombre: "Yolanda Esparza",
       img: "assets/img/equipo/psic1.jpg",
-      descripcion: "Psicóloga y educadora especializada en tutoría, con experiencia en orientación educativa y apoyo psicológico en instituciones educativas.",
+      descripcion: "Psicóloga especializada en tutoría y psicoterapia infantil, con experiencia en orientación educativa y apoyo psicológico.",
       especialidad: "Lic. en Psicología, Maestría en Educación con Orientación en Tutoría",
       cedula: "4403100, 13173822"
     },
     {
       nombre: "Andrea Zaragoza",
       img: "assets/img/equipo/psic2.jpg",
-      descripcion: "Especialista en TDC, tratamiento de conductas suicidas, primeros auxilios psicológicos y trastornos del ánimo. Ofrece terapias efectivas y personalizadas en un entorno terapéutico seguro.",
+      descripcion: "Especialista en TDC, conductas suicidas, primeros auxilios psicológicos y trastornos del ánimo. Ofrece terapias efectivas y personalizadas.",
       especialidad: "Lic. en Psicología",
       cedula: "13802594"
     },
     {
       nombre: "Mariana Hernandez",
       img: "assets/img/equipo/psic3.jpg",
-      descripcion: "Psicóloga especializada en Psicoterapia Infantil, intervención en duelo y sexualidad infantil. Comprometida con el bienestar emocional y mental de los niños.",
+      descripcion: "Psicóloga especializada en Psicoterapia Infantil, intervención en duelo y sexualidad infantil. Comprometida con el bienestar emocional de los niños.",
       especialidad: "",
       cedula: ""
     },
     {
       nombre: "Daniela Macias",
       img: "https://ionicframework.com/docs/img/demos/card-media.png",
-      descripcion: "Psicoterapeuta con enfoque integral, especializada en adicciones, psicoeducación y terapia de lenguaje. Diplomada en psicoterapia cognitivo-conductual.",
+      descripcion: "Psicoterapeuta con enfoque integral, especializada en adicciones, psicoeducación y terapia de lenguaje, con diplomado en psicoterapia cognitivo-conductual.",
       especialidad: "Lic. en Psicología",
       cedula: "13778915"
     },
@@ -53,6 +53,7 @@ export class NosotrosPage implements OnInit {
       cedula: "09947667"
     }
   ];
+  
   
   
   constructor() { }

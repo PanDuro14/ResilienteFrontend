@@ -50,7 +50,7 @@
         <p>
           En Resiliente, ofrecemos una variedad de cursos y talleres destinados a fortalecer las habilidades y conocimientos de los profesionales. Nuestros programas están diseñados para ser prácticos y aplicables, ayudando a las personas a alcanzar sus metas personales y profesionales. Este servicio está disponible en línea y presencial.
           <br>
-          <u><a (click)="openCursosModal()">Conoce más</a></u>
+          <u><ion-button (click)="openCursosModal()">Conoce más</ion-button></u>  <!-- ? BOTÓN A ETIQUETA a -->
         </p>
       </ion-text>
     </div>
@@ -103,25 +103,25 @@
       </ion-toolbar>
     </ion-header>
     <ion-content>
-          <!-- PSICÓLOGOS -->
+          <!-- CURSOS Y TALLERES -->
     <div class="cursos-container">
       <div class="card" *ngFor="let curso of cursos">
         <div class="face front">
           <img [src]="curso.img" [alt]="curso.titulo" />
-          <h3>{{ curso.titulo }}</h3>
+          <!-- <h3>{{ curso.titulo }}</h3> -->
         </div>
         <div class="face back">
           <h3>{{ curso.titulo }}</h3> <!-- TOP -->
           <div class="divider"></div>
           <p> {{ curso.desc }}</p>
-          <div class="divider"></div>
+          <!-- <div class="divider"></div> -->
           <div class="link">
-            <a href="assets/pdf/portafolioServicios.pdf" target="_blank">Detalles</a>
+            <a [href]="curso.link" target="_blank">Más Información</a>
           </div>
         </div>
       </div>
     </div>
-    <!-- FIN PSICÓLOGOS -->
+    <!-- FIN CURSOS Y TALLERES -->
     </ion-content>
   </ng-template>
 </ion-modal>

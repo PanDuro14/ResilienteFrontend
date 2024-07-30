@@ -357,27 +357,19 @@ ion-modal {
     align-self: center;
     justify-content: center;
     align-items: center;
-    /* margin-right: 30PX; */
   }
 
-  ion-item {
-    --background: white;
-    border-radius: 15px;
-    margin: 0 5px;
-    --color: black;
-    /*  width: auto;*/
-    height: auto;
-    margin-top: 20px;
-  }
 
   ion-textarea {
-    text-align: center;
-    font-size: 14px;
-    font-weight: 400;
     color: black;
-    height: 100%;
-    margin-top: 20px;
-    height: 200px;
+    background-color: #eee;
+    border: none;
+    margin: 8px 0;
+    padding: 10px 5px;
+    font-size: 13px;
+    border-radius: 8px;
+    width: 100%;
+    outline: none;
   }
 
   /* scroll */

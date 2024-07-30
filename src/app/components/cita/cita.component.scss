@@ -70,7 +70,7 @@ ion-modal {
     align-items: center;
     justify-content: center;
     flex-direction: column;
-    padding: 0 40px;
+    padding: 10px 30px;
     height: 100%;
 }
 
@@ -84,25 +84,23 @@ p {
     color: white;
 }
 
-.container ion-input,
-.container ion-select,
-.container ion-textarea {
+ion-item {
+    width: 100%;
+}
+
+ion-input,
+ion-select,
+ion-select-option,
+ion-textarea {
     color: black;
     background-color: #eee;
     border: none;
-    margin: 8px 0;
-    padding: 10px 15px;
+    margin: 8px 10px;
+    padding: 10px 5px;
     font-size: 13px;
     border-radius: 8px;
     width: 100%;
     outline: none;
-}
-
-.container ion-select {
-    --color: aqua;
-    --placeholder-color: black;
-    --placeholder-opacity: 1;
-
 }
 
 .form-container {

@@ -48,6 +48,12 @@ u {
     color: #b09be6;
 }
 
+ion-button {
+    --background: #62B0B0;
+    --color: white;
+    margin-top: 20px;
+}
+
 .divider {
     border-top: 0.5px solid white;
     width: 100%;
@@ -187,6 +193,26 @@ ion-modal {
         color: black;
     }
 }
+
+/* scroll */
+ion-content::part(scroll) {
+    scrollbar-color: #B09BE6 #f1f1f1;
+}
+
+ion-content::part(scroll)::-webkit-scrollbar {
+    width: 8px;
+}
+
+ion-content::part(scroll)::-webkit-scrollbar-thumb {
+    background-color: #B09BE6;
+    border-radius: 4px;
+}
+
+ion-content::part(scroll)::-webkit-scrollbar-track {
+    background-color: #f1f1f1;
+}
+
+/* FIN DEL MODAL */
 
 .cursos-container {
     display: flex;

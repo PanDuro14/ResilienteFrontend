@@ -8,7 +8,7 @@
     <div class="blog-container">
       <div class="image-section">
         <div class="image-content">
-          <img src="https://ionicframework.com/docs/img/demos/card-media.png" alt="Image" />
+          <img src="assets/img/webp/psicologia/curso2.webp" alt="Image" />
         </div>
       </div>
       <div class="text-section">
@@ -65,9 +65,8 @@
         </ion-buttons>
       </ion-toolbar>
     </ion-header>
-    <ion-content>
+    <ion-content class="modal-container">
       <form action="">
-        <ion-list lines="none">
           <ion-item>
             <ion-input label="Título" labelPlacement="floating" placeholder="Agrega un título"></ion-input>
           </ion-item>
@@ -75,10 +74,11 @@
             <ion-textarea label="Contenido" labelPlacement="floating" placeholder="Agrega el contenido"></ion-textarea>
           </ion-item>
           <ion-item>
-            <ion-input label="Imagen" labelPlacement="floating" placeholder="Agrega una imagen"></ion-input>
+            <ion-label position="floating" style="color: black;">Imagen</ion-label> <br>
+            <input type="file" accept="image/*" class="custom-file-input">
           </ion-item>
           <ion-item>
-            <ion-input label="Autor" labelPlacement="floating" placeholder="Agrega el autor" type="date"></ion-input>
+            <ion-input label="Autor" labelPlacement="floating" placeholder="Agrega el autor"></ion-input>
           </ion-item>
           <ion-item>
             <ion-input label="Fecha" labelPlacement="floating" type="date"></ion-input>
@@ -86,7 +86,6 @@
           <ion-buttons>
             <ion-button class="ag">Agregar</ion-button>
           </ion-buttons>
-      </ion-list>
       </form>
     </ion-content>
   </ng-template>

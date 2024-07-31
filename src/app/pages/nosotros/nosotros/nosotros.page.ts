@@ -19,21 +19,21 @@ export class NosotrosPage implements OnInit {
   public psicologos = [
     {
       nombre: "Yolanda Esparza",
-      img: "assets/img/equipo/psic1.jpg",
+      img: "assets/img/equipo/psic1.webp",
       descripcion: "Psicóloga especializada en tutoría y psicoterapia infantil, con experiencia en orientación educativa y apoyo psicológico.",
       especialidad: "Lic. en Psicología, Maestría en Educación con Orientación en Tutoría",
       cedula: "4403100, 13173822"
     },
     {
       nombre: "Andrea Zaragoza",
-      img: "assets/img/equipo/psic2.jpg",
+      img: "assets/img/equipo/psic2.webp",
       descripcion: "Especialista en TDC, conductas suicidas, primeros auxilios psicológicos y trastornos del ánimo. Ofrece terapias efectivas y personalizadas.",
       especialidad: "Lic. en Psicología",
       cedula: "13802594"
     },
     {
       nombre: "Mariana Hernandez",
-      img: "assets/img/equipo/psic3.jpg",
+      img: "assets/img/equipo/psic3.webp",
       descripcion: "Psicóloga especializada en Psicoterapia Infantil, intervención en duelo y sexualidad infantil. Comprometida con el bienestar emocional de los niños.",
       especialidad: "",
       cedula: ""

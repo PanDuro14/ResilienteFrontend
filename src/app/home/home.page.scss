@@ -136,7 +136,7 @@ swiper-slide video {
 
 .card-container {
   display: flex;
-  justify-content: space-around; 
+  justify-content: space-around;
   margin-top: 50px;
 }
 
@@ -179,21 +179,20 @@ ion-card {
     height: 100%;
     z-index: 0;
     opacity: 0.7;
-    background: url('https://ionicframework.com/docs/img/demos/card-media.png') no-repeat center center / cover;
   }
 }
 
 /* Estilos específicos para cada tarjeta */
-.card-psicologia::after {  
-  background: url('../../assets/img/psicologia/1.JPEG') no-repeat center center / cover;
+.card-psicologia::after {
+  background: url('../../assets/img/psicologia/adulto.JPEG') no-repeat center center / cover;
 }
 
-.card-consultoria::after {  
-  background: url('../../assets/img/psicologia/cursos1.jpg') no-repeat center center / cover;
+.card-consultoria::after {
+  background: url('../../assets/img/consultoria/consultoria.webp') no-repeat center center / cover;
 }
 
-.card-blogs::after {  
-  background: url('../../assets/img/psicologia/IMG_1928.png') no-repeat center center / cover;
+.card-blogs::after {
+  background: url('../../assets/img/psicologia/curso2.webp') no-repeat center center / cover;
 }
 
 .card-psicologia {
@@ -346,7 +345,7 @@ ion-modal {
   ion-icon.close {
     color: #ffffff;
     font-size: 28px;
-}
+  }
 
   ion-toolbar {
     --background: #B09BE6;
@@ -386,23 +385,7 @@ ion-modal {
     outline: none;
   }
 
-  /* scroll */
-  ion-content::part(scroll) {
-    scrollbar-color: #B09BE6 #f1f1f1;
-  }
 
-  ion-content::part(scroll)::-webkit-scrollbar {
-    width: 8px;
-  }
-
-  ion-content::part(scroll)::-webkit-scrollbar-thumb {
-    background-color: #B09BE6;
-    border-radius: 4px;
-  }
-
-  ion-content::part(scroll)::-webkit-scrollbar-track {
-    background-color: #f1f1f1;
-  }
 }
 
 .ultima-container {
@@ -461,7 +444,6 @@ ion-modal {
   height: 100%;
 }
 
-
 @media (max-width: 1024px) {
   .card-container {
     flex-wrap: wrap;
@@ -508,7 +490,7 @@ ion-modal {
       height: 200PX;
       border-radius: 10px;
       display: block;
-      margin: 0 auto;
+      margin: 10px;
     }
 
     .text-section {
@@ -569,8 +551,7 @@ ion-modal {
     .image-content img {
       width: 50%;
       height: auto;
-      margin-top: 5px;
-      margin: 0 auto;
+      margin: 5px auto 5px;
     }
 
 
@@ -578,6 +559,4 @@ ion-modal {
       padding: 20px;
     }
   }
-
-
 }

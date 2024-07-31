@@ -5,7 +5,7 @@ ion-content {
 #container {
     position: absolute;
     text-align: center;
-    top: 22%;
+    top: 30%;
     left: 50px;
     right: 50px;
     margin: 30px 50px 50px;
@@ -142,7 +142,7 @@ ion-button {
         display: flex;
         justify-content: center;
         align-items: center;
-        background-image: url("https://ionicframework.com/docs/img/demos/card-media.png");
+        background-image: url("../../../../assets/img/consultoria/consultoria.webp");
         background-size: cover;
         background-position: center;
         background-repeat: no-repeat;
@@ -192,24 +192,6 @@ ion-modal {
     p {
         color: black;
     }
-}
-
-/* scroll */
-ion-content::part(scroll) {
-    scrollbar-color: #B09BE6 #f1f1f1;
-}
-
-ion-content::part(scroll)::-webkit-scrollbar {
-    width: 8px;
-}
-
-ion-content::part(scroll)::-webkit-scrollbar-thumb {
-    background-color: #B09BE6;
-    border-radius: 4px;
-}
-
-ion-content::part(scroll)::-webkit-scrollbar-track {
-    background-color: #f1f1f1;
 }
 
 /* FIN DEL MODAL */
@@ -335,6 +317,7 @@ ion-content::part(scroll)::-webkit-scrollbar-track {
         .text-section {
             padding: 20px;
             text-align: center;
+            margin-top: 0;
         }
     }
 
@@ -353,7 +336,7 @@ ion-content::part(scroll)::-webkit-scrollbar-track {
         }
 
         .image-section {
-            width: 150%;
+            width: 350%;
         }
 
         .image-section img {

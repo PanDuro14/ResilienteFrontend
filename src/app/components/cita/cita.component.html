@@ -21,7 +21,7 @@
         <form>
           <h1>Datos de la Cita</h1>
           <ion-item>
-            <ion-select formControlName="tipoCita" label="Tipo de cita" labelPlacement="floating"  required>
+            <ion-select formControlName="tipoCita" label="Tipo de cita" labelPlacement="floating" interface="popover" required>
               <ion-select-option disabled>Servicios de Psicología</ion-select-option>
               <ion-select-option *ngFor="let psic of serviciosPsicologia">{{ psic.tipo }}</ion-select-option>
               <ion-select-option disabled>Servicios de Consultoría</ion-select-option>

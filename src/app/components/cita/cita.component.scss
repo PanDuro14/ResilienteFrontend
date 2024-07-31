@@ -84,23 +84,45 @@ p {
     color: white;
 }
 
-ion-item {
-    width: 100%;
-}
 
 ion-input,
 ion-select,
-ion-select-option,
 ion-textarea {
-    color: black;
-    background-color: #eee;
-    border: none;
-    margin: 8px 10px;
-    padding: 10px 5px;
+    --background: #eee;
+    --color: black;
+    --padding-start: 10px;
+    --padding-end: 10px;
+    --padding-top: 10px;
+    --padding-bottom: 10px;
+    --border-radius: 8px;
+    --placeholder-color: #999;
+    margin: 8px 0;
     font-size: 13px;
-    border-radius: 8px;
     width: 100%;
-    outline: none;
+}
+
+ion-select::part(icon) {
+    color: black;
+    opacity: 1;
+}
+
+ion-select::part(text) {
+    color: black;
+}
+
+ion-select::part(placeholder) {
+    color: #999;
+    opacity: 1;
+}
+
+ion-item {
+    width: 100%;
+    --background: transparent;
+    --border-color: transparent;
+    --padding-start: 0;
+    --padding-end: 0;
+    --inner-padding-end: 0;
+    --color: black;
 }
 
 .form-container {

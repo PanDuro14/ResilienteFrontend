@@ -12,9 +12,11 @@ export class BlogPage implements OnInit {
   public blogs: any = [];
   public agBlog: FormGroup;
   public blogSeleccionado: any;
-  public isFormValid = false;
   public isAgBlogModalOpen = false;
   public isBlogOpen = false;
+  private selectedFile: File | null = null;
+  public isFormValid = false;
+
 
   constructor(
     private serviceRest: ServicioRestService,
@@ -26,7 +28,7 @@ export class BlogPage implements OnInit {
     this.agBlog = this.fb.group({
       titulo: ['', Validators.required],
       contenido: ['', Validators.required],
-      images: ['', Validators.required],
+      images: [null],
       autor: ['', Validators.required],
       fecha: ['', Validators.required],
     });
@@ -39,6 +41,16 @@ export class BlogPage implements OnInit {
   ngOnInit() {
     this.getBlog();
   }
+  handleFileInput(event: any) {
+    const file = event.target.files[0];
+    if (file) {
+      this.selectedFile = file;
+      this.agBlog.patchValue({
+        images: file
+      }); 
+    }
+  }
+
 
   checkFormValidity() {
     this.isFormValid = this.agBlog.valid;

@@ -3,45 +3,41 @@
   <app-navbar></app-navbar>
   
   <div class="container" id="container">
-
     <ion-searchbar show-clear-button="focus" placeholder="Buscar"></ion-searchbar>
 
     <div class="table-container">
       <table class="content-table">
         <thead>
           <tr>
-            <th>Nombre de Usuario</th>
-            <th>Nombre Completo</th>
-            <th>Fecha</th>
-            <th>Teléfono</th>
+            <th>Nombre completo </th>
             <th>Correo</th>
+            <th>Teléfono</th>
             <th>Tipo de cita</th>
-            <th>Psicólogo</th>
+            <th>Fecha</th>
             <th>Horario</th>
+            <th>Psicólogo</th>
+            <th>Cuentanos de ti</th>
             <th></th>
             <th></th>
-            </tr>
+          </tr>
         </thead>
         <tbody>
-          <tr *ngFor="let p of pruebas">
-            <td data-label="Nombre de Usuario:">{{ p.userName }}</td>
-            <td data-label="Nombre Completo:">{{ p.nombre }}</td>
-            <td data-label="Fecha:">{{ p.fecha }}</td>
-            <td data-label="Teléfono:">{{ p.tel }}</td>
-            <td data-label="Correo:">{{ p.correo }}</td>
-            <td data-label="Tipo de cita:">{{ p.cita }}</td>
-            <td data-label="Psicólogo:">{{ p.psicologo }}</td>
-            <td data-label="Horario:">{{ p.horario }}</td>
-            <td data-label="Editar:"><ion-icon name="create-outline"></ion-icon></td>
+          <tr *ngFor="let cita of allcitas">
+            <td data-label="Nombre Completo:">{{ cita.nombrecompleto }}</td>
+            <td data-label="Correo:">{{ cita.correo }}</td>
+            <td data-label="Teléfono:">{{ cita.telefono }}</td>
+            <td data-label="Tipo de cita:">{{ cita.tipocita }}</td>
+            <td data-label="Fecha:">{{ cita.fecha }}</td>
+            <td data-label="Horario:">{{ cita.horario }}</td>
+            <td data-label="Psicólogo:">{{ cita.psicologo }}</td>
+            <td data-label="Cuentanos de ti:">{{ cita.cuentanosdeti }}</td>
+            <td data-label="Editar:"><ion-icon name="create-outline" (click)="editCita(cita.id); OpenEditCita()"></ion-icon></td>
             <td data-label="Eliminar:"><ion-icon name="trash-outline" color="danger"></ion-icon></td>
           </tr>
         </tbody>
       </table>
     </div>
-
     <app-colorbar></app-colorbar>
     <app-footer></app-footer>
-
   </div>
-
 </ion-content>

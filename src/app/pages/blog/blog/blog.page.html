@@ -35,12 +35,12 @@
       <ion-row>
         <ion-col size="12" size-md="4" *ngFor="let blog of blogs">
           <ion-card>
-            <img [src]="blog.images" [alt]="blog.titulo"/>
+            <img [src]="blog.img" [alt]="blog.tema"/>
             <ion-card-header>
               <ion-card-title>{{ blog.titulo }}</ion-card-title>
-              <ion-card-subtitle>{{ blog.fecha | date:'fullDate'}}</ion-card-subtitle>
+              <ion-card-subtitle>{{ blog.fecha | date:'fullDate' }}</ion-card-subtitle>
             </ion-card-header>
-            <ion-button class="more" (click)="openVerBlogModal(blog)">Ver más</ion-button>
+            <ion-button class="more" (click)="  openVerBlogModal(blog)">Ver más</ion-button>
           </ion-card>
         </ion-col>
       </ion-row>
@@ -64,52 +64,47 @@
     </ion-header>
     <ion-content class="modal-container">
       <form [formGroup]="agBlog">
-        <ion-item>
-          <ion-input formControlName="titulo" label="Título" labelPlacement="floating" placeholder="Agrega un título"></ion-input>
-        </ion-item>
-        <ion-item>
-          <ion-textarea formControlName="contenido" label="Contenido" labelPlacement="floating" placeholder="Agrega el contenido"></ion-textarea>
-        </ion-item>
-        <ion-item>
-          <ion-label position="floating" style="color: black;">Imagen</ion-label> <br>
-          <input type="file" accept="image/*" class="custom-file-input">
-        </ion-item>
-        <ion-item>
-          <ion-input formControlName="autor" label="Autor" labelPlacement="floating" placeholder="Agrega el autor"></ion-input>
-        </ion-item>
-        <ion-item>
-          <ion-input formControlName="fecha" label="Fecha" labelPlacement="floating" type="date"></ion-input>
-        </ion-item>
-        <ion-buttons>
-          <ion-button class="ag" (click)="createBlog()" [disabled]="!isFormValid">Agregar</ion-button>
-        </ion-buttons>
+          <ion-item>
+            <ion-input label="Título" labelPlacement="floating" placeholder="Agrega un título"></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-textarea label="Contenido" labelPlacement="floating" placeholder="Agrega el contenido"></ion-textarea>
+          </ion-item>
+          <ion-item>
+            <ion-label position="floating" style="color: black;">Imagen</ion-label> <br>
+            <input type="file" accept="image/*" class="custom-file-input">
+          </ion-item>
+          <ion-item>
+            <ion-input label="Autor" labelPlacement="floating" placeholder="Agrega el autor"></ion-input>
+          </ion-item>
+          <ion-item>
+            <ion-input label="Fecha" labelPlacement="floating" type="date"></ion-input>
+          </ion-item>
+          <ion-buttons>
+            <ion-button class="ag" (click)="createBlog()" [disabled]="!isFormValid">Agregar</ion-button>
+          </ion-buttons>
       </form>
     </ion-content>
   </ng-template>
 </ion-modal>
 
-<!-- MODAL PARA VER LOS BLOGS -->
-<ion-modal #modal [isOpen]="isBlogOpen" (didDismiss)="didDismissVerBlogModal()" [enterAnimation]="enterAnimation" [leaveAnimation]="leaveAnimation">
+
+<!-- MODAL PARA VER LOS BLOGS-->
+<ion-modal #modal [isOpen]="isBlogOpen" (didDismiss)="didDismissVerBlogModal()" [enterAnimation]="enterAnimation"
+[leaveAnimation]="leaveAnimation">
   <ng-template>
     <ion-header>
       <ion-toolbar>
-        <ion-title>{{ blogSeleccionado?.titulo }}</ion-title>
+        <ion-title>Si jalo</ion-title>
         <ion-buttons slot="end">
           <ion-icon name="close" class="close" (click)="closeVerBlogModal()"></ion-icon>
         </ion-buttons>
       </ion-toolbar>
     </ion-header>
-    <ion-content *ngIf="blogSeleccionado" class="">
-      <ion-card>
-        <!-- <img [src]="blogSeleccionado.images" [alt]="blogSeleccionado.titulo"/> -->
-        <ion-card-header>
-          <ion-card-subtitle>{{ blogSeleccionado.fecha | date:'fullDate'}}</ion-card-subtitle>
-        </ion-card-header>
-        <ion-card-content>
-          <p>{{ blogSeleccionado.contenido }}</p>
-          <p><strong>Autor:</strong> {{ blogSeleccionado.autor }}</p>
-        </ion-card-content>
-      </ion-card>
+    <ion-content>
+
+      
+
     </ion-content>
   </ng-template>
 </ion-modal>

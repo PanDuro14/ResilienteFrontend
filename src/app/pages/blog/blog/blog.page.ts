@@ -14,6 +14,7 @@ export class BlogPage implements OnInit {
   public isFormValid = false;
   public isAgBlogModalOpen = false;
   public isBlogOpen = false;
+  private selectedFile: File | null = null;
 
 /*   public blogs = [
     { tema: "Blog 1", fecha: "21 de Julio del 2024", img: "https://ionicframework.com/docs/img/demos/card-media.png" },
@@ -31,10 +32,10 @@ export class BlogPage implements OnInit {
     private alertCtrl: AlertController) {
 
 
-    this.agBlog = this.fb.group({
+    this.agBlog = this.fb.group({ 
       titulo: ['', Validators.required],
       contenido: ['', Validators.required],
-      images: ['', Validators.required],
+      images: [null],
       autor: ['', Validators.required],
       fecha: ['', Validators.required],
     });
@@ -48,7 +49,19 @@ export class BlogPage implements OnInit {
     this.getBlog();
   }
 
+  handleFileInput(event: any) {
+    const file = event.target.files[0];
+    if (file) {
+      this.selectedFile = file;
+      this.agBlog.patchValue({
+        images: file
+      }); 
+    }
+  }
+       
   checkFormValidity() {
+    this.isFormValid = this.agBlog.valid && this.selectedFile !== null; 
+    /*inicio ola 
     const titulo = this.agBlog.get('titulo');
     const contenido = this.agBlog.get('contenido');
     const images = this.agBlog.get('images');
@@ -61,6 +74,7 @@ export class BlogPage implements OnInit {
       images !== null && images.value !== null && images.value.trim() !== '' &&
       autor !== null && autor.value !== null && autor.value.trim() !== '' &&
       fecha !== null && fecha.value !== null && fecha.value.trim() !== '';
+    fin ola*/
   }
 
   public async mostrarAlerta(mensaje: string) {
@@ -91,8 +105,15 @@ export class BlogPage implements OnInit {
 
   public createBlog() {
     if (this.isFormValid) {
-      const nuevaResena = this.agBlog.value;
-      this.serviceRest.post('https://backend-resiliente.fly.dev/api/v1/blog', nuevaResena).subscribe(
+      const formData = new FormData(); 
+      formData.append('titulo', this.agBlog.get('titulo')?.value); 
+      formData.append('contenido', this.agBlog.get('contenido')?.value);
+      formData.append('autor', this.agBlog.get('autor')?.value);
+      formData.append('fecha', this.agBlog.get('fecha')?.value);
+      if(this.selectedFile){
+        formData.append('images', this.selectedFile); 
+      }
+      this.serviceRest.post('https://backend-resiliente.fly.dev/api/v1/blog', formData).subscribe(
         (respuesta) => {
           console.log('Blog Agregado', respuesta);
           this.mostrarAlerta('Blog creado con éxito');
@@ -108,6 +129,10 @@ export class BlogPage implements OnInit {
     }
   }
   /* FIN APIS */
+
+
+  
+  /* FIN Transformar el formato de las imagenes * /
 
   /* MODAL DE BLOG */
   async openAgBlogModal() {

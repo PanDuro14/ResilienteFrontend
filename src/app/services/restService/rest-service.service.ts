@@ -6,16 +6,17 @@ import { HttpClient } from '@angular/common/http';
 })
 export class ServicioRestService {
   constructor(private http: HttpClient) { }
+  
     // GET
     public get (url:string){
       return this.http.get(url);
     }
     
-    // GET ONE
-    public getOne(url: string, id: string) {
-      const urlWithId = `${url}/${id}`; 
-      return this.http.get(urlWithId);
-    }
+  // GET ONE
+  public getById(url: string, id: number) {
+    const elemento = `${url}/${id}`;
+    return this.http.get(elemento);
+  }
   
     // DELETE
     public delete (url:string){

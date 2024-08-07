@@ -11,26 +11,18 @@ import { ModalController, AnimationController, AlertController } from '@ionic/an
 export class BlogPage implements OnInit {
   public blogs: any = [];
   public agBlog: FormGroup;
+  public blogSeleccionado: any;
   public isFormValid = false;
   public isAgBlogModalOpen = false;
   public isBlogOpen = false;
-
-/*   public blogs = [
-    { tema: "Blog 1", fecha: "21 de Julio del 2024", img: "https://ionicframework.com/docs/img/demos/card-media.png" },
-    { tema: "Blog 2", fecha: "22 de Julio del 2024", img: "https://ionicframework.com/docs/img/demos/card-media.png" },
-    { tema: "Blog 3", fecha: "23 de Julio del 2024", img: "https://ionicframework.com/docs/img/demos/card-media.png" },
-    { tema: "Blog 4", fecha: "24 de Julio del 2024", img: "https://ionicframework.com/docs/img/demos/card-media.png" },
-
-  ]; */
 
   constructor(
     private serviceRest: ServicioRestService,
     private fb: FormBuilder,
     private modalCtrl: ModalController,
     private animationCtrl: AnimationController,
-    private alertCtrl: AlertController) {
-
-
+    private alertCtrl: AlertController
+  ) {
     this.agBlog = this.fb.group({
       titulo: ['', Validators.required],
       contenido: ['', Validators.required],
@@ -49,18 +41,7 @@ export class BlogPage implements OnInit {
   }
 
   checkFormValidity() {
-    const titulo = this.agBlog.get('titulo');
-    const contenido = this.agBlog.get('contenido');
-    const images = this.agBlog.get('images');
-    const autor = this.agBlog.get('autor');
-    const fecha = this.agBlog.get('fecha');
-
-    this.isFormValid = this.agBlog.valid &&
-      titulo !== null && titulo.value !== null && titulo.value.trim() !== '' &&
-      contenido !== null && contenido.value !== null && contenido.value.trim() !== '' &&
-      images !== null && images.value !== null && images.value.trim() !== '' &&
-      autor !== null && autor.value !== null && autor.value.trim() !== '' &&
-      fecha !== null && fecha.value !== null && fecha.value.trim() !== '';
+    this.isFormValid = this.agBlog.valid;
   }
 
   public async mostrarAlerta(mensaje: string) {
@@ -73,19 +54,25 @@ export class BlogPage implements OnInit {
           handler: () => {
             this.getBlog();
             window.location.reload();
-          }
-        }
-      ]
+          },
+        },
+      ],
     });
     await alert.present();
   }
 
-
   /* APIS */
-  /* GET */ 
+  /* GET ALL */
   public getBlog() {
     this.serviceRest.get('https://backend-resiliente.fly.dev/api/v1/blog').subscribe((respuesta) => {
       this.blogs = respuesta;
+    });
+  }
+
+  /* GET ONE */
+  public getOneBlog(id: number) {
+    this.serviceRest.getById('https://backend-resiliente.fly.dev/api/v1/blog', id).subscribe((respuesta) => {
+      this.blogSeleccionado = respuesta;
     });
   }
 
@@ -122,18 +109,19 @@ export class BlogPage implements OnInit {
     this.isAgBlogModalOpen = false;
   }
 
-  async openVerBlogModal() {
+  async openVerBlogModal(blog: any) {
+    this.blogSeleccionado = blog;
     this.isBlogOpen = true;
   }
 
-  closeVerBlogModal(){
+  closeVerBlogModal() {
     this.modalCtrl.dismiss();
   }
 
   didDismissVerBlogModal() {
-    this.isAgBlogModalOpen = false;
+    this.isBlogOpen = false;
+    this.blogSeleccionado = null;
   }
-
 
   /* ANIMACIÓN DEL MODAL */
   enterAnimation = (baseEl: HTMLElement) => {
@@ -160,5 +148,4 @@ export class BlogPage implements OnInit {
   leaveAnimation = (baseEl: HTMLElement) => {
     return this.enterAnimation(baseEl).direction('reverse');
   };
-
 }

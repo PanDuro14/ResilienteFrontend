@@ -38,9 +38,10 @@
           <ion-card>
             <img [src]="blog.img" [alt]="blog.tema"/>
             <ion-card-header>
-              <ion-card-title>{{ blog.tema }}</ion-card-title>
-              <ion-card-subtitle>{{ blog.fecha }}</ion-card-subtitle>
+              <ion-card-title>{{ blog.titulo }}</ion-card-title>
+              <ion-card-subtitle>{{ blog.fecha | date:'fullDate'}}</ion-card-subtitle>
             </ion-card-header>
+            <ion-button class="more" (click)="  openVerBlogModal()">Ver más</ion-button>
           </ion-card>
         </ion-col>
       </ion-row>
@@ -55,7 +56,7 @@
 
 <!-- MODAL AGREGAR BLOG -->
 <ion-modal #modal [isOpen]="isAgBlogModalOpen" (didDismiss)="didDismissAgBlogModal()" [enterAnimation]="enterAnimation"
-[leaveAnimation]="leaveAnimation">>
+[leaveAnimation]="leaveAnimation">
   <ng-template>
     <ion-header>
       <ion-toolbar>
@@ -66,7 +67,7 @@
       </ion-toolbar>
     </ion-header>
     <ion-content class="modal-container">
-      <form action="">
+      <form [formGroup]="agBlog">
           <ion-item>
             <ion-input label="Título" labelPlacement="floating" placeholder="Agrega un título"></ion-input>
           </ion-item>
@@ -84,9 +85,30 @@
             <ion-input label="Fecha" labelPlacement="floating" type="date"></ion-input>
           </ion-item>
           <ion-buttons>
-            <ion-button class="ag">Agregar</ion-button>
+            <ion-button class="ag" (click)="createBlog()" [disabled]="!isFormValid">Agregar</ion-button>
           </ion-buttons>
       </form>
+    </ion-content>
+  </ng-template>
+</ion-modal>
+
+
+<!-- MODAL PARA VER LOS BLOGS-->
+<ion-modal #modal [isOpen]="isBlogOpen" (didDismiss)="didDismissVerBlogModal()" [enterAnimation]="enterAnimation"
+[leaveAnimation]="leaveAnimation">
+  <ng-template>
+    <ion-header>
+      <ion-toolbar>
+        <ion-title>Si jalo</ion-title>
+        <ion-buttons slot="end">
+          <ion-icon name="close" class="close" (click)="closeVerBlogModal()"></ion-icon>
+        </ion-buttons>
+      </ion-toolbar>
+    </ion-header>
+    <ion-content>
+
+      
+
     </ion-content>
   </ng-template>
 </ion-modal>

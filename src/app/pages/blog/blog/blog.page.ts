@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { ModalController, AnimationController } from '@ionic/angular';
+import { ServicioRestService } from 'src/app/services/restService/rest-service.service';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { ModalController, AnimationController, AlertController } from '@ionic/angular';
 
 @Component({
   selector: 'app-blog',
@@ -7,58 +9,156 @@ import { ModalController, AnimationController } from '@ionic/angular';
   styleUrls: ['./blog.page.scss'],
 })
 export class BlogPage implements OnInit {
+  public blogs: any = [];
+  public agBlog: FormGroup;
+  public isFormValid = false;
   public isAgBlogModalOpen = false;
+  public isBlogOpen = false;
 
-  public blogs = [
-    { tema: "Blog 1", fecha: "21 de Julio del 2024", img:"https://ionicframework.com/docs/img/demos/card-media.png" },
-    { tema: "Blog 2", fecha: "22 de Julio del 2024", img:"https://ionicframework.com/docs/img/demos/card-media.png" },
-    { tema: "Blog 3", fecha: "23 de Julio del 2024", img:"https://ionicframework.com/docs/img/demos/card-media.png" },
-    { tema: "Blog 4", fecha: "24 de Julio del 2024", img:"https://ionicframework.com/docs/img/demos/card-media.png" },
+/*   public blogs = [
+    { tema: "Blog 1", fecha: "21 de Julio del 2024", img: "https://ionicframework.com/docs/img/demos/card-media.png" },
+    { tema: "Blog 2", fecha: "22 de Julio del 2024", img: "https://ionicframework.com/docs/img/demos/card-media.png" },
+    { tema: "Blog 3", fecha: "23 de Julio del 2024", img: "https://ionicframework.com/docs/img/demos/card-media.png" },
+    { tema: "Blog 4", fecha: "24 de Julio del 2024", img: "https://ionicframework.com/docs/img/demos/card-media.png" },
 
-  ];
+  ]; */
 
-  constructor(private modalCtrl: ModalController, private animationCtrl: AnimationController) { }
+  constructor(
+    private serviceRest: ServicioRestService,
+    private fb: FormBuilder,
+    private modalCtrl: ModalController,
+    private animationCtrl: AnimationController,
+    private alertCtrl: AlertController) {
 
-  ngOnInit() {
+
+    this.agBlog = this.fb.group({
+      titulo: ['', Validators.required],
+      contenido: ['', Validators.required],
+      images: ['', Validators.required],
+      autor: ['', Validators.required],
+      fecha: ['', Validators.required],
+    });
+
+    this.agBlog.valueChanges.subscribe(() => {
+      this.checkFormValidity();
+    });
   }
 
-    /* MODAL DE BLOG */
-    async openAgBlogModal() {
-      this.isAgBlogModalOpen = true;
+  ngOnInit() {
+    this.getBlog();
+  }
+
+  checkFormValidity() {
+    const titulo = this.agBlog.get('titulo');
+    const contenido = this.agBlog.get('contenido');
+    const images = this.agBlog.get('images');
+    const autor = this.agBlog.get('autor');
+    const fecha = this.agBlog.get('fecha');
+
+    this.isFormValid = this.agBlog.valid &&
+      titulo !== null && titulo.value !== null && titulo.value.trim() !== '' &&
+      contenido !== null && contenido.value !== null && contenido.value.trim() !== '' &&
+      images !== null && images.value !== null && images.value.trim() !== '' &&
+      autor !== null && autor.value !== null && autor.value.trim() !== '' &&
+      fecha !== null && fecha.value !== null && fecha.value.trim() !== '';
+  }
+
+  public async mostrarAlerta(mensaje: string) {
+    const alert = await this.alertCtrl.create({
+      header: 'Alerta',
+      message: mensaje,
+      buttons: [
+        {
+          text: 'OK',
+          handler: () => {
+            this.getBlog();
+            window.location.reload();
+          }
+        }
+      ]
+    });
+    await alert.present();
+  }
+
+
+  /* APIS */
+  /* GET */ 
+  public getBlog() {
+    this.serviceRest.get('https://backend-resiliente.fly.dev/api/v1/blog').subscribe((respuesta) => {
+      this.blogs = respuesta;
+    });
+  }
+
+  public createBlog() {
+    if (this.isFormValid) {
+      const nuevaResena = this.agBlog.value;
+      this.serviceRest.post('https://backend-resiliente.fly.dev/api/v1/blog', nuevaResena).subscribe(
+        (respuesta) => {
+          console.log('Blog Agregado', respuesta);
+          this.mostrarAlerta('Blog creado con éxito');
+          this.closeAgBlogModal();
+          this.agBlog.reset();
+          this.getBlog();
+        },
+        (error) => {
+          console.error('Error al crear el blog', error);
+          this.mostrarAlerta('Error al crear el blog');
+        }
+      );
     }
-  
-    closeAgBlogModal() {
-      this.modalCtrl.dismiss();
-    }
-  
-    didDismissAgBlogModal() {
-      this.isAgBlogModalOpen = false;
-    }
-  
-    /* ANIMACIÓN DEL MODAL */
-    enterAnimation = (baseEl: HTMLElement) => {
-      const root = baseEl.shadowRoot || baseEl;
-      const backdropAnimation = this.animationCtrl
-        .create()
-        .addElement(root.querySelector('ion-backdrop') || root)
-        .fromTo('opacity', '0.01', 'var(--backdrop-opacity)');
-      const wrapperAnimation = this.animationCtrl
-        .create()
-        .addElement(root.querySelector('.modal-wrapper') || root)
-        .keyframes([
-          { offset: 0, opacity: '0', transform: 'scale(0)' },
-          { offset: 1, opacity: '0.99', transform: 'scale(1)' },
-        ]);
-      return this.animationCtrl
-        .create()
-        .addElement(baseEl)
-        .easing('ease-out')
-        .duration(500)
-        .addAnimation([backdropAnimation, wrapperAnimation]);
-    };
-    
-    leaveAnimation = (baseEl: HTMLElement) => {
-      return this.enterAnimation(baseEl).direction('reverse');
-    };
+  }
+  /* FIN APIS */
+
+  /* MODAL DE BLOG */
+  async openAgBlogModal() {
+    this.isAgBlogModalOpen = true;
+  }
+
+  closeAgBlogModal() {
+    this.modalCtrl.dismiss();
+  }
+
+  didDismissAgBlogModal() {
+    this.isAgBlogModalOpen = false;
+  }
+
+  async openVerBlogModal() {
+    this.isBlogOpen = true;
+  }
+
+  closeVerBlogModal(){
+    this.modalCtrl.dismiss();
+  }
+
+  didDismissVerBlogModal() {
+    this.isAgBlogModalOpen = false;
+  }
+
+
+  /* ANIMACIÓN DEL MODAL */
+  enterAnimation = (baseEl: HTMLElement) => {
+    const root = baseEl.shadowRoot || baseEl;
+    const backdropAnimation = this.animationCtrl
+      .create()
+      .addElement(root.querySelector('ion-backdrop') || root)
+      .fromTo('opacity', '0.01', 'var(--backdrop-opacity)');
+    const wrapperAnimation = this.animationCtrl
+      .create()
+      .addElement(root.querySelector('.modal-wrapper') || root)
+      .keyframes([
+        { offset: 0, opacity: '0', transform: 'scale(0)' },
+        { offset: 1, opacity: '0.99', transform: 'scale(1)' },
+      ]);
+    return this.animationCtrl
+      .create()
+      .addElement(baseEl)
+      .easing('ease-out')
+      .duration(500)
+      .addAnimation([backdropAnimation, wrapperAnimation]);
+  };
+
+  leaveAnimation = (baseEl: HTMLElement) => {
+    return this.enterAnimation(baseEl).direction('reverse');
+  };
 
 }

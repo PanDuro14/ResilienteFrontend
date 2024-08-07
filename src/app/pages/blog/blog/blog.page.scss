@@ -74,6 +74,17 @@ ion-button {
     color: #B09BE6;
 }
 
+.more {
+    --background: var(--ion-color-secondary);
+    --color: var(--ion-color-medium);
+    --border-radius: 15px;
+    --box-shadow: none;
+    font-size: 12px;
+    height: 50px;
+    margin: 0 5px;
+    margin-bottom: 10px;
+}
+
 .blog-container {
     background: linear-gradient(to right, #F0E2AC 53%, white 53%);
     width: 100vw;

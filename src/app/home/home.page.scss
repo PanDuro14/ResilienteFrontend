@@ -355,7 +355,7 @@ ion-modal {
   form {
     display: flex;
     flex-direction: column;
-    gap: 30px;
+    gap: 10px;
   }
 
   ion-item {
@@ -373,7 +373,8 @@ ion-modal {
   }
 
 
-  ion-textarea {
+  ion-textarea,
+  ion-input {
     color: black;
     background-color: #eee;
     border: none;
@@ -382,7 +383,16 @@ ion-modal {
     font-size: 13px;
     border-radius: 8px;
     width: 100%;
+    height: 100px;
     outline: none;
+  }
+
+  ion-datetime {
+    --background: transparent;
+    --background-rgb: 255, 241, 242;
+  
+    border-radius: 16px;
+    box-shadow: rgba(var(--ion-color-rose-rgb), 0.3) 0px 10px 15px -3px;
   }
 
 

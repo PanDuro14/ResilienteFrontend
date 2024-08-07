@@ -75,7 +75,7 @@
 
     <!-- MODAL PARA AGREGAR UNA RESEÑA -->
     <ion-modal #modal [isOpen]="isResenaModalOpen" (didDismiss)="didDismissResenaModal()" [enterAnimation]="enterAnimation"
-    [leaveAnimation]="leaveAnimation">>
+    [leaveAnimation]="leaveAnimation">
       <ng-template>
         <ion-header>
           <ion-toolbar>
@@ -86,26 +86,32 @@
           </ion-toolbar>
         </ion-header>
         <ion-content>
-          <form>
+          <form [formGroup]="agResena">
             <ion-item lines="none">
-              <ion-textarea label="Reseña" labelPlacement="floating" name="reseña" required></ion-textarea>
+              <ion-input type="text" formControlName="contenido" required label="Reseña" labelPlacement="floating"></ion-input>
             </ion-item>
-            <ion-button type="submit" class="btn btn3">Enviar</ion-button>
-          </form>
+            <ion-item lines="none">
+              <ion-input type="text" formControlName="autor" required label="Autor" labelPlacement="floating"></ion-input>
+            </ion-item>
+<!--             <ion-item lines="none">
+              <ion-datetime formControlName="fecha" required label="Fecha" labelPlacement="floating" style="color: whit;"></ion-datetime>
+            </ion-item> -->
+            <ion-button class="btn btn3" (click)="createResena()" [disabled]="!isFormValid">Crear Reseña</ion-button>          </form>
+          
         </ion-content>
       </ng-template>
     </ion-modal>
 
     <swiper-container class="comentario-slide" navigation="true" pagination="true" pagination-dynamic-bullets="true" autoplay-delay="2000">
-      <swiper-slide *ngFor="let comentario of comentarios">
+      <swiper-slide *ngFor="let resena of resenas">
         <ion-text>
           <ion-chip>
             <ion-avatar>
-              <img [alt]="'Avatar of ' + comentario.nombre" [src]="comentario.img" />
+              <img [src]="resena.img" />
             </ion-avatar>
-            <ion-label>{{ comentario.nombre }}</ion-label>
+            <ion-label>{{ resena.autor }}</ion-label>
           </ion-chip>
-          <p>{{ comentario.opinion }}</p>
+          <p>{{ resena.contenido }}</p>
         </ion-text>
       </swiper-slide>
     </swiper-container>

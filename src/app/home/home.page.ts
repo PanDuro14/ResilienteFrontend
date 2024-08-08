@@ -11,7 +11,6 @@ import { AnimationController, ModalController, AlertController } from '@ionic/an
 export class HomePage implements OnInit {
   public resenas: any = [];
   public agResena: FormGroup;
-  public blogs: any = [];
   public isResenaModalOpen = false;
   public isFormValid = false;
 
@@ -26,35 +25,35 @@ export class HomePage implements OnInit {
     { titulo: 'Blogs', class: 'card-blogs', link: "/blog" },
   ];
 
-  public posts = [
+/*   public posts = [
     {
-      img: 'https://ionicframework.com/docs/img/demos/card-media.png',
-      date: 'FECHA',
-      title: 'TÍTULO DE NOTA',
-      description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis.',
+      img: 'assets/img/posts/1.webp',
+      date: '14 de Julio de 2024',
+      title: 'Como Elegir la Carrera Adecuada',
+      description: '¿Confundido sobre tu carrera? Descubre cómo tus intereses y habilidades pueden guiarte hacia la opción ideal. Haz clic para más información y encontrar tu camino profesional.',
       isImageFirst: true
     },
     {
-      img: 'https://ionicframework.com/docs/img/demos/card-media.png',
-      date: 'FECHA',
-      title: 'TÍTULO DE NOTA',
-      description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis.',
+      img: 'assets/img/posts/2.webp',
+      date: '19 de Julio de 2024',
+      title: 'La Importancia de la Salud Mental en el Entorno Empresarial',
+      description: 'La salud mental de los empleados impulsa productividad y éxito. Conoce estrategias para mejorar el ambiente laboral y consulta nuestros programas de bienestar. ¡Haz clic para más detalles y agendar una consulta!',
       isImageFirst: false
     },
     {
-      img: 'https://ionicframework.com/docs/img/demos/card-media.png',
-      date: 'FECHA',
-      title: 'TÍTULO DE NOTA',
-      description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad minim veniam, quis nostrud exerci tation ullamcorper suscipit lobortis.',
+      img: 'assets/img/posts/3.webp',
+      date: '3 de Julio de 2024',
+      title: '¿Te cuesta conectar con tu hijo adolescente?',
+      description: '¿Tienes dificultades para conectar con tu hijo adolescente? Aprende estrategias para fortalecer la relación y considera la terapia si es necesario. Haz clic para obtener consejos y agendar tu cita con nuestros expertos.',
       isImageFirst: true
     }
-  ];
+  ]; */
 
-  public ultimaItems = [
+/*   public ultimaItems = [
     { img: "https://ionicframework.com/docs/img/demos/card-media.png", title: "Lorem ipsum dolor" },
     { img: "https://ionicframework.com/docs/img/demos/card-media.png", title: "Lorem ipsum dolor" },
   ];
-
+ */
   constructor(
     private serviceRest: ServicioRestService,
     private fb: FormBuilder,
@@ -74,8 +73,8 @@ export class HomePage implements OnInit {
 
   ngOnInit() {
     this.getResena();
-    this.getBlog();
-  }
+/*     this.getBlog();
+ */  }
 
   checkFormValidity() {
     const contenido = this.agResena.get('contenido');
@@ -109,11 +108,11 @@ export class HomePage implements OnInit {
     });
   }
 
-  public getBlog() {
+/*   public getBlog() {
     this.serviceRest.get('https://backend-resiliente.fly.dev/api/v1/blog').subscribe((respuesta) => {
       this.blogs = respuesta;
     });
-  }
+  } */
 
   public createResena() {
     if (this.isFormValid) {

@@ -241,7 +241,7 @@ ion-card {
     display: flex;
     justify-content: center;
     align-items: center;
-    background-image: url('https://ionicframework.com/docs/img/demos/card-media.png');
+    background-image: url('../../assets/img/posts/1.webp');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -286,7 +286,7 @@ ion-card {
     display: flex;
     justify-content: center;
     align-items: center;
-    background-image: url('https://ionicframework.com/docs/img/demos/card-media.png');
+    background-image: url('../../assets/img/posts/2.webp');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -312,6 +312,52 @@ ion-card {
     }
   }
 }
+
+.post3 {
+  background: linear-gradient(to right, #F0E2AC 53%, white 53%);
+  width: 100vw;
+  height: 400px;
+  position: relative;
+  display: flex;
+  margin-left: calc(-50vw + 50%);
+  margin-top: 70px;
+  left: 0;
+  justify-content: center;
+  align-items: center;
+
+  .image-section {
+    width: 50%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-image: url('../../assets/img/posts/3.webp');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+  }
+
+  .image-content,
+  .image-content img {
+    display: none;
+  }
+
+  .text-section {
+    background-color: #B09BE6;
+    width: 49.9%;
+    padding: 40px;
+    color: white;
+    text-align: left;
+    border-radius: 20px;
+
+    .date {
+      font-size: 14px;
+      margin: 0;
+      font-weight: 100;
+    }
+  }
+}
+
 
 .comentarios-container {
   width: 100vw;
@@ -398,7 +444,7 @@ ion-modal {
 
 }
 
-.ultima-container {
+/* .ultima-container {
   background-color: #B09BE6;
   margin-top: 50px;
   padding: 50px 0;
@@ -442,17 +488,7 @@ ion-modal {
       }
     }
   }
-}
-
-.videos-container {
-  background-color: #62B0B0;
-  height: 500px;
-}
-
-.videos-container video {
-  width: 100%;
-  height: 100%;
-}
+} */
 
 @media (max-width: 1024px) {
   .card-container {
@@ -476,7 +512,8 @@ ion-modal {
   }
 
   .post1,
-  .post2 {
+  .post2,
+  .post3 {
     flex-direction: column-reverse;
     height: auto;
 
@@ -508,7 +545,7 @@ ion-modal {
     }
   }
 
-  .post1 {
+  .post1, .post3 {
     background: #F0E2AC;
   }
 
@@ -520,7 +557,7 @@ ion-modal {
     flex-direction: column;
   }
 
-  .ultima-container .content {
+/*   .ultima-container .content {
     flex-direction: column;
     align-items: center;
 
@@ -528,7 +565,7 @@ ion-modal {
       width: 90%;
       margin-bottom: 60px;
     }
-  }
+  } */
 }
 
 
@@ -557,7 +594,8 @@ ion-modal {
   }
 
   .post1,
-  .post2 {
+  .post2,
+  .post3 {
     .image-content img {
       width: 60%;
       height: auto;

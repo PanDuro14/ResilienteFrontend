@@ -101,7 +101,7 @@
         </ion-buttons>
       </ion-toolbar>
     </ion-header>
-    <ion-content *ngIf="blogSeleccionado" class="verBlog">
+    <ion-content *ngIf="blogSeleccionado">
           <p>{{ blogSeleccionado.contenido }}</p>
           <div class="center">
             <img class="img2" [src]="'data:image/jpeg;base64,' + blogSeleccionado.images" [alt]="blogSeleccionado.titulo"/>

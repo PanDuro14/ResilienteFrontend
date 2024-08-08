@@ -44,27 +44,70 @@
       </form>
     </div>
 
-    <div *ngFor="let post of posts" [ngClass]="{'post1': post.isImageFirst, 'post2': !post.isImageFirst}">
-      <div class="image-section" *ngIf="post.isImageFirst">
+    <div class="post1">
+      <div class="image-section">
         <div class="image-content">
-          <img [src]="post.img" alt="Post image" />
+          <img src="../../assets/img/posts/1.webp" alt="Post image" />
         </div>
       </div>
       <div class="text-section">
         <ion-text>
-          <p class="date">{{post.date}}</p>
-          <h1>{{post.title}}</h1>
+          <p class="date">14 de Julio de 2024</p>
+          <h1>Como Elegir la Carrera Adecuada</h1>
           <div class="divider"></div>
-          <p>{{post.description}}</p>
+          <p>¿Confundido sobre tu carrera? Descubre cómo tus intereses y 
+            habilidades pueden guiarte hacia la opción ideal. Haz clic para 
+            más información y encontrar tu camino profesional.
+          </p>
         </ion-text>
-        <ion-button class="btn btn3">LEER MÁS</ion-button>
+        <ion-button class="btn btn3" routerLink="/blog">LEER MÁS</ion-button>
       </div>
-      <div class="image-section" *ngIf="!post.isImageFirst">
+    </div>
+    
+    <div class="post2">
+      <div class="text-section">
+        <ion-text>
+          <p class="date">19 de Julio de 2024</p>
+          <h1>La Importancia de la Salud Mental en el Entorno Empresarial</h1>
+          <div class="divider"></div>
+          <p>La salud mental de los empleados impulsa productividad y éxito.
+            Conoce estrategias para mejorar el ambiente laboral y consulta
+            nuestros programas de bienestar. ¡Haz clic para más detalles y agendar 
+            una consulta!
+          </p>
+        </ion-text>
+        <ion-button class="btn btn3" routerLink="/blog">LEER MÁS</ion-button>
+      </div>
+      <div class="image-section">
         <div class="image-content">
-          <img [src]="post.img" alt="Post Image"/>
+          <img src="../../assets/img/posts/2.webp" alt="Post Image" />
         </div>
       </div>
     </div>
+
+    <div class="post3">
+      <div class="image-section">
+        <div class="image-content">
+          <img src="../../assets/img/posts/3.webp" alt="Post image" />
+        </div>
+      </div>
+      <div class="text-section">
+        <ion-text>
+          <p class="date">03 de Julio de 2024</p>
+          <h1>¿Te cuesta conectar con tu hijo adolescente?</h1>
+          <div class="divider"></div>
+          <p>
+            ¿Tienes dificultades para conectar con tu hijo adolescente?
+            Aprende estrategias para fortalecer la relación y 
+            considera la terapia si es necesario. Haz clic para obtener consejos y 
+            agendar tu cita con nuestros expertos.
+          </p>
+        </ion-text>
+        <ion-button class="btn btn3" routerLink="/blog">LEER MÁS</ion-button>
+      </div>
+    </div>
+    
+    
 
     <div class="comentarios-container">
       <ion-text>
@@ -102,12 +145,12 @@
       </ng-template>
     </ion-modal>
 
-    <swiper-container class="comentario-slide" navigation="true" pagination="true" pagination-dynamic-bullets="true" autoplay-delay="2000">
+    <swiper-container class="comentario-slide" navigation="true" pagination="true" pagination-dynamic-bullets="true" autoplay-delay="3000">
       <swiper-slide *ngFor="let resena of resenas">
         <ion-text>
           <ion-chip>
             <ion-avatar>
-              <img [src]="resena.img" />
+              <img src="assets/icon/resi/resiliente-icon.png" />
             </ion-avatar>
             <ion-label>{{ resena.autor }}</ion-label>
           </ion-chip>
@@ -117,7 +160,7 @@
     </swiper-container>
     <!-- FIN DEL MODAL -->
 
-    <div class="ultima-container">
+<!--     <div class="ultima-container">
       <ion-text>
         <h1>La última y nos vamos</h1>
       </ion-text>
@@ -134,7 +177,7 @@
           </div>
         </div>
       </div>
-    </div>
+    </div> -->
 
     <app-colorbar></app-colorbar>
     <app-footer></app-footer>

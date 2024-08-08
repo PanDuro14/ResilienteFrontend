@@ -35,10 +35,10 @@ export class NosotrosPage implements OnInit {
       nombre: "Mariana Hernandez",
       img: "assets/img/equipo/psic3.webp",
       descripcion: "Psicóloga especializada en Psicoterapia Infantil, intervención en duelo y sexualidad infantil. Comprometida con el bienestar emocional de los niños.",
-      especialidad: "",
-      cedula: ""
+      especialidad: "Lic. en Psicología",
+      cedula: "13749246"
     },
-    {
+/*     {
       nombre: "Daniela Macias",
       img: "https://ionicframework.com/docs/img/demos/card-media.png",
       descripcion: "Psicoterapeuta con enfoque integral, especializada en adicciones, psicoeducación y terapia de lenguaje, con diplomado en psicoterapia cognitivo-conductual.",
@@ -51,7 +51,7 @@ export class NosotrosPage implements OnInit {
       descripcion: "Psicóloga especializada en terapia infantil, dedicada a mejorar el bienestar emocional y mental de los niños.",
       especialidad: "Lic. en Psicología",
       cedula: "09947667"
-    }
+    } */
   ];
   
   

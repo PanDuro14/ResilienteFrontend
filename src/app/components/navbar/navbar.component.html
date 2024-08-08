@@ -16,15 +16,13 @@
       </ng-container>
       <div *ngIf="!userData && !userSesion">
         <ion-button fill="clear" (click)="openLoginModal()">
-          <ion-icon slot="icon-only" src="assets/icon/navBar/fill/usuario.svg"></ion-icon>
+          <ion-icon slot="icon-only" src="assets/icon/navBar/fill/usuario.svg" ></ion-icon>
         </ion-button>
       </div>
       <div *ngIf="userData || userSesion">
-        <ion-avatar>
-          <ion-button fill="clear" (click)="logout()"></ion-button>
-          <img class="avatar" src="https://pbs.twimg.com/media/FxQnEEoXoAAAmHE.jpg" alt="User Avatar" />
-          
-        </ion-avatar>
+        <ion-button fill="clear" (click)="logout()">
+          <ion-icon slot="icon-only" src="assets/icon/resi/resiliente-icon.svg" style="font-size: 50px;"></ion-icon>
+        </ion-button>
       </div>      
     </div>
     <div class="divider"></div>
@@ -68,22 +66,18 @@
     </ul>
   </div>
   <div *ngIf="!userData && !userSesion">
-    <div class="sidebar__profile">
-      <ion-avatar>
-        <img class="avatar" src="https://pbs.twimg.com/media/FxQnEEoXoAAAmHE.jpg" alt="User Avatar" />
+    <div class="sidebar__profile" (click)="openLoginModal()">
+        <ion-icon class="avatar" src="assets/icon/navBar/fill/usuario.svg" alt="Avatar"></ion-icon>
         <div class="online__status"></div>
-      </ion-avatar>
       <div class="avatar__name">
-        <div class="user-name"> Inicia sesión :D </div>
-        <div class="email">userexample.com</div>
+        <div class="user-name">Inicia sesión</div>
       </div>
-      <ion-icon name="log-in-outline" class="logout" (click)="openLoginModal()"></ion-icon>
     </div>
   </div>
   <div *ngIf="userData || userSesion">
     <div class="sidebar__profile">
       <ion-avatar>
-        <img class="avatar" src="https://pbs.twimg.com/media/FxQnEEoXoAAAmHE.jpg" alt="User Avatar" />
+        <img class="avatar" src="assets/icon/resi/resiliente-icon.png" alt="User Avatar" />
         <div class="online__status"></div>
       </ion-avatar>
       <div *ngIf="userData && !userSesion">
@@ -98,7 +92,6 @@
           <div class="email">userSesion.com</div>
         </div>
       </div>
-      
       <ion-icon name="log-in-outline" class="logout" (click)="logout()"></ion-icon>
     </div>
 
@@ -129,12 +122,12 @@
       <div class="form-container sign-up">
         <form [formGroup]="formSingup" (ngSubmit)="createOneUsuario()">
           <h1>Crear Cuenta</h1>
-          <div class="social-icons">
+<!--           <div class="social-icons">
             <ion-button>
               <ion-icon name="logo-google"></ion-icon>
             </ion-button>
-          </div>
-          <span>o usa tu correo para registrarte</span>
+          </div> -->
+          <span>usa tu correo para registrarte</span>
           <ion-input type="text" formControlName="username" label="Nombre de Usuario" labelPlacement="floating" name="userName" required></ion-input>
           <ion-input type="email" formControlName="correo" label="Correo electrónico" labelPlacement="floating" name="correo" required></ion-input>
           <ion-input [type]="passwordFieldType" formControlName="passw"  label="Contraseña" labelPlacement="floating" name="contraseña" required>
@@ -147,12 +140,12 @@
       <div class="form-container sign-in">
         <form [formGroup]="formLogin" (ngSubmit)="login()">
           <h1>Iniciar Sesión</h1>
-          <div class="social-icons">
+<!--           <div class="social-icons">
             <ion-button>
               <ion-icon name="logo-google"></ion-icon>
             </ion-button>
-          </div>
-          <span>o usa tu correo y contraseña</span>
+          </div> -->
+          <span>usa tu correo y contraseña</span>
             <ion-input type="email" formControlName="correo" label="Correo" labelPlacement="floating" name="correo" required></ion-input>
             <ion-input [type]="passwordFieldType" formControlName="passw" label="Contraseña" labelPlacement="floating" name="contraseña" required>
               <ion-icon class="eye" slot="end" (click)="togglePasswordVisibility()" [name]="passwordFieldType === 'text' ? 'eye-off-outline' : 'eye-outline'"></ion-icon>

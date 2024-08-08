@@ -337,9 +337,11 @@ h1 {
     transform: translateX(200%);
 }
 
-/* ion-fab {
-    display: none !important;
-} */
+.avatar1 {
+    margin: 30px 0;
+    width: 4rem;
+    height: 4rem;
+}
 
 nav {
     display: none;
@@ -379,7 +381,8 @@ nav {
         align-items: center;
         justify-content: center;
         padding: 1rem;
-        margin-left: -107px;
+        margin-top: 15px;
+        margin-left: -40px;
     }
 
     .logo__wrapper {
@@ -409,7 +412,7 @@ nav {
     .sidebar-links {
         padding: 1rem;
         overflow: hidden;
-        margin-left: -38px;
+        margin-left: -35px;
     }
 
     .sidebar-links ul {
@@ -461,6 +464,7 @@ nav {
     }
 
     .avatar {
+        color: #B09BE6;
         display: block;
         object-fit: cover;
         height: 3rem;
@@ -488,18 +492,18 @@ nav {
         place-items: center;
         cursor: pointer;
         background: transparent;
-        border: 2px solid #0965BA;
+        border: 2px solid #030773;
         background-color: transparent;
         width: 2.25rem;
         height: 2.25rem;
         border-radius: 50%;
         margin: 1rem;
-        margin-left: 17.5rem;
+        margin-left: 14.1rem;
     }
 
     .expand-btn ion-icon {
         font-size: 1.3rem;
-        color: #0965BA;
+        color: #030773;
     }
 
     .sidebar__profile .logout {

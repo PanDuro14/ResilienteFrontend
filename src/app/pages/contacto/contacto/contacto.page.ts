@@ -22,7 +22,7 @@ public redes = [
 
 public correos = [
   { mail: "psic.resiliente@gmail.com" },
-  { mail: "correo2@gmail.com" },
+  { mail: "alex.diaz.oad@gmail.com" },
 ];
 
 

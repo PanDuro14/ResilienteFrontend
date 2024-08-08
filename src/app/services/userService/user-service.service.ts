@@ -6,6 +6,9 @@ import { BehaviorSubject } from 'rxjs';
   providedIn: 'root'
 })
 export class UserServiceService {
+  private isAuthenticatedSubject = new BehaviorSubject<boolean>(false);
+  isAuthenticated$ = this.isAuthenticatedSubject.asObservable();
+
   private userDataSubject = new BehaviorSubject<any>(null); 
   private userSesionSubject = new BehaviorSubject<any>(null); 
 
@@ -13,12 +16,14 @@ export class UserServiceService {
   userSesion$ = this.userSesionSubject.asObservable(); 
 
   constructor() { }
-  setCurrentSesion(userSesion: any){
-    this.userDataSubject.next(userSesion); 
+  setUserData(data: any): void {
+    this.userDataSubject.next(data);
+    localStorage.setItem('userData', JSON.stringify(data));
   }
-
-  setUserData(userData: any){
-    this.userDataSubject.next(userData); 
+  
+  setCurrentSesion(data: any): void {
+    this.userSesionSubject.next(data);
+    localStorage.setItem('currentSession', JSON.stringify(data));
   }
 
   getUserData(){
@@ -27,5 +32,9 @@ export class UserServiceService {
 
   getCurrentSesion(){
     return this.userSesionSubject.value; 
+  }
+
+  setAuthenticated(isAuthenticated: boolean) {
+    this.isAuthenticatedSubject.next(isAuthenticated);
   }
 }

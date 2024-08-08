@@ -25,9 +25,11 @@
     </div>
 
     <div class="top">
-      <ion-button fill="clear" (click)="openAgBlogModal()">
-        <ion-icon src="assets/icon/agregar.svg" class="add"></ion-icon>
-      </ion-button>
+      <div *ngIf="showCreateButton">
+        <ion-button fill="clear" (click)="openAgBlogModal()">
+          <ion-icon src="assets/icon/agregar.svg" class="add"></ion-icon>
+        </ion-button>
+      </div>      
       <ion-searchbar show-clear-button="focus" placeholder="Buscar"></ion-searchbar> <!-- QUITAR -->
     </div>
 
@@ -101,7 +103,7 @@
         </ion-buttons>
       </ion-toolbar>
     </ion-header>
-    <ion-content *ngIf="blogSeleccionado">
+    <ion-content *ngIf="blogSeleccionado" class="verBlog">
           <p>{{ blogSeleccionado.contenido }}</p>
           <div class="center">
             <img class="img2" [src]="'data:image/jpeg;base64,' + blogSeleccionado.images" [alt]="blogSeleccionado.titulo"/>

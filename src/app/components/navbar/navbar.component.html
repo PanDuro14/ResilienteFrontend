@@ -138,7 +138,7 @@
         </form>
       </div>
       <div class="form-container sign-in">
-        <form [formGroup]="formLogin" (ngSubmit)="login()">
+        <form [formGroup]="formLogin" (ngSubmit)="login($event)">
           <h1>Iniciar Sesión</h1>
 <!--           <div class="social-icons">
             <ion-button>

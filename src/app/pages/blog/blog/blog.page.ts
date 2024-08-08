@@ -2,6 +2,11 @@ import { Component, OnInit } from '@angular/core';
 import { ServicioRestService } from 'src/app/services/restService/rest-service.service';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ModalController, AnimationController, AlertController } from '@ionic/angular';
+import { UserServiceService } from 'src/app/services/userService/user-service.service';
+import { catchError } from 'rxjs/operators';
+import { of } from 'rxjs';
+
+
 
 @Component({
   selector: 'app-blog',
@@ -16,13 +21,17 @@ export class BlogPage implements OnInit {
   public isBlogOpen = false;
   private selectedFile: File | null = null;
   public isFormValid = false;
+  public currentUser: any = []; 
+  public showCreateButton: boolean = false;
+
 
   constructor(
     private serviceRest: ServicioRestService,
     private fb: FormBuilder,
     private modalCtrl: ModalController,
     private animationCtrl: AnimationController,
-    private alertCtrl: AlertController
+    private alertCtrl: AlertController,
+    private userService: UserServiceService,
   ) {
     this.agBlog = this.fb.group({
       titulo: ['', Validators.required],
@@ -39,6 +48,34 @@ export class BlogPage implements OnInit {
 
   ngOnInit() {
     this.getBlog();
+    this.getUser(); 
+  }
+
+  getUser(){
+    this.userService.getUserData().pipe(
+      catchError(error =>{
+        console.error('Error al obtener usuario', error); 
+        this.currentUser=[]; 
+        return of([]); 
+      })
+    ).susbcribe((Response: any) =>{
+      if(Response && Response.length > 0){
+        this.currentUser = Response; 
+        this.checkUserPermissions(); 
+      } else {
+        console.warn('No se encontraron datos de usuario'); 
+        this.currentUser = []; 
+      }
+    }); 
+  }
+
+  checkUserPermissions() {
+    const superUsuario = ["Resiliente0", "Resiliente02", "Resiliente03"];
+    if (this.currentUser.length > 0 && superUsuario.includes(this.currentUser[2])) {
+      this.showCreateButton = true;
+    } else {
+      this.showCreateButton = false;
+    }
   }
 
   handleFileInput(event: any) {

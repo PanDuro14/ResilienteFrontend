@@ -41,7 +41,7 @@ export class NavbarComponent implements OnInit {
     { label: 'Servicios' },
     { label: 'Blog', link: '/blog' }, 
     { label: 'Contacto', link: '/contacto' },
-    { label: 'Dashboard', link: '/dashboard' },
+    //{ label: 'Dashboard', link: '/dashboard' },
   ];
 
   sidebar = [
@@ -88,7 +88,7 @@ export class NavbarComponent implements OnInit {
     this.formLogin = this.fb.group({
       'correo': new FormControl('', Validators.required), 
       'passw': new FormControl('', Validators.required)
-    });    
+    });           
    }
 
   ngOnInit():void {
@@ -122,7 +122,7 @@ export class NavbarComponent implements OnInit {
       buttons: [{
         text: 'Ok', 
         handler:() =>{
-          this.router.navigate(['home']); 
+          //this.router.navigate(['home']); 
         }
       }]
     });
@@ -252,7 +252,9 @@ export class NavbarComponent implements OnInit {
   }
 
   //logica para iniciar sesión
-  login() {
+  login(event: Event) {
+    event.preventDefault(); 
+
     const correo = this.formLogin.value.correo;
     const passw = this.formLogin.value.passw;
   
@@ -261,7 +263,9 @@ export class NavbarComponent implements OnInit {
     this.authService.login(correo, passw).then(response => {
       console.log('Respuesta del API de login:', response);
   
-      if (response && response.success) {    
+      if (response && response.success) { 
+        localStorage.setItem('authToken', response.token); 
+        
         this.userService.setUserData(response.data);
         this.userService.setCurrentSesion(response.data);                 
         this.mostrarAlerta('¡Bienvenid@, '+ response.data.username +'! :D');

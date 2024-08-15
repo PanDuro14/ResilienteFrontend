@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
 import { ServicioRestService } from '../services/restService/rest-service.service';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { AnimationController, ModalController, AlertController } from '@ionic/angular';
@@ -13,6 +14,7 @@ export class HomePage implements OnInit {
   public agResena: FormGroup;
   public isResenaModalOpen = false;
   public isFormValid = false;
+  public allColabs: any = []; 
 
   public slides = [
     { name: "Slide 1", img: "assets/gif/gif1.gif" },
@@ -59,7 +61,8 @@ export class HomePage implements OnInit {
     private fb: FormBuilder,
     private modalCtrl: ModalController,
     private animationCtrl: AnimationController,
-    private alertCtrl: AlertController
+    private alertCtrl: AlertController, 
+    private http: HttpClient
   ) {
     this.agResena = this.fb.group({
       contenido: ['', Validators.required],
@@ -73,6 +76,7 @@ export class HomePage implements OnInit {
 
   ngOnInit() {
     this.getResena();
+    this.getAllColabs(); 
 /*     this.getBlog();
  */  }
 
@@ -132,6 +136,23 @@ export class HomePage implements OnInit {
       );
     }
   }
+
+  // colaboradores 
+  getAllColabs():void {
+    this.http.get<any[]>('https://backend-resiliente.fly.dev/api/v1/colab').subscribe(
+      Response => {
+        this.allColabs = Response; 
+      }, 
+      error => {
+        console.error('Dashboard: Error al obtener las colaboraciones', error); 
+      }
+    ); 
+  }
+
+  openUrl(url: string) {
+    window.open(url, '_blank');
+  }
+
 
   async openResenaModal() {
     this.isResenaModalOpen = true;

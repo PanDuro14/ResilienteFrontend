@@ -1,15 +1,17 @@
 <ion-content [fullscreen]="true">
   <app-colorbar></app-colorbar>
   <app-navbar></app-navbar>
-  
-  <div class="container" id="container">
-    <ion-searchbar show-clear-button="focus" placeholder="Buscar"></ion-searchbar>
+  <br>
 
-    <div class="table-container">
+  <!-- Citas -->
+  <h3>Citas</h3>
+  <div class="table-container">
+    <ion-searchbar show-clear-button="focus" placeholder="Buscar"></ion-searchbar>
+    <div class="table-wrapper">
       <table class="content-table">
         <thead>
           <tr>
-            <th>Nombre completo </th>
+            <th>Nombre completo</th>
             <th>Correo</th>
             <th>Teléfono</th>
             <th>Tipo de cita</th>
@@ -37,7 +39,44 @@
         </tbody>
       </table>
     </div>
-    <app-colorbar></app-colorbar>
-    <app-footer></app-footer>
   </div>
+
+  <br>
+
+  <!-- Colaboradores -->
+  <h3>Colaboradores</h3>
+  <div class="table-container">
+    <ion-searchbar show-clear-button="focus" placeholder="Buscar"></ion-searchbar>
+    <div class="table-wrapper">
+      <table class="content-table">
+        <thead>
+          <tr>
+            <th>Acronimo</th>
+            <th>Nombre comercial</th>
+            <th>url</th>
+            <th>Logotipo</th>
+            <th></th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let colab of allColabs">
+            <td data-label="Acronimo:">{{ colab.acronimo }}</td>
+            <td data-label="nombre_comercial">{{ colab.nombre_comercial }}</td>
+            <td data-label="url">{{ colab.url }}</td>
+            <td data-label="Logotipo">
+              <img [src]="'data:image/jpeg;base64,' + colab.logotipo" [alt]="colab.acronimo"/>             
+            </td>
+            <td data-label="Editar:"><ion-icon name="create-outline" (click)="editColab(colab.id); OpenEditCita()"></ion-icon></td>
+            <td data-label="Eliminar:">
+              <ion-icon name="trash-outline" (click)="deleteColab(colab)" color="danger"></ion-icon>
+            </td>      
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <app-colorbar></app-colorbar>
+  <app-footer></app-footer>
 </ion-content>

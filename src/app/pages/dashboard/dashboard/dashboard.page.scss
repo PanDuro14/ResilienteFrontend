@@ -3,13 +3,12 @@ ion-content {
 }
 
 .container {
-    position: absolute;
     text-align: center;
-    top: 30%;
-    left: 50px;
-    right: 50px;
-    margin: 30px 50px 50px;
-    padding: 10px 10px none;
+    margin: 20px 50px;
+}
+
+.table-container {
+    margin-top: 20px;
 }
 
 ion-searchbar {
@@ -19,21 +18,22 @@ ion-searchbar {
     --icon-color: #fff;
     --clear-button-color: #fff;
     --border-radius: 10px;
+    margin: 10px auto;
+    width: 70%;
 }
 
-.tabla-container {
+.table-wrapper {
     overflow-x: auto;
+    margin-top: 20px;
 }
-
 
 .content-table {
     border-collapse: collapse;
-    margin: 20px auto 20px;
-    font-size: 0.9em;
     width: 100%;
     max-width: 800px;
+    margin: 20px auto;
+    font-size: 0.9em;
     border-radius: 5px;
-    overflow: hidden;
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
 }
 
@@ -44,37 +44,62 @@ thead tr {
     font-weight: bold;
 }
 
-th {
-    padding: 12px 20px;
-    text-align: center;
-    color: white;
-}
+
 
 td {
     padding: 12px 20px;
     text-align: center;
-    color: black;
+    color: black; /* Cambiar a un color oscuro */
+}
+
+th {
+    padding: 12px 20px;
+    text-align: center;
+    color: white; /* Mantener blanco si el fondo es oscuro */
 }
 
 ion-icon {
     font-size: 20px;
 }
 
+.logotipo-img {
+    width: 50px;  /* Ajusta este valor según tus necesidades */
+    height: auto;  /* Mantiene la proporción de la imagen */
+    border-radius: 5px; /* Opcional: agrega bordes redondeados */
+}
+
+/* Alerta para eliminar */
+
+.custom-alert {
+    --background: #f8f8f8;
+    --color: #333;
+  }
+  
+  .custom-alert .alert-title {
+    font-size: 1.5rem;
+    font-weight: bold;
+  }
+  
+  .custom-alert .alert-message {
+    font-size: 1rem;
+    color: #555;
+  }
+  
+  .custom-alert .alert-button {
+    background: #3880ff;
+    color: white;
+  }
+  
+  .custom-alert .alert-button-secondary {
+    background: #f4f4f4;
+    color: #333;
+  }
+  
+
 /* MÓVIL */
 @media (max-width: 768px) {
-    .container {
-        left: 20px;
-        right: 20px;
-        margin: 13px 20px 20px;
-        top: 0;
-    }
-
     ion-searchbar {
-        width: 70%;
-        margin: 15px 80px 10px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
+        width: 100%;
     }
 
     .content-table {
@@ -100,7 +125,6 @@ ion-icon {
     }
 
     .content-table td {
-        text-align: center;
         padding-left: 50%;
         position: relative;
         border-bottom: 1px solid #eee;

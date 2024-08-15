@@ -490,6 +490,44 @@ ion-modal {
   }
 } */
 
+/* Estilo para cada imagen del colaborador */
+.Colabs {
+  ion-grid {
+    --ion-grid-padding: 0; /* Elimina el padding del grid para un ajuste perfecto */
+  }
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center; /* Centra los elementos horizontalmente */
+  padding: 10px;
+}
+
+.Colabs ion-row {
+  display: flex;
+  flex-wrap: wrap; /* Asegura que los elementos se ajusten a la siguiente línea */
+  justify-content: center; /* Centra los elementos horizontalmente */
+}
+
+.Colabs ion-col {
+  display: flex;
+  justify-content: center; /* Centra el contenido dentro de la columna */
+  align-items: center; /* Centra el contenido verticalmente */
+  padding: 0; /* Elimina el padding por defecto de ion-col */
+}
+
+.Colabs ion-img {
+  width: 250px; /* Tamaño fijo para todas las imágenes */
+  height: 250px; /* Tamaño fijo para todas las imágenes */
+  margin: 5px; /* Espacio entre las imágenes */
+  object-fit: cover; /* Mantiene la proporción de la imagen */
+  cursor: pointer; /* Cambia el cursor al pasar sobre la imagen */
+  border-radius: 50%; /* Hace las imágenes circulares si deseas */
+  transition: transform 0.3s ease; /* Efecto de transición al pasar el ratón */
+}
+
+.Colabs ion-img:hover {
+  transform: scale(1.1); /* Efecto de aumento al pasar el ratón */
+}
+
 @media (max-width: 1024px) {
   .card-container {
     flex-wrap: wrap;

@@ -19,6 +19,9 @@ import { AngularFireAuthModule } from '@angular/fire/compat/auth';
 import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
 import { environment } from 'src/environments/environment';
 
+import { IonicStorageModule, Storage } from '@ionic/storage-angular';
+
+
 @NgModule({
   declarations: [AppComponent],
   imports: [
@@ -35,10 +38,20 @@ import { environment } from 'src/environments/environment';
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
+    IonicStorageModule.forRoot(),
   ],
 
   providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy }],
   bootstrap: [AppComponent],
   
 })
-export class AppModule {}
+export class AppModule {
+  constructor(private storage: Storage){
+    this.initializeStorage(); 
+  }
+
+  private async initializeStorage(){
+    await this.storage.create();     
+  }
+
+}

@@ -109,9 +109,9 @@ export class NavbarComponent implements OnInit {
     }, error => {
       console.error('Error al iniciar sesión del usuario', error); 
     }); 
-  
-    this.authService.checkAuthState(); 
+    
     this.getUsuario(); 
+    this.authService.testStorage(); 
   }
   // <------------------------------------------ Login y sing-up process -------------------------------------->
   // logica para crear mensajes

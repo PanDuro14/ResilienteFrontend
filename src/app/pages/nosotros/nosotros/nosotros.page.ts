@@ -15,7 +15,7 @@ export class NosotrosPage implements OnInit {
     { valor: "Calidad", descripcion: "Nos comprometemos a ofrecer servicios de la más alta calidad, utilizando enfoques basados en evidencia y prácticas recomendadas para obtener los mejores resultados.", img: "assets/img/valores/calidad.webp" },
     { valor: "Excelencia", descripcion: "Buscamos continuamente mejorar y perfeccionar nuestras habilidades y conocimientos, aspirando a la excelencia en todo lo que hacemos.", img: "assets/img/valores/excelencia.webp" },
   ];
-  
+
   public psicologos = [
     {
       nombre: "Yolanda Esparza",
@@ -38,27 +38,62 @@ export class NosotrosPage implements OnInit {
       especialidad: "Lic. en Psicología",
       cedula: "13749246"
     },
-/*     {
+    {
+      nombre: "Salvador Rubalcava",
+      img: "assets/img/equipo/psicologonw1.jpg",
+      descripcion: "Trabajo con adicciones por más de 4 años. Diplomado en psicofarmacología. Diplomado en trastornos de la personalidad. Diplomado en neurociencias de las adicciones",
+      especialidad: "Adicciones",
+      cedula: "13560890"
+    },
+
+    {
+      nombre: "Nestor Calderon",
+      img: "assets/img/equipo/psicologonw2.jpg",
+      descripcion: "Con 4 años de experiencia en manejo de terapia psicológica infantil, adulta y pareja, atención en primeros auxilios psicológicos, atención en manejo de pensamiento e intento suicida, capacitador en el área del mhGAP",
+      especialidad: "Lic. Psicología humanista",
+      cedula: "11332142"
+    },
+/*
+    {
+      nombre: "Daniela",
+      img: "https://ionicframework.com/docs/img/demos/card-media.png",
+      descripcion: "descripcion",
+      especialidad: "especialidad",
+      cedula: "cedula"
+    },
+
+    {
+      nombre: "Yolanda 2",
+      img: "https://ionicframework.com/docs/img/demos/card-media.png",
+      descripcion: "descripcion",
+      especialidad: "especialidad",
+      cedula: "cedula"
+    },
+    {
       nombre: "Daniela Macias",
       img: "https://ionicframework.com/docs/img/demos/card-media.png",
       descripcion: "Psicoterapeuta con enfoque integral, especializada en adicciones, psicoeducación y terapia de lenguaje, con diplomado en psicoterapia cognitivo-conductual.",
       especialidad: "Lic. en Psicología",
       cedula: "13778915"
     },
+
     {
       nombre: "Victoria Díaz",
       img: "https://ionicframework.com/docs/img/demos/card-media.png",
       descripcion: "Psicóloga especializada en terapia infantil, dedicada a mejorar el bienestar emocional y mental de los niños.",
       especialidad: "Lic. en Psicología",
       cedula: "09947667"
-    } */
+    }
+
+    */
   ];
-  
-  
-  
+
+
+
   constructor() { }
 
   ngOnInit() {
+    return;
   }
 
 }

@@ -1,0 +1,294 @@
+ion-content {
+  --background: white;
+}
+
+#container {
+  text-align: center;
+  padding: 10px 10px none;
+  margin: 30px 50px 50px none;
+}
+
+.btn {
+  --border-radius: 15px;
+  --box-shadow: none;
+  font-size: 12px;
+  height: 50px;
+  margin: 0 5px;
+}
+
+.btn1 {
+  --background: var(--ion-color-secondary);
+  --color: var(--ion-color-medium);
+}
+
+.btn3 {
+  --background: #0965BA;
+  --color: var(--ion-color-light);
+}
+
+.btn4 {
+  --background: var(--ion-color-tertiary);
+  --color: var(--ion-color-light);
+}
+
+h1,
+h2,
+h3,
+p {
+  word-wrap: break-word;
+  padding: 5px;
+  margin: 10px 0;
+  color: white;
+}
+
+h1 {
+  font-size: 30px;
+  font-weight: 700;
+}
+
+h2 {
+  font-size: 25px;
+  font-weight: 600;
+}
+
+h3 {
+  font-size: 20px;
+  font-weight: 500;
+}
+
+p {
+  font-size: 15px;
+  font-weight: 400;
+  line-height: 1.5em;
+}
+
+.ion-img-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  width: 150px;  /* Establece un ancho fijo */
+  height: 150px; /* Establece una altura fija */
+  margin: 10px;  /* Margen alrededor de cada imagen */
+}
+
+.ion-img-container ion-img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;  /* Ajusta la imagen dentro del contenedor */
+}
+
+
+ion-label {
+  color: white;
+}
+
+ion-item {
+  --background: white;
+  border-radius: 15px;
+  margin: 0 5px;
+  --color: black;
+  width: 160px;
+  height: 50px;
+}
+
+ion-input {
+  text-align: left;
+  font-size: 11px;
+  font-weight: 400;
+  color: black;
+}
+
+.divider {
+  border-top: 0.5px solid white;
+  width: 100%;
+  margin: 15px 0;
+}
+
+.img-slide {
+  background-color: #DFDFE2;
+  width: 100vw;
+  height: 500px;
+  margin-left: calc(-50vw + 50%);
+  margin-top: 36px;
+}
+
+.introduccion-container {
+  position: relative;
+  margin-top: -100px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #B09BE6;
+  width: 80%;
+  max-width: 600px;
+  padding: 30px;
+  border-radius: 20px;
+  text-align: center;
+  z-index: 10;
+}
+
+.card-container {
+  display: flex;
+  justify-content: space-around;
+  margin-top: 50px;
+}
+
+ion-card {
+  width: 300px;
+  height: 200px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  border-radius: 20px;
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+
+  ion-card-content {
+    color: white;
+    font-size: 30px;
+    font-weight: 600;
+    z-index: 2;
+  }
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.3);
+    z-index: 1;
+  }
+
+  &::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 0;
+    opacity: 0.7;
+  }
+}
+
+.newsletter-container {
+  background-color: #62B0B0;
+  width: 100vw;
+  padding: 20px;
+  margin-left: calc(-50vw + 50%);
+  margin-top: 50px;
+  text-align: center;
+
+  .newsletter-form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+}
+
+swiper-container {
+  --swiper-navigation-color: #0965ba;
+  --swiper-pagination-color: #0965ba;
+}
+
+swiper-slide {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 15px;
+}
+
+swiper-slide img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+swiper-slide video {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.Colabs {
+  ion-grid {
+    --ion-grid-padding: 0; /* Elimina el padding del grid para un ajuste perfecto */
+  }
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center; /* Centra los elementos horizontalmente */
+  padding: 10px;
+}
+
+.Colabs ion-row {
+  display: flex;
+  flex-wrap: wrap; /* Asegura que los elementos se ajusten a la siguiente línea */
+  justify-content: center; /* Centra los elementos horizontalmente */
+}
+
+.Colabs ion-col {
+  display: flex;
+  justify-content: center; /* Centra el contenido dentro de la columna */
+  align-items: center; /* Centra el contenido verticalmente */
+  padding: 0; /* Elimina el padding por defecto de ion-col */
+}
+
+.Colabs ion-img {
+  width: 250px; /* Tamaño fijo para todas las imágenes */
+  height: 250px; /* Tamaño fijo para todas las imágenes */
+  margin: 5px; /* Espacio entre las imágenes */
+  object-fit: cover; /* Mantiene la proporción de la imagen */
+  cursor: pointer; /* Cambia el cursor al pasar sobre la imagen */
+  border-radius: 50%; /* Hace las imágenes circulares si deseas */
+  transition: transform 0.3s ease; /* Efecto de transición al pasar el ratón */
+}
+
+.Colabs ion-img:hover {
+  transform: scale(1.1); /* Efecto de aumento al pasar el ratón */
+}
+
+
+@media (max-width: 768px) {
+  #container {
+    margin: none 20px none;
+    padding-top: none;
+  }
+
+  .img-slide .introduccion-container {
+    width: 90%;
+    padding: 30px;
+  }
+
+  ion-card {
+    width: 100%;
+  }
+
+  .newsletter-container {
+    height: auto;
+    padding: 30px 20px;
+
+    p {
+      margin: 10px 20px;
+    }
+  }
+
+  .post1,
+  .post2,
+  .post3 {
+    .image-content img {
+      width: 60%;
+      height: auto;
+      margin: 5px auto 5px;
+      border-radius: 20px;
+    }
+
+
+    .text-section {
+      padding: 20px;
+    }
+  }
+}

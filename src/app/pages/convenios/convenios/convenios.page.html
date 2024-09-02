@@ -1,0 +1,81 @@
+<ion-content [fullscreen]="true">
+  <app-colorbar></app-colorbar>
+  <app-navbar></app-navbar>
+
+  <div id="content">
+    <div class="img-slid">
+      <div *ngFor="let slide of slides">
+        <img [src]="slide.img">
+      </div>
+    </div>
+    <div class="introduccion-container">
+      <ion-text>
+        <h1>INTRODUCCIÓN</h1>
+        <p>
+          Bienvenidos a el servicio de Convenios de Resiliente PYC
+        </p>
+      </ion-text>
+      <ion-button class="btn btn1" shape="round" routerLink="/nosotros">CONOCE MÁS</ion-button>
+    </div>
+    <div>
+
+    </div>
+    <div class="politicas">
+      <h1 color="newsletter-container">
+        Políticas
+      </h1>
+    </div>
+
+    <div class="convenios">
+      <div class="newsletter-container">
+        <h1>
+          Empresas con convenio
+        </h1>
+      </div>
+
+      <div class="Colabs">
+        <ion-grid>
+          <ion-row>
+            <ion-col size="auto" *ngFor="let colab of allColabs">
+              <ion-img
+                [src]="'data:image/jpeg;base64,' + colab.logotipo" [alt]="colab.acronimo"
+                (click)="openUrl(colab.url)"
+              >
+              </ion-img>
+            </ion-col>
+          </ion-row>
+        </ion-grid>
+      </div>
+    </div>
+
+    <div class="info-conv">
+      <div class="newsletter-container">
+        <h1>
+          Información para convenios
+        </h1>
+      </div>
+    </div>
+
+    <div class="info-platcias">
+      <div class="newsletter-container">
+        <h1>
+          Información de plátcias
+        </h1>
+      </div>
+    </div>
+
+    <div class="img-convenios">
+      <ion-grid>
+        <ion-row>
+          <ion-col size="auto" *[ngClass]="">
+            <ion-img [src]="'data:image/jpeg;base64'">
+            </ion-img>
+          </ion-col>
+        </ion-row>
+      </ion-grid>
+    </div>
+  </div>
+
+  <app-colorbar></app-colorbar>
+  <app-footer></app-footer>
+</ion-content>

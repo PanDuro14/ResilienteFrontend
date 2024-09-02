@@ -42,6 +42,10 @@ const routes: Routes = [
     path: 'consultoria',
     loadChildren: () => import('./pages/servicios/consultoria/consultoria.module').then( m => m.ConsultoriaPageModule)
   },
+  {
+    path: 'convenios',
+    loadChildren: () => import('./pages/convenios/convenios/convenios.module').then( m => m.ConveniosPageModule)
+  },
 
 
 

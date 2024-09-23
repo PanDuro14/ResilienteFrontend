@@ -3,6 +3,8 @@ import { HttpClient } from '@angular/common/http';
 import { ServicioRestService } from '../services/restService/rest-service.service';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { AnimationController, ModalController, AlertController } from '@ionic/angular';
+import { environment } from 'src/environments/environment';
+
 
 @Component({
   selector: 'app-home',
@@ -62,7 +64,7 @@ export class HomePage implements OnInit {
     private modalCtrl: ModalController,
     private animationCtrl: AnimationController,
     private alertCtrl: AlertController,
-    private http: HttpClient
+    private http: HttpClient,
   ) {
     this.agResena = this.fb.group({
       contenido: ['', Validators.required],
@@ -107,7 +109,7 @@ export class HomePage implements OnInit {
   }
 
   public getResena() {
-    this.serviceRest.get('https://backend-resiliente.fly.dev/api/v1/comentario').subscribe((respuesta) => {
+    this.serviceRest.get(`${environment.apiUrl}/comentario`).subscribe((respuesta) => {
       this.resenas = respuesta;
     });
   }
@@ -121,7 +123,7 @@ export class HomePage implements OnInit {
   public createResena() {
     if (this.isFormValid) {
       const nuevaResena = this.agResena.value;
-      this.serviceRest.post('https://backend-resiliente.fly.dev/api/v1/comentario', nuevaResena).subscribe(
+      this.serviceRest.post(`${environment.apiUrl}/comentario`, nuevaResena).subscribe(
         (respuesta) => {
           console.log('Reseña Agregada', respuesta);
           this.mostrarAlerta('Reseña creada con éxito');
@@ -139,7 +141,7 @@ export class HomePage implements OnInit {
 
   // colaboradores
   getAllColabs():void {
-    this.http.get<any[]>('https://backend-resiliente.fly.dev/api/v1/colab').subscribe(
+    this.http.get<any[]>(`${environment.apiUrl}/colab`).subscribe(
       Response => {
         this.allColabs = Response;
       },

@@ -1,12 +1,8 @@
-import { Component, OnInit, ViewChild } from '@angular/core';
-import { AnimationController, ModalController } from '@ionic/angular';
-import { Router, NavigationEnd } from '@angular/router'; 
-import { filter } from 'rxjs';
-
-// imports de métodos 
+import { Component, OnInit } from '@angular/core';
+import { ConsultorioService } from 'src/app/services/consultorio/consultorio.service';
 import { HttpClient } from '@angular/common/http';
-import { FormGroup, Validator, FormBuilder, AbstractControl, FormControl, Validators } from '@angular/forms';
-import { AlertController } from '@ionic/angular';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { AnimationController, ModalController } from '@ionic/angular';
 
 @Component({
   selector: 'app-cita',
@@ -16,20 +12,25 @@ import { AlertController } from '@ionic/angular';
 export class CitaComponent implements OnInit {
   public isCitaModalOpen = false;
   public isCitaMode = false;
-  public pacienteExist: boolean = false; 
-  public nombreCompleto = ''; 
 
-  formPaciente: FormGroup; 
-  formCita: FormGroup; 
-  errorMessage: string = ''; 
+  public checkConsultorioValue: Boolean = false;
+  public pacienteExist: Boolean = false;
+  captchaResolved: boolean = false;
+
+  public formPaciente: FormGroup;
+  public formCita: FormGroup;
+
+  private allPacientes: any[] = [];
+  public allCitas: any[] = [];
+  public cita: any;
 
   public serviciosPsicologia = [
-    {tipo: "Atención para niños"},
-    {tipo: "Atención para adolescentes"},
-    {tipo: "Atención para adultos"},
-    {tipo: "Atención para adultos mayores"},
-    {tipo: "Psicoterapia de pareja"},
-    {tipo: "Acompañamiento tanatológico"},
+    {tipo: "Atención para niños",           tipocita:'ninos'},
+    {tipo: "Atención para adolescentes",    tipocita: 'adolescentes'},
+    {tipo: "Atención para adultos",         tipocita: 'adultos' },
+    {tipo: "Atención para adultos mayores", tipocita: 'adultos'},
+    {tipo: "Psicoterapia de pareja",        tipocita: 'adultos'},
+    {tipo: "Acompañamiento tanatológico",   tipocita: 'adultos'},
   ];
 
   public serviciosConsultoria = [
@@ -49,123 +50,183 @@ export class CitaComponent implements OnInit {
   ];
 
   constructor(
-    private modalController: ModalController, 
-    private animationCtrl: AnimationController, 
-    private router: Router,
-    private http: HttpClient,    
-    private fb: FormBuilder, 
-    private alertController: AlertController,  
-  ) { 
-    this.formCita = this.fb.group({
-      username: [''],
-      nombrecompleto: ['', [Validators.required]], 
-      correo: ['', [Validators.required, Validators.email]], 
-      telefono: ['', [Validators.required, Validators.maxLength(10)]], 
-      tipocita: ['', [Validators.required]], 
-      fecha: ['', [Validators.required]],
-      horario: ['', [Validators.required]], 
-      psicologo: [''], 
-      cuentanosdeti: ['', [Validators.required]]
-    });     
+    private consultorio: ConsultorioService,
+    private http: HttpClient,
+    private fb: FormBuilder,
+    private modalController: ModalController,
+    private animationCtrl: AnimationController,
+  ) {
     this.formPaciente = this.fb.group({
-      nombre: ['', [Validators.required]], 
-      genero: ['', [Validators.required]], 
-      modalidad: ['', [Validators.required]], 
-      tipo: ['', [Validators.required]], 
-      fecha_nacimiento: ['', [Validators.required]], 
-      status: [''], 
-      numero_contacto: ['', [Validators.required]], 
-      frecuencia_sesiones: ['', [Validators.required]], 
-      beca: [''], 
-      contacto_tutor: [''], 
-      calle: ['', [Validators.required]],
-      numero: ['', Validators.required], 
-      cp: ['', [Validators.required]], 
-      municipio_estado_pais: ['', [Validators.required]]
-    }); 
+      nombre: ['', Validators.required],
+      genero: ['', Validators.required],
+      fecha_nacimiento: ['', Validators.required],
+      numero_contacto: ['', Validators.required],
+      contacto_tutor: ['', Validators.required],
+      comentarios: ['', Validators.required],
+      calle: ['', Validators.required],
+      numero: ['', Validators.required],
+      colonia: ['', Validators.required],
+      cp: ['', Validators.required],
+      municipio_estado_pais: ['', Validators.required],
+    });
+    this.formCita = this.fb.group({
+      nombrecompleto: ['', Validators.required],
+      correo: ['', Validators.required],
+      telefono: ['', Validators.required],
+      tipocita: ['', Validators.required],
+      modalidad: ['', Validators.required],
+      fecha: ['', Validators.required],
+      horario: ['', Validators.required],
+      psicologo: ['', Validators.required],
+      cuentanosdeti: ['', Validators.required],
+    });
   }
 
-  ngOnInit(): void {       
-
+  ngOnInit() {
+    this.consultorio.resetDailyCapacity();
+    this.getAllCitas();
   }
 
-
-  // <-- Cita modulo --> 
-  // Verificar si existen los pacientes xd 
-  async getNombrePaciente(nombre: string): Promise<boolean> {
+  getAllCitas() {
     try {
-      const response = await this.http.post<any>('https://backend-resiliente.fly.dev/api/v1/paciente/nombre/', { nombre }).toPromise();
-      return response && response.length > 0;
+      this.http.get<any>('https://backend-resiliente.fly.dev/api/v1/cita').subscribe((data) => {
+        this.allCitas = data;
+        return this.cita = this.allCitas;
+      });
     } catch (error) {
-      console.error('No se pudo obtener el paciente', error);
-      return false;
+      console.log('error al obtener las citas');
     }
   }
 
-  // Crea un nuevo paciente
-  async createPaciente(): Promise<void> {
-    const nuevoPaciente = {
-      nombre: this.formPaciente.value.nombre,
-      genero: this.formPaciente.value.genero,
-      modalidad: this.formPaciente.value.modalidad,
-      tipo: this.formPaciente.value.tipo,
-      fecha_nacimiento: this.formPaciente.value.fecha_nacimiento,
-      status: this.formPaciente.value.status,
-      numero_contacto: this.formPaciente.value.numero_contacto,
-      frecuencia_sesiones: this.formPaciente.value.frecuencia_sesiones,
-      beca: this.formPaciente.value.beca,
-      contacto_tutor: this.formPaciente.value.contacto_tutor,
-      calle: this.formPaciente.value.calle,
-      numero: this.formPaciente.value.numero,
-      colonia: this.formPaciente.value.colonia,
-      cp: this.formPaciente.value.cp,
-      municipio_estado_pais: this.formPaciente.value.municipio_estado_pais
-    };
-    try {
-      await this.http.post('https://backend-resiliente.fly.dev/api/v1/paciente', nuevoPaciente).toPromise();
-      const data = Response;       
-    } catch(error){
-      console.error('No se pudo obtener el paciente'); 
-    }
-  }
-
-  // Crea una nueva cita
-  async createCita(): Promise<void> {
-    if (this.formCita.valid) {
-      const nombrecompleto = this.formCita.value.nombrecompleto;
-      this.pacienteExist = await this.getNombrePaciente(nombrecompleto);
-
-      if (!this.pacienteExist) {
-        await this.createPaciente();
+  createPaciente(){
+    if(this.formPaciente.valid){
+      const nuevoPaciente = {
+        nombre: this.formPaciente.value.nombre,
+        genero: this.formPaciente.value.genero,
+        tipo: this.formPaciente.value.tipo,
+        fecha_nacimiento: this.formPaciente.value.fecha_nacimiento,
+        status: this.formPaciente.value.status,
+        numero_contacto: this.formPaciente.value.numero_contacto,
+        comentarios: this.formPaciente.value.comentarios,
+        calle: this.formPaciente.value.calle,
+        numero: this.formPaciente.value.numero,
+        colonia: this.formPaciente.value.colonia,
+        cp: this.formPaciente.value.cp,
+        municipio_estado_pais: this.formPaciente.value.municipio_estado_pais,
       }
+      const paciente = this.getOnePaciente(nuevoPaciente.nombre);
+      if(paciente === nuevoPaciente.nombre){
+        this.pacienteExist = true;
+        console.log('El paciente ya existe :D ');
+      } else {
+        this.http.post<any>('https://backend-resiliente.fly.dev/api/v1/paciente', nuevoPaciente).subscribe((Response) => {
+          console.log(Response);
+        });
+      }
+    }
+  }
 
+  async crearCita() {
+    if (this.formCita.valid && this.pacienteExist===true) {
       const nuevaCita = {
-        username: this.formCita.value.username,
         nombrecompleto: this.formCita.value.nombrecompleto,
         correo: this.formCita.value.correo,
         telefono: this.formCita.value.telefono,
         tipocita: this.formCita.value.tipocita,
         fecha: this.formCita.value.fecha,
         horario: this.formCita.value.horario,
-        psicologo: "sin asignar",
+        psicologo: this.formCita.value.psicologo,
         cuentanosdeti: this.formCita.value.cuentanosdeti,
       };
-
-      this.http.post('https://backend-resiliente.fly.dev/api/v1/cita', nuevaCita).subscribe(
-        () => {
-          console.log('Cita creada');
-        },
-        (error) => {
-          console.error('Error al crear la cita', error);
-        }
+      const modalidad = this.formCita.value.modalidad;
+      const disponibilidad = this.checkConsultorio(
+        nuevaCita.tipocita,
+        modalidad,
+        nuevaCita.fecha,
+        nuevaCita.horario
       );
-    } else {
-      this.errorMessage = 'Debe completar el formulario';
-      console.error(this.errorMessage);
+
+      if (disponibilidad) {
+        console.log(disponibilidad);
+
+        this.http.post<any>('https://backend-resiliente.fly.dev/api/v1/cita', nuevaCita).subscribe((response) => {
+          console.log(response);
+        });
+      } else {
+        console.log('No hay consultorio disponibles');
+      }
     }
   }
 
-  // <-- Paciente modulo -->
+  getPacientes(){
+    this.http.get<any>('https://backend-resiliente.fly.dev/api/v1/paciente').subscribe((Response) => {
+      this.allPacientes = Response;
+    }, (error) =>{
+      console.log('Error al obtener pacientes', error);
+    });
+  }
+
+  getOnePaciente(nombreCompleto: string){
+    const paciente = this.allPacientes.find((p) => p.nombre_completo === nombreCompleto);
+    return paciente ? paciente: null;
+  }
+
+
+  checkConsultorio(tipocita: string, modalidad: 'presencial' | 'online', fecha: string, horario: 'matutino' | 'tarde'): boolean | null {
+    const fechaExist = this.allCitas.filter((cita) => cita.fecha === fecha && cita.horario === horario);
+
+    // 1. Niños en modalidad presencial, siempre en consultorio 3
+    if (tipocita === 'ninos' && modalidad === 'presencial') {
+      const citasConsultorio3 = fechaExist.filter((cita) => cita.consultorioId === 3);
+
+      if (citasConsultorio3.length >= 2) {
+        console.log('El consultorio 3 no tiene más disponibilidad para esa fecha y horario.')
+        return this.checkConsultorioValue = false;
+      }
+      console.log('Disponibilidad en el consultorio 3');
+      return this.checkConsultorioValue = true;
+    }
+
+    // 2. Modalidad online, siempre en consultorio 4
+    if (modalidad === 'online') {
+      if (tipocita === 'ninos') {
+        console.log('No se permiten citas para niños en modalidad online.');
+        return this.checkConsultorioValue=false;
+      }
+      const citasConsultorio4 = fechaExist.filter((cita) => cita.consultorioId === 4);
+
+      if (citasConsultorio4.length >= 2) {
+        console.log('El consultorio 4 no tiene más disponibilidad para esa fecha y horario.');
+        return this.checkConsultorioValue = false;
+      }
+      console.log('Disponibilidad en el consultorio 4');
+      return this.checkConsultorioValue = true;
+    }
+
+    // 3. Adultos o adolescentes, en consultorio 1 o 2
+    if (tipocita === 'adultos' || tipocita === 'adolescentes') {
+      const consultoriosDisponibles = [1, 2];
+
+      for (let i = 0; i < consultoriosDisponibles.length; i++) {
+        const consultorioId = consultoriosDisponibles[i];
+        const citasConsultorio = fechaExist.filter((cita) => cita.consultorioId === consultorioId);
+
+        if (citasConsultorio.length < 2) {
+          console.log(`Disponibilidad en el consultorio ${i}`);
+          return this.checkConsultorioValue = true;
+        }
+      }
+      console.log(`No hay disponibilidad en el consultorio 1 o 2 para esa fecha y horario`);
+      return this.checkConsultorioValue = false;
+    }
+    console.log('No se encontró un consultorio disponible para los criterios proporcionados.');
+    return this.checkConsultorioValue = false;
+  }
+
+  onCaptchaResolved(captchaResponse: string) {
+    console.log('Captcha resuelto con respuesta: ', captchaResponse);
+    this.captchaResolved = true;  // Activa la validación de CAPTCHA
+  }
 
 
   /* MODAL DE CITA */
@@ -184,7 +245,7 @@ export class CitaComponent implements OnInit {
   showCitaForm() {
     this.isCitaMode = true;
   }
-  
+
   showPersonalesForm() {
     this.isCitaMode = false;
   }
@@ -215,3 +276,4 @@ export class CitaComponent implements OnInit {
     return this.enterAnimation(baseEl).direction('reverse');
   };
 }
+

@@ -46,6 +46,10 @@ const routes: Routes = [
     path: 'convenios',
     loadChildren: () => import('./pages/convenios/convenios/convenios.module').then( m => m.ConveniosPageModule)
   },
+  {
+    path: 'dedicatoria',
+    loadChildren: () => import('./pages/dedicatoria/dedicatoria/dedicatoria.module').then( m => m.DedicatoriaPageModule)
+  },
 
 
 

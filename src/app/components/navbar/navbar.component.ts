@@ -11,6 +11,7 @@ import { AlertController } from '@ionic/angular';
 // imports de servicios
 import { AuthService } from 'src/app/services/authService/auth-service.service';
 import { UserServiceService } from 'src/app/services/userService/user-service.service';
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-navbar',
@@ -153,7 +154,7 @@ export class NavbarComponent implements OnInit {
 
   // Obtener usuarios;
   getUsuario(){
-    this.http.get<any>('https://backend-resiliente.fly.dev/api/v1/usuario').subscribe(
+    this.http.get<any>(`${environment.apiUrl}/usuario`).subscribe(
       (data) =>{
         this.allUsers = data;
         //console.log('getUsuario: ', data);
@@ -166,7 +167,7 @@ export class NavbarComponent implements OnInit {
   // Obtener un email
   getOneEmail(correo: string): Promise<any>{
     return new Promise((resolve, reject) => {
-      this.http.post<any>('https://backend-resiliente.fly.dev/api/v1/usuario/email', {correo})
+      this.http.post<any>(`${environment.apiUrl}/usuario/email`, {correo})
       .subscribe(data => {
         this.userSesion = data[0];
         console.log('User sesion: ', this.userSesion);
@@ -237,7 +238,7 @@ export class NavbarComponent implements OnInit {
 
         console.log('Nuevo usuario de google ', nuevoUsuarioGoogle);
 
-        this.http.post<any>('https://backend-resiliente.fly.dev/api/v1/usuario', nuevoUsuarioGoogle).subscribe(Response => {
+        this.http.post<any>(`${environment.apiUrl}/usuario`, nuevoUsuarioGoogle).subscribe(Response => {
           console.log('Usuario de google agregado con éxito', Response);
         }, (error) => {
           console.error('Error al agregar al usuario de google', error);
@@ -266,9 +267,6 @@ export class NavbarComponent implements OnInit {
     //console.log('Intentando iniciar sesión con:', correo, passw);
 
     this.authService.login(correo, passw).then(response => {
-      //console.log('Respuesta del API de login:', response);
-
-
       if (response && response.success) {
         const user = response.data[0];
         const token = response.token;
@@ -320,7 +318,7 @@ export class NavbarComponent implements OnInit {
 
   // logica para crear un usuario
   getOneUsuario(idUsuario: number){
-    this.http.get<any>('https://backend-resiliente.fly.dev/api/v1/usuario/' + idUsuario).subscribe(
+    this.http.get<any>(`${environment.apiUrl}/usuario` + idUsuario).subscribe(
       (data) => {
         //console.log('Usuario: ', data);
       },
@@ -356,7 +354,7 @@ export class NavbarComponent implements OnInit {
           passw: this.formSingup.value.passw,
           username: this.formSingup.value.username,
         };
-        this.http.post<any>('https://backend-resiliente.fly.dev/api/v1/usuario', nuevoUsuario)
+        this.http.post<any>(`${environment.apiUrl}/usuario`, nuevoUsuario)
         .subscribe((Response) => {
           console.log(Response);
           this.userService.setUserData(Response);
@@ -374,7 +372,7 @@ export class NavbarComponent implements OnInit {
 
   // borrar un usuario
   deleteUsuario(idUsuario: number){
-    this.http.delete<any>('https://backend-resiliente.fly.dev/api/v1/usuario/' + idUsuario).subscribe((Response)=>{
+    this.http.delete<any>(`${environment.apiUrl}/usuario` + idUsuario).subscribe((Response)=>{
       console.log('Usuario eliminado ', Response);
     },
     (error) => {

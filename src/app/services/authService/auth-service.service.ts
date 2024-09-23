@@ -10,6 +10,7 @@ import { BehaviorSubject, Observable, from, of } from 'rxjs';
 import { take, map, switchMap } from 'rxjs';
 import { JwtHelperService } from '@auth0/angular-jwt';
 import { Platform } from '@ionic/angular';
+import { environment } from 'src/environments/environment';
 
 const helper = new JwtHelperService();
 const TOKEN_KEY = 'jwt-token';
@@ -26,7 +27,7 @@ export class AuthService {
   public $admin = this.adminSubject.asObservable();
 
   errorMessage: any;
-  private apiUrl = 'https://backend-resiliente.fly.dev/api/v1/usuario/login';
+  private apiUrl = 'https://backend-resiliente-fly.fly.dev/api/v1/usuario/login';
 
   superUsuarios = [
     {correo: 'resiliente02@gmail.com'},
@@ -80,7 +81,6 @@ export class AuthService {
     try {
       await this.storage.set('test_key', 'test_value');
       const value = await this.storage.get('test_key');
-      console.log('Valor del test:', value); // Debería mostrar 'test_value'
     } catch (error) {
       console.error('Error al probar el Storage', error);
     }
@@ -88,8 +88,8 @@ export class AuthService {
 
   async login(correo: string, passw: string): Promise<any>{
     try{
-      const response = await this.http.post<any>(this.apiUrl, {correo, passw}).toPromise();
-      console.log('Respuesta de la api', response);
+      const response = await this.http.post<any>(`${environment.apiUrl}/usuario/login`, {correo, passw}).toPromise();
+      //console.log('Respuesta de la api', response);
 
       if(response && response.token){
         const token = response.token;
@@ -123,6 +123,8 @@ export class AuthService {
       this.userData.next(null);
       await this.afAuth.signOut();
       console.log('Sesión cerrada');
+
+      window.location.reload();
     } catch(error: any){
       console.error('Error al cerrar la sesión', error);
       throw error;

@@ -20,7 +20,7 @@ export class NosotrosPage implements OnInit {
     {
       nombre: "Yolanda Esparza",
       img: "assets/img/equipo/psic1.webp",
-      descripcion: "Psicóloga especializada en tutoría y psicoterapia infantil, con experiencia en orientación educativa y apoyo psicológico.",
+      descripcion: "Psicóloga y Maestra en Educación. Especializada en Terapia Cognitiva Conductual y Tanatología; con más de 15 años de experiencia clínica en adolescentes y adultos. Conferencista, tallerista y consultora.",
       especialidad: "Lic. en Psicología, Maestría en Educación con Orientación en Tutoría",
       cedula: "4403100, 13173822"
     },
@@ -52,6 +52,13 @@ export class NosotrosPage implements OnInit {
       descripcion: "Con 4 años de experiencia en manejo de terapia psicológica infantil, adulta y pareja, atención en primeros auxilios psicológicos, atención en manejo de pensamiento e intento suicida, capacitador en el área del mhGAP",
       especialidad: "Lic. Psicología humanista",
       cedula: "11332142"
+    },
+    {
+      nombre: "Guadalupe Piña Diosdado",
+      img:"assets/img/equipo/psicologonw3.jpg",
+      descripcion: "Especializada en casos de violencia de género. Psicoterapia con perspectiva de género. Enfoque cognitivo conductual. Diplomado en psicología criminal. Diplomado en evaluación Neuropsicológica. Experiencia en atención a adolescentes y adultos, en trastornos del estado de ánimo como ansiedad, depresión, Tr bipolar.",
+      especialidad: "Lic, Psicología Humanista",
+      cedula: "12314360"
     },
 /*
     {

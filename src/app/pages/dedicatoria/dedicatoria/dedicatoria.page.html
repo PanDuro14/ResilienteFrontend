@@ -1,0 +1,29 @@
+<ion-content fullscreen="true">
+  <app-navbar></app-navbar>
+  <app-colorbar></app-colorbar>
+  <br>
+  <div class="cuerpo">
+    <h1> ELLA </h1>
+    <div class="contenidoCuerpo">
+      <div>
+        El día que te fuiste una parte de todos quienes te conocimos se fue contigo. Te extrañamos tanto...
+        nadie debería experimentar este dolor de una pérdida. Nadie debería sufrir lo que tú. Es por eso que realizamos este programa, fue hecho en tu nombre.
+        Es tuyo, representa la esperanza al cambio que tanto anhelabas y mi deseo por haber tenido más que ofrecerte.
+      </div>
+      <br>
+      <div>
+        Pero oye, aún te sueño dormido. A veces me siento solo y confundido. Pero conservo la esperanza de volverte a ver.
+      </div>
+      <br>
+      <div class="pieCuerpo">
+        Con cariño y amor, tu hermano.
+      </div>
+    </div>
+  </div>
+  <br>
+  <div class="img" *ngFor="let jim of ella">
+    <ion-img [src]="jim.img"/>
+  </div>
+  <app-colorbar></app-colorbar>
+  <app-footer></app-footer>
+</ion-content>

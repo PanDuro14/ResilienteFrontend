@@ -15,6 +15,7 @@ export class FooterComponent implements OnInit {
     { name: 'logo-linkedin', url: 'https://www.linkedin.com' },
     { name: 'logo-youtube', url: 'https://www.youtube.com' },
     { name: 'logo-pinterest', url: 'https://www.pinterest.com' },
+    { name: 'logo-owl', url:'/dedicatoria'}
   ];
 
   constructor(
@@ -22,7 +23,7 @@ export class FooterComponent implements OnInit {
     private animationCtrl: AnimationController
   ) { }
 
-  ngOnInit() { }
+  ngOnInit() { return; }
 
   /* MODAL DE PRIVACIDAD */
   async openPrivacidadModal() {
@@ -58,7 +59,7 @@ export class FooterComponent implements OnInit {
       .duration(500)
       .addAnimation([backdropAnimation, wrapperAnimation]);
   };
-  
+
   leaveAnimation = (baseEl: HTMLElement) => {
     return this.enterAnimation(baseEl).direction('reverse');
   };

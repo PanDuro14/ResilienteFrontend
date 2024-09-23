@@ -2,12 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { ServicioRestService } from 'src/app/services/restService/rest-service.service';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ModalController, AnimationController, AlertController } from '@ionic/angular';
-import { UserServiceService } from 'src/app/services/userService/user-service.service';
 import { AuthService } from 'src/app/services/authService/auth-service.service';
-import { catchError } from 'rxjs/operators';
-import { of } from 'rxjs';
-
-
+import { environment } from 'src/environments/environment';
 
 @Component({
   selector: 'app-blog',
@@ -16,16 +12,19 @@ import { of } from 'rxjs';
 })
 export class BlogPage implements OnInit {
   public blogs: any = [];
-  public agBlog: FormGroup;
+  public currentUser: any = [];
   public blogSeleccionado: any;
+
+  public agBlog: FormGroup;
+  private selectedFile: File | null = null;
+
   public isAgBlogModalOpen = false;
   public isBlogOpen = false;
-  private selectedFile: File | null = null;
   public isFormValid = false;
-  public currentUser: any = [];
   public showCreateButton: boolean = false;
   public admin: boolean = false;
 
+  private oldApiUrl = 'https://backend-resiliente.fly.dev/api/v1';
 
   constructor(
     private serviceRest: ServicioRestService,
@@ -79,7 +78,6 @@ export class BlogPage implements OnInit {
           text: 'OK',
           handler: () => {
             this.getBlog();
-            window.location.reload();
           },
         },
       ],
@@ -89,15 +87,15 @@ export class BlogPage implements OnInit {
 
   /* APIS */
   /* GET ALL */
-  public getBlog() {
-    this.serviceRest.get('https://backend-resiliente.fly.dev/api/v1/blog').subscribe((respuesta) => {
+  async getBlog() {
+    this.serviceRest.get(`${environment.apiUrl}/blog`).subscribe((respuesta) => {
       this.blogs = respuesta;
     });
   }
 
   /* GET ONE */
   public getOneBlog(id: number) {
-    this.serviceRest.getById('https://backend-resiliente.fly.dev/api/v1/blog', id).subscribe((respuesta) => {
+    this.serviceRest.getById(`${environment.apiUrl}/blog`, id).subscribe((respuesta) => {
       this.blogSeleccionado = respuesta;
     });
   }
@@ -112,9 +110,9 @@ export class BlogPage implements OnInit {
       if (this.selectedFile) {
         formData.append('images', this.selectedFile);
       }
-      this.serviceRest.post('https://backend-resiliente.fly.dev/api/v1/blog', formData).subscribe(
+      this.serviceRest.post(`${environment.apiUrl}/blog`, formData).subscribe(
         (respuesta) => {
-          console.log('Blog Agregado', respuesta);
+          //console.log('Blog Agregado', respuesta);
           this.mostrarAlerta('Blog creado con éxito');
           this.closeAgBlogModal();
           this.agBlog.reset();

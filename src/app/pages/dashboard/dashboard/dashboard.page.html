@@ -2,6 +2,39 @@
   <app-colorbar></app-colorbar>
   <app-navbar></app-navbar>
   <br>
+  <!-- Consultorios -->
+   <h3>Consultorios</h3>
+   <div class="table-container">
+    <ion-searchbar show-clear-button="focus" placeholder="Buscar"></ion-searchbar>
+    <div class="table-wrapper">
+      <table class="content-table">
+        <thead>
+          <tr>
+            <th>id</th>
+            <th>Nombre</th>
+            <th>Tipo</th>
+            <th>Modalidad</th>
+            <th>Capacidad diaria </th>
+            <th>Citas ocupadas</th>
+            <th>Estado</th>
+            <th>Ultima fecha actualizada</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let cons of allConsultorios">
+            <td data-label="id"> {{cons.id}} </td>
+            <td data-label="nombre">{{cons.nombre}} </td>
+            <td data-label="tipo">{{cons.tipo}}</td>
+            <td data-label="modalidad">{{cons.modalidad}}</td>
+            <td data-label="capacidad diaria">{{cons.cpd}}</td>
+            <td data-label="citas ocupadas">{{cons.citasUso}}</td>
+            <td data-label="estado">{{cons.estado}}</td>
+            <td data-label="ultima fecha actualizada">{{cons.lastDateUpdate}}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+   </div>
 
   <!-- Citas -->
   <h3>Citas</h3>
@@ -65,12 +98,12 @@
             <td data-label="nombre_comercial">{{ colab.nombre_comercial }}</td>
             <td data-label="url">{{ colab.url }}</td>
             <td data-label="Logotipo">
-              <img [src]="'data:image/jpeg;base64,' + colab.logotipo" [alt]="colab.acronimo"/>             
+              <img [src]="'data:image/jpeg;base64,' + colab.logotipo" [alt]="colab.acronimo"/>
             </td>
             <td data-label="Editar:"><ion-icon name="create-outline" (click)="editColab(colab.id); OpenEditCita()"></ion-icon></td>
             <td data-label="Eliminar:">
               <ion-icon name="trash-outline" (click)="deleteColab(colab)" color="danger"></ion-icon>
-            </td>      
+            </td>
           </tr>
         </tbody>
       </table>

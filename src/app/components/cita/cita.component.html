@@ -8,12 +8,40 @@
   <ng-template>
     <div class="container" [ngClass]="{'active': isCitaMode}" id="container">
       <div class="form-container personales">
-        <form>
+        <form [formGroup]="formPaciente">
           <h1>Datos Personales</h1>
-          <ion-input type="text" label="Nombre de Usuario" labelPlacement="floating" name="userName" required></ion-input>
-          <ion-input type="text" label="Nombre Completo" labelPlacement="floating" name="fullName" required></ion-input>
-          <ion-input type="email" label="Correo Electrónico" labelPlacement="floating" name="email" required></ion-input>
-          <ion-input type="tel" label="Teléfono" labelPlacement="floating" name="phone" required></ion-input>
+
+          <ion-input type="text" label="Nombre Completo" formControlName="nombre" labelPlacement="floating" required></ion-input>
+
+          <ion-item>
+            <ion-label>Género</ion-label>
+            <ion-select formControlName="genero" placeholder="Selecciona Género">
+              <ion-select-option value="Masculino">Masculino</ion-select-option>
+              <ion-select-option value="Femenino">Femenino</ion-select-option>
+              <ion-select-option value="Otro">Otro</ion-select-option>
+            </ion-select>
+          </ion-item>
+          <ion-input type="date" label="fecha de nacimieto" labelPlacement="floating" formControlName="fecha_nacimiento" required></ion-input>
+          <ion-input type="tel", label="Numero de telefono", labelPlacement="floating", formControlName="numero_contacto" required></ion-input>
+          <ion-item>
+            <ion-label position="floating"> Comentarios </ion-label>
+            <ion-textarea formControlName="comentarios"></ion-textarea>
+          </ion-item>
+
+          <h1> Dirección </h1>
+          <ion-input type="text" label="Calle" formControlName="calle" labelPlacement="floating" required></ion-input>
+          <ion-input type="text" label="Número" formControlName="numero" labelPlacement="floating" required></ion-input>
+          <ion-input type="text" label="Colonia" formControlName="colonia" labelPlacement="floating" required></ion-input>
+          <ion-input type="text" label="Código Postal" formControlName="cp" labelPlacement="floating" required></ion-input>
+
+          <!--  Captcha
+          <div>
+            <re-captcha (resolved)="onCaptchaResolved($event)" sitekey="6LdWgEIqAAAAABzh1DIh5Fo4nQQKKWj0VJRt7s_8"></re-captcha>
+
+          </div>
+          -->
+
+
           <button (click)="showCitaForm()">Siguiente</button>  <!-- PONER CAPTCHA AQUÍ -->
         </form>
       </div>

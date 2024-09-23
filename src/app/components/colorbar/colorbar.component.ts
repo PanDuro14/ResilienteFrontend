@@ -9,6 +9,6 @@ export class ColorbarComponent  implements OnInit {
 
   constructor() { }
 
-  ngOnInit() {}
+  ngOnInit() {return; }
 
 }

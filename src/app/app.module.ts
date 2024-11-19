@@ -24,6 +24,10 @@ import { IonicStorageModule, Storage } from '@ionic/storage-angular';
 //Captcha
 import { RecaptchaModule, RecaptchaFormsModule } from 'ng-recaptcha';
 
+//serivicios
+import { UserServiceService } from './services/userService/user-service.service';
+import { AuthService } from './services/authService/auth-service.service';
+import { ConsultorioService } from './services/consultorio/consultorio.service';
 
 
 @NgModule({
@@ -47,7 +51,7 @@ import { RecaptchaModule, RecaptchaFormsModule } from 'ng-recaptcha';
     RecaptchaFormsModule
   ],
 
-  providers: [{ provide: RouteReuseStrategy, useClass: IonicRouteStrategy }],
+  providers: [ UserServiceService, AuthService, ConsultorioService, { provide: RouteReuseStrategy,  useClass: IonicRouteStrategy }],
   bootstrap: [AppComponent],
 
 })

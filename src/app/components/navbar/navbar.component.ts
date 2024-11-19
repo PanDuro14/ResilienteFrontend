@@ -37,6 +37,8 @@ export class NavbarComponent implements OnInit {
   errorMessage: string = '';
   passwordFieldType: string = 'password';
 
+  urlApi = '';
+
   navbar = [
     { label: 'Inicio', link: '/home' },
     { label: 'Nosotros', link: '/nosotros' },

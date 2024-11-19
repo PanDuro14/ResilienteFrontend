@@ -1,5 +1,9 @@
 {
   "projects": {
-    "default": "resilientepruebas"
-  }
+    "default": "resilientepruebas",
+    "resilientepyc": "resilientepsicologiayconsulto"
+  },
+  "targets": {},
+  "etags": {},
+  "dataconnectEmulatorConfig": {}
 }

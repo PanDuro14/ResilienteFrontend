@@ -2,6 +2,65 @@
   <app-colorbar></app-colorbar>
   <app-navbar></app-navbar>
   <br>
+  <!-- Pacientes -->
+  <h3>Pacientes </h3>
+  <div class="table-container">
+    <ion-searchbar show-clear-button="focus" placeholder="buscar"></ion-searchbar>
+    <div class="tabla-wrapper">
+      <table class="content-table">
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Nombre</th>
+            <th>Género</th>
+            <th>Modalidad</th>
+            <th>Tipo</th>
+            <th>Fecha de Nacimiento</th>
+            <th>Estado</th>
+            <th>Número de Contacto</th>
+            <th>Frecuencia de Sesiones</th>
+            <th>Beca</th>
+            <th>Contacto Tutor</th>
+            <th>Comentarios</th>
+            <th>Calle</th>
+            <th>Número</th>
+            <th>Colonia</th>
+            <th>Código Postal</th>
+            <th>Municipio, Estado, País</th>
+            <th>Editar</th>
+            <th>Eliminar</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let pac of allPacientes">
+            <td>{{ pac.id }}</td>
+            <td>{{ pac.nombre }}</td>
+            <td>{{ pac.genero }}</td>
+            <td>{{ pac.modalidad }}</td>
+            <td>{{ pac.tipo }}</td>
+            <td>{{ pac.fecha_nacimiento }}</td>
+            <td>{{ pac.status }}</td>
+            <td>{{ pac.numero_contacto }}</td>
+            <td>{{ pac.frecuencia_sesiones }}</td>
+            <td>{{ pac.beca }}</td>
+            <td>{{ pac.contacto_tutor }}</td>
+            <td>{{ pac.comentarios }}</td>
+            <td>{{ pac.calle }}</td>
+            <td>{{ pac.numero }}</td>
+            <td>{{ pac.colonia }}</td>
+            <td>{{ pac.cp }}</td>
+            <td>{{ pac.municipio_estado_pais }}</td>
+            <td data-label="Editar">
+              <ion-icon name="create-outline"></ion-icon>
+            </td>
+            <td data-label="Eliminar:">
+              <ion-icon name="trash-outline" (click)="deletePaciente(pac)" color="danger"></ion-icon>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
   <!-- Consultorios -->
    <h3>Consultorios</h3>
    <div class="table-container">

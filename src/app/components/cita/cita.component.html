@@ -3,15 +3,17 @@
 </div>
 
 <!-- MODAL DE CITA  -->
-<ion-modal #modal [isOpen]="isCitaModalOpen" (didDismiss)="didDismissCitaModal()" [enterAnimation]="enterAnimation"
-  [leaveAnimation]="leaveAnimation">
+<ion-modal #modal [isOpen]="isCitaModalOpen" (didDismiss)="didDismissCitaModal()" [enterAnimation]="enterAnimation" [leaveAnimation]="leaveAnimation">
   <ng-template>
     <div class="container" [ngClass]="{'active': isCitaMode}" id="container">
       <div class="form-container personales">
-        <form [formGroup]="formPaciente">
+        <form [formGroup]="formPaciente" (ngSubmit)="handleContinue()">
           <h1>Datos Personales</h1>
 
           <ion-input type="text" label="Nombre Completo" formControlName="nombre" labelPlacement="floating" required></ion-input>
+          <div *ngIf="formPaciente.get('nombre')?.invalid && formPaciente.get('nombre')?.touched">
+            Campo requerido
+          </div>
 
           <ion-item>
             <ion-label>Género</ion-label>
@@ -20,20 +22,42 @@
               <ion-select-option value="Femenino">Femenino</ion-select-option>
               <ion-select-option value="Otro">Otro</ion-select-option>
             </ion-select>
+            <div *ngIf="formPaciente.get('genero')?.invalid && formPaciente.get('genero')?.touched">
+              Campo requerido
+            </div>
           </ion-item>
           <ion-input type="date" label="fecha de nacimieto" labelPlacement="floating" formControlName="fecha_nacimiento" required></ion-input>
-          <ion-input type="tel", label="Numero de telefono", labelPlacement="floating", formControlName="numero_contacto" required></ion-input>
-          <ion-item>
-            <ion-label position="floating"> Comentarios </ion-label>
-            <ion-textarea formControlName="comentarios"></ion-textarea>
-          </ion-item>
+          <div *ngIf="formPaciente.get('fecha_nacimiento')?.invalid && formPaciente.get('fecha_nacimiento')?.touched">
+            Campo requerido
+          </div>
+          <ion-input type="tel" label="Numero de telefono" labelPlacement="floating" formControlName="numero_contacto" required></ion-input>
+          <div *ngIf="formPaciente.get('numero_contacto')?.invalid && formPaciente.get('numero_contacto')?.touched">
+            Campo requerido
+          </div>
+          <ion-textarea label="Cuentanos de tí" labelPlacement="floating" formControlName="comentarios" required></ion-textarea>
+
 
           <h1> Dirección </h1>
           <ion-input type="text" label="Calle" formControlName="calle" labelPlacement="floating" required></ion-input>
+          <div *ngIf="formPaciente.get('calle')?.invalid && formPaciente.get('calle')?.touched">
+            Campo requerido
+          </div>
           <ion-input type="text" label="Número" formControlName="numero" labelPlacement="floating" required></ion-input>
+          <div *ngIf="formPaciente.get('numero')?.invalid && formPaciente.get('numero')?.touched">
+            Campo requerido
+          </div>
           <ion-input type="text" label="Colonia" formControlName="colonia" labelPlacement="floating" required></ion-input>
+          <div *ngIf="formPaciente.get('colonia')?.invalid && formPaciente.get('colonia')?.touched">
+            Campo requerido
+          </div>
           <ion-input type="text" label="Código Postal" formControlName="cp" labelPlacement="floating" required></ion-input>
-
+          <div *ngIf="formPaciente.get('cp')?.invalid && formPaciente.get('cp')?.touched">
+            Campo requerido
+          </div>
+          <ion-input type="text" label="País/Estado/Municipio" formControlName="municipio_estado_pais" labelPlacement="floating" required></ion-input>
+          <div *ngIf="formPaciente.get('municipio_estado_pais')?.invalid && formPaciente.get('municipio_estado_pais')?.touched">
+            Campo requerido
+          </div>
           <!--  Captcha
           <div>
             <re-captcha (resolved)="onCaptchaResolved($event)" sitekey="6LdWgEIqAAAAABzh1DIh5Fo4nQQKKWj0VJRt7s_8"></re-captcha>
@@ -42,11 +66,11 @@
           -->
 
 
-          <button (click)="showCitaForm()">Siguiente</button>  <!-- PONER CAPTCHA AQUÍ -->
+          <button type="submit">Continuar</button>  <!-- PONER CAPTCHA AQUÍ -->
         </form>
       </div>
       <div class="form-container citas">
-        <form>
+        <form [formGroup]="formCita" (ngSubmit)="crearCita()">
           <h1>Datos de la Cita</h1>
           <ion-item>
             <ion-select formControlName="tipoCita" label="Tipo de cita" labelPlacement="floating" interface="popover" required>
@@ -56,15 +80,21 @@
               <ion-select-option *ngFor="let const of serviciosConsultoria">{{ const.tipo }}</ion-select-option>
             </ion-select>
           </ion-item>
-          <ion-input type="date" label="Fecha" labelPlacement="floating" name="date" required></ion-input>
-          <ion-input type="time" label="Hora" labelPlacement="floating" name="time" required></ion-input>
+            <ion-input type="date" label="Fecha" labelPlacement="floating" name="date" required (ionChange)="onFechaHoraChange()"></ion-input>
+            <!--<ion-input type="time" label="Hora" labelPlacement="floating" name="time" required (ionChange)="onFechaHoraChange()"></ion-input>-->
+            <ion-select formControlName = "horario" placeholder="Seleccione su horario">
+              <ion-select-option value="matutino"> Matutino</ion-select-option>
+              <ion-select-option value="vespertino"> vespertino</ion-select-option>
+            </ion-select>
+          <!--
           <ion-item>
             <ion-select formControlName="psicologo" label="Psicólogo" labelPlacement="floating" interface="popover" required>
               <ion-select-option *ngFor="let psicologo of psicologos">{{ psicologo.nombre }}</ion-select-option>
             </ion-select>
           </ion-item>
+          -->
           <ion-textarea label="Cuéntanos sobre ti" labelPlacement="floating" name="description" placeholder="Escribe un poco sobre ti"></ion-textarea>
-          <button>Reservar Cita</button>
+          <button type="submit">Reservar Cita</button>
         </form>
       </div>
       <div class="toggle-container">

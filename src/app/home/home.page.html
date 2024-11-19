@@ -12,7 +12,7 @@
 
     <div class="introduccion-container">
       <ion-text>
-        <h1>INTRODUCCIÓN</h1>
+        <h1> </h1>
         <p>
           Bienvenidos a Resiliente Psicología y consultoría un espacio dedicado al bienestar
           emocional y mental de nuestros consultantes. En Resiliente ofrecemos
@@ -24,7 +24,7 @@
 
     <div class="card-container">
       <ion-card *ngFor="let card of cards" [ngClass]="card.class" [routerLink]="card.link">
-        <ion-card-content>{{ card.titulo }} </ion-card-content>        
+        <ion-card-content>{{ card.titulo }} </ion-card-content>
       </ion-card>
     </div>
 
@@ -55,15 +55,15 @@
           <p class="date">14 de Julio de 2024</p>
           <h1>Como Elegir la Carrera Adecuada</h1>
           <div class="divider"></div>
-          <p>¿Confundido sobre tu carrera? Descubre cómo tus intereses y 
-            habilidades pueden guiarte hacia la opción ideal. Haz clic para 
+          <p>¿Confundido sobre tu carrera? Descubre cómo tus intereses y
+            habilidades pueden guiarte hacia la opción ideal. Haz clic para
             más información y encontrar tu camino profesional.
           </p>
         </ion-text>
         <ion-button class="btn btn3" routerLink="/blog">LEER MÁS</ion-button>
       </div>
     </div>
-    
+
     <div class="post2">
       <div class="text-section">
         <ion-text>
@@ -72,7 +72,7 @@
           <div class="divider"></div>
           <p>La salud mental de los empleados impulsa productividad y éxito.
             Conoce estrategias para mejorar el ambiente laboral y consulta
-            nuestros programas de bienestar. ¡Haz clic para más detalles y agendar 
+            nuestros programas de bienestar. ¡Haz clic para más detalles y agendar
             una consulta!
           </p>
         </ion-text>
@@ -97,16 +97,16 @@
           <h1>Beneficios de la Terapia Psicológica para el Desarrollo Personal</h1>
           <div class="divider"></div>
           <p>
-            La terapia psicológica es una herramienta valiosa no solo para quienes 
-            enfrentan desafíos emocionales o mentales, sino también, para aquellos que 
+            La terapia psicológica es una herramienta valiosa no solo para quienes
+            enfrentan desafíos emocionales o mentales, sino también, para aquellos que
             buscan crecer y desarrollarse personalmente.
           </p>
         </ion-text>
         <ion-button class="btn btn3" routerLink="/blog">LEER MÁS</ion-button>
       </div>
     </div>
-    
-    
+
+
 
     <div class="comentarios-container">
       <ion-text>
@@ -139,7 +139,7 @@
               <ion-datetime formControlName="fecha" required label="Fecha" labelPlacement="floating" style="color: whit;"></ion-datetime>
             </ion-item> -->
             <ion-button class="btn btn3" (click)="createResena()" [disabled]="!isFormValid">Crear Reseña</ion-button>          </form>
-          
+
         </ion-content>
       </ng-template>
     </ion-modal>
@@ -178,16 +178,16 @@
       </div>
     </div> -->
     <div class="newsletter-container">
-      <h3> Nuestros colaboradores </h3>
-    </div>    
-    <div class="Colabs">      
+      <h3> NUESTRAS ALIANZAS </h3>
+    </div>
+    <div class="Colabs">
       <ion-grid>
         <ion-row>
           <ion-col size="auto" *ngFor="let colab of allColabs">
             <ion-img
               [src]="'data:image/jpeg;base64,' + colab.logotipo" [alt]="colab.acronimo"
-              (click)="openUrl(colab.url)"              
-            >  
+              (click)="openUrl(colab.url)"
+            >
             </ion-img>
           </ion-col>
         </ion-row>

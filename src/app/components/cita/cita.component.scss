@@ -138,6 +138,34 @@ ion-item {
     z-index: 2;
 }
 
+.form-container.personales {
+  height: auto; /* Deja que el contenido defina la altura */
+  max-height: 100%; /* Asegura que no sobrepase el área disponible */
+  overflow-y: auto; /* Scroll solo en caso necesario */
+  padding: 20px 15px;
+}
+
+/* Personalización de la barra de scroll */
+.form-container.personales::-webkit-scrollbar {
+  width: 8px; /* Ancho de la barra de desplazamiento */
+}
+
+.form-container.personales::-webkit-scrollbar-thumb {
+  background-color: rgba(255, 255, 255, 0.3); /* Color del scroll (pulgar) */
+  border-radius: 10px; /* Bordes redondeados */
+}
+
+.form-container.personales::-webkit-scrollbar-track {
+  background-color: rgba(255, 255, 255, 0); /* Transparente */
+}
+
+/* Para navegadores basados en Firefox */
+.form-container.personales {
+  scrollbar-width: thin; /* Estilo de scroll más fino */
+  scrollbar-color: rgba(255, 255, 255, 0.3) transparent; /* Color del scroll y pista transparente */
+}
+
+
 .container.active .personales {
     transform: translateX(100%);
 }

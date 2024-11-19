@@ -199,7 +199,7 @@ h3 {
     }
 }
 
-.equipo-container {
+  .equipo-container {
     background: linear-gradient(to left, #DFDFE2 53%, white 53%);
     width: 100vw;
     height: 400px;
@@ -209,33 +209,41 @@ h3 {
     left: 0;
     justify-content: center;
     align-items: center;
+  }
 
-    .image-section {
-        width: 50%;
-        height: 100%;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        background-image: url('../../../../assets/img/equipo/equipo.webp');
-        background-size: cover;
-        background-position: center;
-        background-repeat: no-repeat;
-    }
+  .text-section {
+    background-color: #62B0B0;
+    width: 49.9%;
+    padding: 30px;
+    color: white;
+    text-align: left;
+    border-radius: 20px;
+  }
 
+  .image-section {
+    width: 50%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+  }
 
-    .image-content {
-        display: none;
-    }
+  /* Estilo para el video en la sección 'Nosotros' */
+  .nosotros-video {
+    width: 95%;
+    height: 95%;
+    outline: none;
+    border: none;
+  }
 
-    .text-section {
-        background-color: #62B0B0;
-        width: 49.9%;
-        padding: 30px;
-        color: white;
-        text-align: left;
-        border-radius: 20px;
-    }
-}
+  /* Estilo para el video en la sección 'Nuestro Equipo' */
+  .equipo-video {
+    width: 70%;
+    height: 150%;
+    object-fit: cover;
+    border-radius: 20px;
+  }
 
 .psic-container {
     width: 100vw;

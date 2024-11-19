@@ -4,6 +4,7 @@ import { Router, NavigationEnd } from '@angular/router';
 import { FormGroup, Validator, FormBuilder, AbstractControl, FormControl, Validators } from '@angular/forms';
 import { AlertController, AnimationController, ModalController } from '@ionic/angular';
 import { ConsultorioService } from 'src/app/services/consultorio/consultorio.service';
+import { environment } from 'src/environments/environment';
 
 
 @Component({
@@ -20,8 +21,11 @@ export class DashboardPage implements OnInit {
   editForm: FormGroup;
   editColabForm: FormGroup;
   selectedCitaId: number | null = null;
+  selectedPacienteId: number | null = null;
   selectedColabId: number | null = null;
   private selectedFile: File | null = null;
+
+  public allPacientes: any[] = [];
 
   constructor(
     private http: HttpClient,
@@ -61,10 +65,11 @@ export class DashboardPage implements OnInit {
     this.getAllCitas();
     this.getAllColabs();
     this.getAllConsultorios();
+    this.getAllPacientes();
   }
 
   getAllCitas(): void {
-    this.http.get<any[]>('https://backend-resiliente.fly.dev/api/v1/cita').subscribe(
+    this.http.get<any[]>(`${environment.apiUrl}/cita`).subscribe(
       response => {
         this.allcitas = response;
         //console.log('All citas: ', this.allcitas);
@@ -92,7 +97,7 @@ export class DashboardPage implements OnInit {
   updateCita(){
     if (this.editForm.valid && this.selectedCitaId !== null){
       const updatedCita = this.editForm.value;
-      this.http.put(`https://backend-resiliente.fly.dev/api/v1/cita/${this.selectedCitaId}`, updatedCita).subscribe(
+      this.http.put(`${environment.apiUrl}/cita/${this.selectedCitaId}`, updatedCita).subscribe(
         Response => {
           console.log('Cita actualizada: ', Response);
           this.getAllCitas();
@@ -111,7 +116,7 @@ export class DashboardPage implements OnInit {
 
   // colabs
   getAllColabs(): void{
-    this.http.get<any[]>('https://backend-resiliente.fly.dev/api/v1/colab').subscribe(
+    this.http.get<any[]>(`${environment.apiUrl}/colab`).subscribe(
       Response => {
         this.allColabs = Response;
       },
@@ -130,7 +135,7 @@ export class DashboardPage implements OnInit {
       if(this.selectedFile){
         formData.append('logotipo', this.selectedFile);
       }
-      this.http.post('https://backend-resiliente.fly.dev/api/v1/colab', formData).subscribe(Response =>{
+      this.http.post(`${environment.apiUrl}/colab`, formData).subscribe(Response =>{
         console.log('colaborador agregado', Response);
         this.getAllColabs();
         this.createColabForm.reset();
@@ -164,7 +169,7 @@ export class DashboardPage implements OnInit {
         formData.append('logotipo', this.selectedFile);
       }
 
-      this.http.patch(`https://backend-resiliente.fly.dev/api/v1/colab/${this.selectedColabId}`, formData).subscribe(
+      this.http.patch(`${environment.apiUrl}/colab/${this.selectedColabId}`, formData).subscribe(
         response => {
           console.log('Colaboración actualizada:', response);
           this.getAllColabs();
@@ -214,7 +219,7 @@ export class DashboardPage implements OnInit {
   }
 
   performDelete() {
-    this.http.delete(`https://backend-resiliente.fly.dev/api/v1/colab/${this.selectedColabId}`).subscribe(
+    this.http.delete(`${environment.apiUrl}/colab/${this.selectedColabId}`).subscribe(
       response => {
         console.log('Colaborador eliminado', response);
         this.getAllColabs();
@@ -239,6 +244,58 @@ export class DashboardPage implements OnInit {
 
 
   // FIN ----------------------------------------- Consultorios ------------------------------------------------------------------//
+
+  // Pacientes
+  async getAllPacientes(){
+    this.http.get<any[]>(`${environment.apiUrl}/paciente`).subscribe((Response) => {
+      this.allPacientes = Response;
+    }, error => {
+      console.error('Dashboard: Error al obtener los pacientes', error);
+    });
+  }
+
+  // Eliminar paciente;
+  async deletePaciente(paciente: any){
+    if (paciente && paciente.id){
+      this.selectedPacienteId = paciente.id;
+      const alert = await this.alertController.create({
+        header: 'Eliminar al paciente ',
+        message: `¿Estás seguro que quieres eliminar al paciente "${paciente.nombre}"`,
+        cssClass: 'custom-alert', // Aplica tu clase personalizada aquí
+        buttons: [
+          {
+            text: 'Cancelar',
+            role: 'cancel',
+            cssClass: 'alert-button-secondary', // Estilo para el botón secundario,
+            handler: () => {
+              console.log('Eliminación cancelada');
+            }
+          },
+          {
+            text: 'Eliminar',
+            cssClass: 'alert-button', // Estilo para el botón principal
+            handler: () => {
+              this.performDeletePaciente();
+            }
+          }
+        ]
+
+      });
+    }
+  }
+
+  performDeletePaciente(){
+    this.http.delete(`${environment.apiUrl}/paciente/${this.selectedPacienteId}`).subscribe((Response) => {
+      console.log('Paciente eliminado');
+      this.getAllPacientes();
+      this.selectedPacienteId = null;
+    }, error => {
+      console.error('Error al eliminar al paciente ', error);
+      this.presentAlert('Error al eliminar al paciente ');
+    });
+  }
+
+  // Fin pacientes
 
   async presentAlert(message: string){
     const alert = await this.alertController.create({
